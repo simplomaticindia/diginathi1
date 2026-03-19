@@ -1,37 +1,37 @@
 :root {
-  --primary: #0F2C59;
-  --primary-light: #1E3A8A;
-  --primary-dark: #0A1F40;
-  --secondary: #D4AF37;
-  --secondary-light: #F3E5AB;
-  --accent: #06B6D4;
-  --accent-hover: #0891B2;
+  --primary: #0A2540;
+  --primary-light: #204060;
+  --primary-dark: #001222;
+  --secondary: #635BFF;
+  --secondary-light: #807BFF;
+  --accent: #00D4FF;
+  --accent-hover: #00BBE6;
   
-  --dark: #0A0A0A;
-  --dark-soft: #171717;
-  --text-main: #1F2937;
-  --text-light: #4B5563;
-  --text-lighter: #6B7280;
+  --dark: #0f172a;
+  --dark-soft: #1e293b;
+  --text-main: #1e293b;
+  --text-light: #475569;
+  --text-lighter: #64748b;
   --text-white: #FFFFFF;
   
-  --bg-body: #F9FAFB;
+  --bg-body: #F8FAFC;
   --bg-card: #FFFFFF;
-  --bg-glass: rgba(255, 255, 255, 0.9);
-  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-overlay: rgba(15, 23, 42, 0.6);
   
-  --border: #E5E7EB;
-  --border-light: #F3F4F6;
+  --border: #E2E8F0;
+  --border-light: #F1F5F9;
   
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-xl: 32px;
   
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.2);
+  --shadow-glow: 0 0 30px rgba(99, 91, 255, 0.3);
   
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   
@@ -159,19 +159,20 @@ img {
 .btn-primary:hover {
   background-color: var(--primary-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(15, 44, 89, 0.5);
+  box-shadow: 0 8px 25px rgba(10, 37, 64, 0.4);
 }
 
 .btn-secondary {
   background-color: var(--secondary);
-  color: var(--primary);
+  color: var(--text-white);
   box-shadow: var(--shadow-md);
+  border: none;
 }
 
 .btn-secondary:hover {
   background-color: var(--secondary-light);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-glow);
 }
 
 .btn-outline {

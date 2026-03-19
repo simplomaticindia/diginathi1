@@ -37,7 +37,8 @@ const Footer = () => {
               <li><Link to="/services/digitization-of-records">Digitization of Records</Link></li>
               <li><Link to="/services/data-entry-solution">Data Entry Solutions</Link></li>
               <li><Link to="/services/manpower-outsourcing">Manpower Outsourcing</Link></li>
-              <li><Link to="/services/it-services">IT Services</Link></li>
+              <li><Link to="/services/it-services">IT Solution</Link></li>
+              <li><Link to="/services/ai-service">AI Service</Link></li>
             </ul>
           </div>
           <div className="footer-col">
@@ -61,6 +62,12 @@ const Footer = () => {
                 <a href="tel:+919147743251" className="contact-link">
                   <Phone size={16} />
                   +91 91477 43251
+                </a>
+              </li>
+              <li>
+                <a href="tel:+919147743253" className="contact-link">
+                  <Phone size={16} />
+                  +91 91477 43253
                 </a>
               </li>
             </ul>

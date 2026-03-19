@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
-import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react'
+import { MapPin, Phone, Mail, Send, CheckCircle, Clock } from 'lucide-react'
 import './Contact.css'
 
 const Contact = () => {
@@ -110,6 +110,16 @@ const Contact = () => {
                   <div>
                     <h4>Email Us</h4>
                     <p><a href="mailto:info@diginathi.in">info@diginathi.in</a></p>
+                  </div>
+                </div>
+
+                <div className="contact-info-item">
+                  <div className="contact-icon">
+                    <Clock size={24} />
+                  </div>
+                  <div>
+                    <h4>Business Hours</h4>
+                    <p>Mon – Fri: 9:00 AM – 6:00 PM IST<br />Sat: 10:00 AM – 2:00 PM IST</p>
                   </div>
                 </div>
               </div>

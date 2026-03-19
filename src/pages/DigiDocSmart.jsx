@@ -57,7 +57,7 @@ const DigiDocSmart = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img src="/assets/generated/dms_dashboard_hero.png" alt="DigiDocSmart Dashboard" className="dashboard-mockup" />
+              <img src="https://www.digidocsmart.com/assets/Dashbaord_dark-CVTbay_X.png" alt="DigiDocSmart Dashboard" className="dashboard-mockup" />
             </motion.div>
           </div>
         </div>

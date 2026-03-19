@@ -26,7 +26,8 @@ const Header = () => {
     { name: 'Digitization of Records', slug: 'digitization-of-records' },
     { name: 'Data Entry Solutions', slug: 'data-entry-solution' },
     { name: 'Manpower Outsourcing', slug: 'manpower-outsourcing' },
-    { name: 'IT Services', slug: 'it-services' }
+    { name: 'IT Solution', slug: 'it-services' },
+    { name: 'AI Service', slug: 'ai-service' }
   ]
 
   return (

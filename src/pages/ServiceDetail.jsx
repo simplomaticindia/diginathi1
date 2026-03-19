@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, Download, CheckCircle } from 'lucide-react'
+import { ArrowLeft, CheckCircle, FileText, Keyboard, Users, Monitor, Bot, ArrowRight } from 'lucide-react'
 import './ServiceDetail.css'
 
 const ServiceDetail = () => {
@@ -9,22 +9,22 @@ const ServiceDetail = () => {
   const servicesData = {
     'digitization-of-records': {
       title: 'Digitization of Records',
-      icon: '📄',
+      icon: <FileText size={48} className="text-secondary" />,
       image: '/assets/generated/digitization_service_1770700574246.png',
       summary: 'Secure storage, easy retrieval, and long-term preservation of business records.',
       description: 'Diginathi is a trusted service provider specializing in the Digitization of Records, helping businesses, institutions, and organizations transform their physical documents into secure, accessible, and well-organized digital formats.',
       details: 'With a strong focus on accuracy, confidentiality, and efficiency, Diginathi ensures that valuable records are preserved and protected from damage, loss, or unauthorized access. By adopting advanced scanning technologies and systematic processes, the company enables clients to streamline information management, reduce storage costs, and improve data accessibility for decision-making and compliance needs.',
       highlights: [
-        'Secure and searchable digital archives',
-        'Bulk scanning and metadata indexing',
-        'Role-based access and retention support',
+        'Data entry like tagging',
+        'File OCR & Metadata mapping',
+        'Form submission solutions',
         'Industry-ready compliance handling'
       ],
       brochure: '/brochures/digitization-of-records-brochure.pdf'
     },
     'data-entry-solution': {
       title: 'Data Entry Solution',
-      icon: '⌨️',
+      icon: <Keyboard size={48} className="text-secondary" />,
       image: '/assets/generated/data_entry_service_1770700601105.png',
       summary: 'Accurate, efficient, and secure handling of structured and unstructured business data.',
       description: 'Diginathi Private Limited provides reliable and efficient Data Entry Solutions designed to help businesses streamline operations and maintain accurate records.',
@@ -39,7 +39,7 @@ const ServiceDetail = () => {
     },
     'manpower-outsourcing': {
       title: 'Manpower Outsourcing',
-      icon: '👥',
+      icon: <Users size={48} className="text-secondary" />,
       image: '/assets/generated/manpower_service_1770700616652.png',
       summary: 'Skilled and semi-skilled workforce support with compliance-aligned operations.',
       description: 'Diginathi Private Limited is a trusted partner in providing reliable and efficient Manpower Outsourcing solutions tailored to meet the diverse workforce needs of modern businesses.',
@@ -52,21 +52,35 @@ const ServiceDetail = () => {
       ],
       brochure: '/brochures/manpower-outsourcing-brochure.pdf'
     },
-
     'it-services': {
-      title: 'IT Services',
-      icon: '💻',
+      title: 'IT Solution',
+      icon: <Monitor size={48} className="text-secondary" />,
       image: '/assets/generated/digitization_service_1770700574246.png',
-      summary: 'End-to-end IT setup, maintenance, and hardware supply under one roof.',
-      description: 'Diginathi Private Limited offers comprehensive IT Services designed to meet the growing technological needs of businesses and organizations.',
-      details: 'Our expertise covers a wide range of solutions, including professional CCTV camera setup for enhanced security, seamless LAN connectivity to ensure smooth communication, and reliable server setup and maintenance for uninterrupted operations. We also specialize in supplying high-quality hardware such as computers, laptops, hard disks, printers, scanners, shredders, and other essential IT equipment to support day-to-day business functions.',
+      summary: 'Business Application Development, Customization, Business tools, Enterprise Deployment, IT Supplies.',
+      description: 'Diginathi Private Limited delivers comprehensive IT Solutions designed to meet the growing technological needs of businesses and organizations.',
+      details: 'Our expertise covers Business Application Development, custom tool creation, and tailored solutions. We ensure seamless Enterprise Deployment and offer comprehensive Business tools to support smooth operational functionality. We also specialize in IT Supplies, procuring high-quality hardware and software essential for day-to-day business functions.',
       highlights: [
-        'CCTV and surveillance deployment',
-        'LAN and connectivity implementation',
-        'Server setup and maintenance',
-        'Hardware procurement and support'
+        'Business Application Development',
+        'Customization and Business tools',
+        'Enterprise Deployment',
+        'Complete IT Supplies'
       ],
       brochure: '/brochures/it-services-brochure.pdf'
+    },
+    'ai-service': {
+      title: 'AI Service',
+      icon: <Bot size={48} className="text-secondary" />,
+      image: '/assets/generated/ai_service_cover.png',
+      summary: 'Empowering enterprises with intelligent automation, custom agent development, and document AI.',
+      description: 'Diginathi brings the future to your workspace with cutting-edge AI services designed to enhance operational intelligence and streamline repetitive tasks.',
+      details: 'We specialize in AI Agent Development to act as autonomous assistants, advanced AI-based Document Processing for unstructured data extraction, scalable AI Applications tailored to your specific industry constraints, and intelligent Enterprise Chatbots that integrate directly with your databases to resolve queries dynamically and intelligently.',
+      highlights: [
+        'AI Agent Development for automation',
+        'AI-based Document Processing & extraction',
+        'Custom AI Application engineering',
+        'Enterprise Chatbot integration'
+      ],
+      brochure: '/brochures/ai-services-brochure.pdf'
     }
   }
 
@@ -145,11 +159,11 @@ const ServiceDetail = () => {
 
               <div className="service-actions">
                 <Link to="/contact" className="btn btn-primary">
-                  Request Consultation
+                  Request Consultation <ArrowRight size={18} />
                 </Link>
-                <a href={service.brochure} download className="btn btn-outline">
-                  <Download size={18} /> Download Brochure
-                </a>
+                <Link to="/services" className="btn btn-outline">
+                  Explore Other Services
+                </Link>
               </div>
             </motion.div>
           </div>

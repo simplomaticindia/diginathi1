@@ -1,38 +1,46 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle, FileText, Keyboard, Users, Monitor, Bot } from 'lucide-react'
 import './Services.css'
 
 const Services = () => {
   const services = [
     {
       title: 'Digitization of Records',
-      description: 'Seamlessly convert physical documents into secure, easily accessible digital formats with our high-volume scanning and indexing services.',
-      icon: '📄',
+      description: 'Comprehensive digitization including Data entry like tagging, File OCR, Meta data extraction, and complete Form submission solutions.',
+      icon: <FileText size={32} className="text-secondary" />,
       image: '/assets/generated/digitization_service_1770700574246.png',
       slug: 'digitization-of-records'
     },
     {
       title: 'Data Entry Solutions',
       description: 'Enhance accuracy and productivity with our precise data entry services, enabling you to focus on your core business goals.',
-      icon: '⌨️',
+      icon: <Keyboard size={32} className="text-secondary" />,
       image: '/assets/generated/data_entry_service_1770700601105.png',
       slug: 'data-entry-solution'
     },
     {
       title: 'Manpower Outsourcing',
       description: 'Access a pool of skilled professionals ready to support your administrative and operational needs with flexibility and efficiency.',
-      icon: '👥',
+      icon: <Users size={32} className="text-secondary" />,
       image: '/assets/generated/manpower_service_1770700616652.png',
       slug: 'manpower-outsourcing'
     },
     {
-      title: 'IT Services',
-      description: 'From infrastructure setup to ongoing support, our IT services ensure your technology backbone is robust, secure, and aligned with your business goals.',
-      icon: '💻',
+      title: 'IT Solution',
+      description: 'Business Application Development, Customization, Business tools, Enterprise Deployment, and IT Supplies.',
+      icon: <Monitor size={32} className="text-secondary" />,
       image: '/assets/generated/digitization_service_1770700574246.png',
       slug: 'it-services',
-      features: ['Network Solutions', 'Hardware Maintenance', 'Software Support']
+      features: ['Business Application Development', 'Enterprise Deployment', 'IT Supplies']
+    },
+    {
+      title: 'AI Service',
+      description: 'AI Agent Development, AI-based Document Processing, AI Applications, and Chatbot for Enterprises.',
+      icon: <Bot size={32} className="text-secondary" />,
+      image: '/assets/generated/ai_service_cover.png',
+      slug: 'ai-service',
+      features: ['AI Agent Development', 'AI Document Processing', 'Enterprise Chatbots']
     }
   ]
 

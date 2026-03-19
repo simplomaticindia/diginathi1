@@ -1,9 +1,27 @@
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Shield, Rocket, Users, CheckCircle, ArrowRight } from 'lucide-react'
+import { Shield, Rocket, Users, CheckCircle, ArrowRight, FileText, Keyboard, Users as UsersIcon, Monitor, Bot } from 'lucide-react'
 import './Home.css'
 
 const Home = () => {
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const aiTexts = [
+    "Intelligent Digitization",
+    "Advanced Data Entry",
+    "Reliable Manpower",
+    "Comprehensive IT Solutions",
+    "Enterprise AI Agents",
+    "DigiDocSmart DMS Platform"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % aiTexts.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
@@ -13,27 +31,33 @@ const Home = () => {
   const services = [
     {
       title: 'Digitization of Records',
-      description: 'Seamlessly convert physical documents into secure, easily accessible digital formats with our high-volume scanning and indexing services.',
-      icon: '📄',
+      description: 'Comprehensive digitization including Data entry like tagging, File OCR, Meta data extraction, and complete Form submission solutions.',
+      icon: <FileText size={36} className="text-primary" />,
       slug: 'digitization-of-records'
     },
     {
       title: 'Data Entry Solutions',
       description: 'Enhance accuracy and productivity with our precise data entry services, enabling you to focus on your core business goals.',
-      icon: '⌨️',
+      icon: <Keyboard size={36} className="text-primary" />,
       slug: 'data-entry-solution'
     },
     {
       title: 'Manpower Outsourcing',
       description: 'Access a pool of skilled professionals ready to support your administrative and operational needs with flexibility and efficiency.',
-      icon: '👥',
+      icon: <UsersIcon size={36} className="text-primary" />,
       slug: 'manpower-outsourcing'
     },
     {
-      title: 'IT Services',
-      description: 'Robust IT infrastructure support and enablement to ensure your business stays connected and secure.',
-      icon: '💻',
+      title: 'IT Solution',
+      description: 'Business Application Development, Customization, Business tools, Enterprise Deployment, and IT Supplies.',
+      icon: <Monitor size={36} className="text-primary" />,
       slug: 'it-services'
+    },
+    {
+      title: 'AI Service',
+      description: 'AI Agent Development, AI Document Processing, AI Applications, and Chatbot for Enterprises.',
+      icon: <Bot size={36} className="text-primary" />,
+      slug: 'ai-service'
     }
   ]
 
@@ -44,13 +68,27 @@ const Home = () => {
         <div className="container">
           <div className="grid-2 hero-grid">
             <motion.div className="hero-content" {...fadeInUp}>
-              <span className="hero-tag">Transforming Paper into Digital Power</span>
+              <span className="hero-tag">Empowering the Future with Artificial Intelligence</span>
               <h1>
                 Future-Ready <br />
-                <span className="gradient-text">Digital Solutions</span>
+                <div style={{ minHeight: '3em', display: 'flex', alignItems: 'center' }}>
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={currentTextIndex}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -15 }}
+                      transition={{ duration: 0.4 }}
+                      className="gradient-text"
+                      style={{ display: 'inline-block', lineHeight: '1.2' }}
+                    >
+                      {aiTexts[currentTextIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
               </h1>
-              <p className="hero-description">
-                Empowering businesses with seamless Digitization, Data Management, and IT Services. Experience efficient operations with our flagship Intelligent Document Management System.
+              <p className="hero-description" style={{ marginTop: '0.8rem' }}>
+                Empowering businesses with seamless Digitization, AI Automation, and IT Solutions. Experience ultra-efficient operations with our flagship Intelligent Document Management System.
               </p>
               <div className="hero-buttons">
                 <Link to="/digidocsmart" className="btn btn-primary">
@@ -61,14 +99,61 @@ const Home = () => {
                 </Link>
               </div>
             </motion.div>
-            <motion.div 
-              className="hero-visual"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <img src="/assets/illustrations/hero-company.svg" alt="Diginathi Corporate Office" />
-            </motion.div>
+            <div className="hero-visual" style={{ position: 'relative', marginTop: '2rem' }}>
+              <motion.img 
+                src="/assets/generated/hero_base_tech.png" 
+                alt="Diginathi Tech Solutions"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+                style={{ borderRadius: 'var(--radius-lg)', width: '100%', boxShadow: 'var(--shadow-xl)' }}
+              />
+              
+              {/* Floating Verticals */}
+              <motion.div
+                className="floating-vertical"
+                animate={{ y: [0, -15, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                style={{ top: '10%', left: '-5%', position: 'absolute' }}
+              >
+                <div className="glass-badge">
+                  <Bot size={20} className="text-secondary" /> AI Services
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="floating-vertical"
+                animate={{ y: [0, -20, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+                style={{ bottom: '20%', left: '-10%', position: 'absolute' }}
+              >
+                <div className="glass-badge">
+                  <FileText size={20} className="text-primary" /> Digitization
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="floating-vertical"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
+                style={{ top: '25%', right: '-5%', position: 'absolute' }}
+              >
+                <div className="glass-badge">
+                  <Monitor size={20} className="text-secondary" /> IT Solutions
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="floating-vertical"
+                animate={{ y: [0, -18, 0] }}
+                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1.5 }}
+                style={{ bottom: '15%', right: '5%', position: 'absolute' }}
+              >
+                <div className="glass-badge">
+                  <Keyboard size={20} className="text-primary" /> Data Entry
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -220,7 +305,7 @@ const Home = () => {
               transition={{ duration: 0.6 }}
             >
               <img 
-                src="/assets/generated/dms_dashboard_hero.png" 
+                src="https://www.digidocsmart.com/assets/Dashbaord_dark-CVTbay_X.png" 
                 alt="DigiDocSmart Interface"
                 className="dms-image"
               />
