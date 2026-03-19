@@ -44,7 +44,7 @@ const Footer = () => {
           <div className="footer-col">
             <h4>Product</h4>
             <ul className="footer-links">
-              <li><Link to="/digidocsmart">DigiDocSmart (DMS)</Link></li>
+              <li><a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer">DigiDocSmart (DMS)</a></li>
               <li><a href="#">Case Studies</a></li>
               <li><a href="#">Help Center</a></li>
             </ul>

@@ -25,9 +25,9 @@ const DigiDocSmart = () => {
                 DigiDocSmart gives your enterprise complete control over documents — from creation to archival. Secure storage, automated workflows, granular access control, and full audit trails. Deploy on our cloud or your own servers.
               </p>
               <div className="hero-cta-buttons">
-                <Link to="/contact" className="btn btn-primary btn-large">
+                <a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
                   Start Free Trial
-                </Link>
+                </a>
                 <button className="btn btn-ghost">
                   <Play size={18} /> Watch Demo
                 </button>

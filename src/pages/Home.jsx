@@ -110,9 +110,9 @@ const Home = () => {
               Diginathi empowers enterprises to operate smarter, faster, and more efficiently.
             </p>
             <div className="hero-actions">
-              <Link to="/digidocsmart" className="btn btn-primary">
+              <a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Discover DigiDocSmart <ArrowRight size={18} />
-              </Link>
+              </a>
               <Link to="/services" className="hero-ghost-btn">
                 Explore Services
               </Link>
@@ -353,9 +353,9 @@ const Home = () => {
               ))}
             </div>
             <div className="dms-action-row">
-              <Link to="/digidocsmart" className="btn btn-primary">
+              <a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Explore DigiDocSmart <ArrowRight size={18} />
-              </Link>
+              </a>
               <Link to="/contact" className="btn dms-ghost-btn">
                 Schedule Demo
               </Link>
