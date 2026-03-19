@@ -155,10 +155,10 @@ const Home = () => {
         >
           <div className="container hero-stats-row">
             {[
-              { number: '1M+', label: 'Records Digitized' },
+              { number: '100M+', label: 'Pages Digitised' },
               { number: '100%', label: 'Client Satisfaction' },
               { number: '50+', label: 'Projects Delivered' },
-              { number: '5+', label: 'Industries Served' }
+              { number: '10+', label: 'Industry Served (Hospitals, Manufacturing, Education...)' }
             ].map((s, i) => (
               <div key={i} className="hero-stat-item">
                 <div className="hero-stat-num">{s.number}</div>
@@ -304,10 +304,10 @@ const Home = () => {
       <section className="stats-banner-section">
         <div className="container stats-banner-row">
           {[
-            { icon: <TrendingUp size={22} />, number: '1M+', label: 'Records Digitized' },
+            { icon: <TrendingUp size={22} />, number: '100M+', label: 'Pages Digitised' },
             { icon: <Star size={22} />, number: '100%', label: 'Client Satisfaction' },
             { icon: <Award size={22} />, number: '50+', label: 'Projects Delivered' },
-            { icon: <Globe size={22} />, number: '5+', label: 'Industries Served' }
+            { icon: <Globe size={22} />, number: '10+', label: 'Industry Served (Hospitals, Manufacturing, Education...)' }
           ].map((s, i) => (
             <motion.div
               key={i}
