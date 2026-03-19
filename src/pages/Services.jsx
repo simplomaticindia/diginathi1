@@ -3,124 +3,182 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, FileText, Keyboard, Users, Monitor, Bot } from 'lucide-react'
 import './Services.css'
 
-const Services = () => {
-  const services = [
-    {
-      title: 'Digitization of Records',
-      description: 'Comprehensive digitization including Data entry like tagging, File OCR, Meta data extraction, and complete Form submission solutions.',
-      icon: <FileText size={32} className="text-secondary" />,
-      image: '/assets/generated/digitization_service_1770700574246.png',
-      slug: 'digitization-of-records'
-    },
-    {
-      title: 'Data Entry Solutions',
-      description: 'Enhance accuracy and productivity with our precise data entry services, enabling you to focus on your core business goals.',
-      icon: <Keyboard size={32} className="text-secondary" />,
-      image: '/assets/generated/data_entry_service_1770700601105.png',
-      slug: 'data-entry-solution'
-    },
-    {
-      title: 'Manpower Outsourcing',
-      description: 'Access a pool of skilled professionals ready to support your administrative and operational needs with flexibility and efficiency.',
-      icon: <Users size={32} className="text-secondary" />,
-      image: '/assets/generated/manpower_service_1770700616652.png',
-      slug: 'manpower-outsourcing'
-    },
-    {
-      title: 'IT Solution',
-      description: 'Business Application Development, Customization, Business tools, Enterprise Deployment, and IT Supplies.',
-      icon: <Monitor size={32} className="text-secondary" />,
-      image: '/assets/generated/digitization_service_1770700574246.png',
-      slug: 'it-services',
-      features: ['Business Application Development', 'Enterprise Deployment', 'IT Supplies']
-    },
-    {
-      title: 'AI Service',
-      description: 'AI Agent Development, AI-based Document Processing, AI Applications, and Chatbot for Enterprises.',
-      icon: <Bot size={32} className="text-secondary" />,
-      image: '/assets/generated/ai_service_cover.png',
-      slug: 'ai-service',
-      features: ['AI Agent Development', 'AI Document Processing', 'Enterprise Chatbots']
-    }
-  ]
+const servicesList = [
+  {
+    title: 'Digitization of Records',
+    description: 'Diginathi is a trusted service provider specializing in the Digitization of Records. We help businesses transform physical documents into secure, accessible, and well-organized digital formats using advanced scanning technologies and systematic processes.',
+    icon: <FileText size={32} />,
+    image: '/assets/generated/digitization_service_1770700574246.png',
+    slug: 'digitization-of-records',
+    color: '#635BFF',
+    features: [
+      'Data entry including tagging and annotation workflows',
+      'File OCR with full-text indexing capabilities',
+      'Metadata extraction and systematic mapping',
+      'Form digitization and submission solutions',
+      'Industry-ready compliance and audit handling',
+      'Secure document archival and retrieval systems'
+    ]
+  },
+  {
+    title: 'Data Entry Solutions',
+    description: 'Diginathi provides reliable and efficient Data Entry Solutions designed to help businesses streamline operations and maintain accurate records. With a focus on precision, speed, and confidentiality, we deliver high-quality data entry across all domains.',
+    icon: <Keyboard size={32} />,
+    image: '/assets/generated/data_entry_service_1770700601105.png',
+    slug: 'data-entry-solution',
+    color: '#00C4EF',
+    features: [
+      'High-volume project handling with fast turnaround',
+      'Multi-level quality control and validation workflows',
+      'Domain-specific expertise: healthcare, finance, logistics',
+      'Structured and unstructured data processing',
+      'Error detection and correction processes',
+      'Scalable engagement models tailored to your needs'
+    ]
+  },
+  {
+    title: 'Manpower Outsourcing',
+    description: 'Diginathi is a trusted partner in providing reliable Manpower Outsourcing solutions. We specialize in supplying skilled and semi-skilled professionals across multiple industries, ensuring seamless operations and enhanced productivity.',
+    icon: <Users size={32} />,
+    image: '/assets/generated/manpower_service_1770700616652.png',
+    slug: 'manpower-outsourcing',
+    color: '#10B981',
+    features: [
+      'Rapid deployment of skilled and semi-skilled resources',
+      'Full recruitment, screening, and background verification',
+      'Payroll processing and statutory compliance management',
+      'Flexible workforce scaling up or down as needed',
+      'Multi-industry staffing: hospitality, healthcare, logistics',
+      'Dedicated relationship manager for ongoing support'
+    ]
+  },
+  {
+    title: 'IT Solution',
+    description: 'Diginathi delivers comprehensive IT Solutions covering Business Application Development, custom tool creation, enterprise deployment, and IT supply chain management. We ensure seamless integration and smooth operational functionality.',
+    icon: <Monitor size={32} />,
+    image: '/assets/generated/hero_base_tech.png',
+    slug: 'it-services',
+    color: '#F59E0B',
+    features: [
+      'Custom business application development',
+      'Software customization and business tool creation',
+      'Enterprise-grade deployment and system integration',
+      'IT infrastructure planning and management',
+      'Hardware and software procurement (IT Supplies)',
+      'Ongoing technical support and maintenance'
+    ]
+  },
+  {
+    title: 'AI Service',
+    description: 'Diginathi brings the future to your workspace with cutting-edge AI services. We develop intelligent automation solutions including AI agents, document processing AI, custom AI applications, and enterprise chatbot systems that integrate with your operations.',
+    icon: <Bot size={32} />,
+    image: '/assets/generated/ai_service_cover.png',
+    slug: 'ai-service',
+    color: '#8B5CF6',
+    features: [
+      'Custom AI Agent development for business automation',
+      'AI-based document processing and data extraction',
+      'Intelligent OCR powered by deep learning models',
+      'Enterprise chatbot integration with database connectivity',
+      'AI application development for industry-specific workflows',
+      'Continuous model improvement and performance monitoring'
+    ]
+  }
+]
 
+const ServiceRow = ({ service, reverse }) => (
+  <motion.div
+    className={`service-row ${reverse ? 'service-row-reverse' : ''}`}
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+  >
+    <div className="srv-image-side">
+      <div className="srv-img-frame" style={{ '--accent': service.color }}>
+        <img src={service.image} alt={service.title} />
+        <div className="srv-icon-badge" style={{ background: service.color }}>
+          {service.icon}
+        </div>
+      </div>
+    </div>
+
+    <div className="srv-content-side">
+      <h2 className="srv-row-title">{service.title}</h2>
+      <p className="srv-row-desc">{service.description}</p>
+      <ul className="srv-row-features">
+        {service.features.map((f, i) => (
+          <li key={i}>
+            <CheckCircle size={15} style={{ color: service.color, flexShrink: 0 }} />
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+      <div className="srv-row-actions">
+        <Link to={`/services/${service.slug}`} className="btn btn-primary">
+          Learn More <ArrowRight size={16} />
+        </Link>
+        <Link to="/contact" className="btn btn-outline">
+          Get a Quote
+        </Link>
+      </div>
+    </div>
+  </motion.div>
+)
+
+const Services = () => {
   return (
     <div className="services-page">
-      {/* Hero Section */}
-      <section className="hero hero-page">
+
+      {/* Page Hero */}
+      <section className="services-pg-hero">
+        <div className="spg-hero-bg" aria-hidden="true"></div>
         <div className="container">
-          <motion.div 
-            className="hero-content"
+          <motion.div
+            className="spg-hero-content"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="hero-tag">Expert Solutions</span>
+            <span className="spg-pill">Expert Solutions</span>
             <h1>Our Services</h1>
-            <p>Delivering excellence through specialized services tailored to meet your business objectives.</p>
+            <p>Comprehensive, end-to-end business solutions designed to modernize operations, reduce costs, and drive sustainable growth.</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="section">
+      {/* Alternating Service Rows */}
+      <section className="section services-rows-section">
         <div className="container">
-          <div className="services-grid-page">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.slug}
-                className="service-card-page"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-              >
-                <div className="service-image-container">
-                  <img src={service.image} alt={service.title} className="service-image" />
-                </div>
-                <div className="service-card-content">
-                  <div className="service-icon-badge">{service.icon}</div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  
-                  {service.features && (
-                    <ul className="service-features">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx}>
-                          <CheckCircle size={16} />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  
-                  <Link to={`/services/${service.slug}`} className="service-link-btn">
-                    Learn more <ArrowRight size={18} />
-                  </Link>
-                </div>
-              </motion.div>
+          <div className="services-rows-stack">
+            {servicesList.map((service, i) => (
+              <ServiceRow key={service.slug} service={service} reverse={i % 2 !== 0} />
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* CTA Section */}
+      {/* CTA Section */}
+      <section className="services-bottom-cta">
+        <div className="container">
           <motion.div
-            className="services-cta-section"
+            className="svc-cta-inner"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="cta-content">
+            <div className="svc-cta-text">
               <h3>Ready to Get Started?</h3>
-              <p>Contact us today to discuss your requirements and get a customized quote.</p>
+              <p>Contact us today to discuss your requirements and receive a customized solution proposal.</p>
             </div>
             <Link to="/contact" className="btn btn-secondary">
-              Request Consultation
+              Request Consultation <ArrowRight size={16} />
             </Link>
           </motion.div>
         </div>
       </section>
+
     </div>
   )
 }

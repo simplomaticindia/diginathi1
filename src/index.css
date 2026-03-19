@@ -2,6 +2,10 @@
   --primary: #0A2540;
   --primary-light: #204060;
   --primary-dark: #001222;
+  --accent-gold: #F59E0B;
+  --dark-hero: #050D1A;
+  --dark-hero-surface: #0d1f35;
+  --success: #10B981;
   --secondary: #635BFF;
   --secondary-light: #807BFF;
   --accent: #00D4FF;
@@ -297,3 +301,51 @@ textarea {
     width: min(100% - 1rem, 1200px);
   }
 }
+
+/* ── Global Utility Classes ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  background: rgba(99, 91, 255, 0.08);
+  color: var(--secondary);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(99, 91, 255, 0.15);
+}
+
+.section-lead {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.section-header h2 {
+  margin-bottom: 1rem;
+}
+
