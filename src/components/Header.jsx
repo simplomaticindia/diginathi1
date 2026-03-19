@@ -74,7 +74,7 @@ const Header = () => {
             </div>
           </div>
           
-          <a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer" className="nav-link">DigiDocSmart (DMS)</a>
+          <Link to="/digidocsmart" className="nav-link">DigiDocSmart (DMS)</Link>
           <Link to="/contact" className="nav-link">Contact</Link>
           <Link to="/contact" className="btn btn-primary">Get Started</Link>
         </nav>

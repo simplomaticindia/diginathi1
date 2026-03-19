@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
 import {
-  ArrowLeft, CheckCircle, FileText, Keyboard, Users, Monitor, Bot, ArrowRight,
+  CheckCircle, FileText, Keyboard, Users, Monitor, Bot, ArrowRight,
   Phone, Mail, Download
 } from 'lucide-react'
 import './ServiceDetail.css'
@@ -207,18 +207,14 @@ const ServiceDetail = () => {
       {/* Hero */}
       <section className="sd-hero" style={{ '--sd-accent': service.accentColor }}>
         <div className="sd-hero-bg" aria-hidden="true"></div>
-        <div className="container sd-hero-inner">
+        <div className="container">
           <motion.div
+            className="sd-hero-content"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Link to="/services" className="sd-back">
-              <ArrowLeft size={17} /> Back to Services
-            </Link>
-            <div className="sd-hero-icon" style={{ background: `${service.accentColor}22`, color: service.accentColor }}>
-              {service.icon}
-            </div>
+            <span className="spg-pill">Our Services</span>
             <h1>{service.title}</h1>
             <p className="sd-summary">{service.summary}</p>
           </motion.div>
