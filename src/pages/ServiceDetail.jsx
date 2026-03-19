@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
 import {
   CheckCircle, FileText, Keyboard, Users, Monitor, Bot, ArrowRight,
-  Phone, Mail, Download
+  Phone, Mail
 } from 'lucide-react'
 import './ServiceDetail.css'
 
@@ -364,22 +364,7 @@ const ServiceDetail = () => {
                 </div>
               </motion.div>
 
-              {/* Download */}
-              {service.brochure && (
-                <motion.div
-                  className="sd-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.35 }}
-                >
-                  <h4>Download Brochure</h4>
-                  <p>Get detailed information about this service in our brochure.</p>
-                  <a href={service.brochure} className="sd-download" download>
-                    <Download size={15} /> Download PDF
-                  </a>
-                </motion.div>
-              )}
+
 
               {/* Related */}
               {service.relatedServices && (
