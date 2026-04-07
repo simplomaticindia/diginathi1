@@ -42,11 +42,11 @@ const Footer = () => {
             </ul>
           </div>
           <div className="footer-col">
-            <h4>Product</h4>
+            <h4>Products</h4>
             <ul className="footer-links">
-              <li><a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer">DigiDocSmart (DMS)</a></li>
-              <li><a href="#">Case Studies</a></li>
-              <li><a href="#">Help Center</a></li>
+              <li><Link to="/products/digidocsmart">DigiDocSmart (DMS)</Link></li>
+              <li><Link to="/products/digidocuiq">DigiDocuIQ <span className="footer-soon">Coming Soon</span></Link></li>
+              <li><Link to="/products/digicta">DigiCTA <span className="footer-soon">Coming Soon</span></Link></li>
             </ul>
           </div>
           <div className="footer-col">

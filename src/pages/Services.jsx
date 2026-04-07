@@ -10,7 +10,7 @@ const servicesList = [
     icon: <FileText size={32} />,
     image: '/assets/generated/digitization_service_1770700574246.png',
     slug: 'digitization-of-records',
-    color: '#635BFF',
+    color: '#E8792B',
     features: [
       'Data entry including tagging and annotation workflows',
       'File OCR with full-text indexing capabilities',
@@ -26,7 +26,7 @@ const servicesList = [
     icon: <Keyboard size={32} />,
     image: '/assets/generated/data_entry_service_1770700601105.png',
     slug: 'data-entry-solution',
-    color: '#00C4EF',
+    color: '#F5A623',
     features: [
       'High-volume project handling with fast turnaround',
       'Multi-level quality control and validation workflows',
@@ -42,7 +42,7 @@ const servicesList = [
     icon: <Users size={32} />,
     image: '/assets/generated/manpower_service_1770700616652.png',
     slug: 'manpower-outsourcing',
-    color: '#10B981',
+    color: '#1B2D4F',
     features: [
       'Rapid deployment of skilled and semi-skilled resources',
       'Full recruitment, screening, and background verification',
@@ -58,7 +58,7 @@ const servicesList = [
     icon: <Monitor size={32} />,
     image: '/assets/generated/hero_base_tech.png',
     slug: 'it-services',
-    color: '#F59E0B',
+    color: '#2A4270',
     features: [
       'Custom business application development',
       'Software customization and business tool creation',
@@ -74,7 +74,7 @@ const servicesList = [
     icon: <Bot size={32} />,
     image: '/assets/generated/ai_service_cover.png',
     slug: 'ai-service',
-    color: '#8B5CF6',
+    color: '#E8792B',
     features: [
       'Custom AI Agent development for business automation',
       'AI-based document processing and data extraction',

@@ -65,7 +65,7 @@
 
 .newsletter-form button {
   background: var(--secondary);
-  color: var(--primary);
+  color: white;
   border: none;
   padding: 0 1.5rem;
   border-radius: var(--radius-sm);
@@ -118,6 +118,19 @@
   color: var(--secondary);
 }
 
+.footer-soon {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--secondary);
+  color: white;
+  padding: 0.1rem 0.4rem;
+  border-radius: 50px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
 .contact-link {
   display: flex !important;
   align-items: center;
@@ -158,7 +171,7 @@
 
 .social-icon:hover {
   background: var(--secondary);
-  color: var(--primary);
+  color: white;
   transform: translateY(-3px);
 }
 

@@ -9,7 +9,7 @@ import './ServiceDetail.css'
 const servicesData = {
   'digitization-of-records': {
     title: 'Digitization of Records',
-    accentColor: '#635BFF',
+    accentColor: '#E8792B',
     icon: <FileText size={40} />,
     image: '/assets/generated/digitization_service_1770700574246.png',
     summary: 'Secure storage, easy retrieval, and long-term preservation of business records.',
@@ -43,7 +43,7 @@ const servicesData = {
   },
   'data-entry-solution': {
     title: 'Data Entry Solutions',
-    accentColor: '#00C4EF',
+    accentColor: '#F5A623',
     icon: <Keyboard size={40} />,
     image: '/assets/generated/data_entry_service_1770700601105.png',
     summary: 'Accurate, efficient, and secure handling of structured and unstructured business data.',
@@ -77,7 +77,7 @@ const servicesData = {
   },
   'manpower-outsourcing': {
     title: 'Manpower Outsourcing',
-    accentColor: '#10B981',
+    accentColor: '#1B2D4F',
     icon: <Users size={40} />,
     image: '/assets/generated/manpower_service_1770700616652.png',
     summary: 'Skilled and semi-skilled workforce support with compliance-aligned operations.',
@@ -111,7 +111,7 @@ const servicesData = {
   },
   'it-services': {
     title: 'IT Solution',
-    accentColor: '#F59E0B',
+    accentColor: '#2A4270',
     icon: <Monitor size={40} />,
     image: '/assets/generated/hero_base_tech.png',
     summary: 'Business Application Development, Customization, Enterprise Deployment, and IT Supplies.',
@@ -145,7 +145,7 @@ const servicesData = {
   },
   'ai-service': {
     title: 'AI Service',
-    accentColor: '#8B5CF6',
+    accentColor: '#E8792B',
     icon: <Bot size={40} />,
     image: '/assets/generated/ai_service_cover.png',
     summary: 'Empowering enterprises with intelligent automation, custom AI agents, and document AI.',

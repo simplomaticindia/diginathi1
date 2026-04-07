@@ -33,7 +33,7 @@ const Home = () => {
       icon: <FileText size={26} />,
       highlights: ['File OCR & Metadata Mapping', 'Secure Digital Archival', 'Compliance Ready'],
       slug: 'digitization-of-records',
-      color: '#635BFF'
+      color: '#E8792B'
     },
     {
       title: 'Data Entry Solutions',
@@ -41,7 +41,7 @@ const Home = () => {
       icon: <Keyboard size={26} />,
       highlights: ['High-Volume Processing', 'Quality-Controlled Workflows', 'Multi-Domain Expertise'],
       slug: 'data-entry-solution',
-      color: '#00D4FF'
+      color: '#F5A623'
     },
     {
       title: 'Manpower Outsourcing',
@@ -49,7 +49,7 @@ const Home = () => {
       icon: <UsersIcon size={26} />,
       highlights: ['Rapid Resource Deployment', 'Payroll & Compliance', 'Flexible Workforce Scaling'],
       slug: 'manpower-outsourcing',
-      color: '#10B981'
+      color: '#1B2D4F'
     },
     {
       title: 'IT Solution',
@@ -57,7 +57,7 @@ const Home = () => {
       icon: <Monitor size={26} />,
       highlights: ['Custom App Development', 'Enterprise Deployment', 'IT Supplies & Support'],
       slug: 'it-services',
-      color: '#F59E0B'
+      color: '#2A4270'
     },
     {
       title: 'AI Service',
@@ -65,7 +65,7 @@ const Home = () => {
       icon: <Bot size={26} />,
       highlights: ['AI Agent Development', 'Document AI Processing', 'Enterprise Chatbots'],
       slug: 'ai-service',
-      color: '#8B5CF6'
+      color: '#E8792B'
     }
   ]
 
@@ -356,8 +356,8 @@ const Home = () => {
               <a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Explore DigiDocSmart <ArrowRight size={18} />
               </a>
-              <Link to="/contact" className="btn dms-ghost-btn">
-                Schedule Demo
+              <Link to="/products/digidocsmart" className="btn dms-ghost-btn">
+                View Product Details
               </Link>
             </div>
           </motion.div>
@@ -399,19 +399,19 @@ const Home = () => {
                 icon: <Shield size={28} />,
                 title: 'Secure & Compliant',
                 description: 'Strict data security protocols and industry compliance standards ensure your information is always protected and accessible.',
-                color: '#635BFF'
+                color: '#E8792B'
               },
               {
                 icon: <Rocket size={28} />,
                 title: 'Technology Driven',
                 description: 'Leveraging the latest technology to deliver efficient, scalable, and future-proof solutions for businesses of all sizes.',
-                color: '#00D4FF'
+                color: '#F5A623'
               },
               {
                 icon: <Users size={28} />,
                 title: 'Client Centric',
                 description: "Your success is our priority. We work closely with you to understand and exceed your unique business requirements.",
-                color: '#10B981'
+                color: '#1B2D4F'
               }
             ].map((item, i) => (
               <motion.div

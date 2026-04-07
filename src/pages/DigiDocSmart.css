@@ -6,7 +6,7 @@
 /* Hero Section - New Design */
 .dms-hero-new {
   min-height: 90vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  background: linear-gradient(135deg, #0C1524 0%, #1B2D4F 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
   right: -15%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(232, 121, 43, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
   border-radius: 50%;
 }
 
@@ -360,7 +360,7 @@
 
 /* Why DigiDocSmart Section */
 .why-dms-section {
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  background: linear-gradient(135deg, #0C1524 0%, #1B2D4F 100%);
   color: white;
 }
 

@@ -6,6 +6,8 @@ import WhatsAppFloat from './components/WhatsAppFloat'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import DigiDocSmart from './pages/DigiDocSmart'
+import DigiDocuIQ from './pages/DigiDocuIQ'
+import DigiCTA from './pages/DigiCTA'
 import Contact from './pages/Contact'
 import ServiceDetail from './pages/ServiceDetail'
 
@@ -29,6 +31,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/products/digidocsmart" element={<DigiDocSmart />} />
+            <Route path="/products/digidocuiq" element={<DigiDocuIQ />} />
+            <Route path="/products/digicta" element={<DigiCTA />} />
             <Route path="/digidocsmart" element={<DigiDocSmart />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />

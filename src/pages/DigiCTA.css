@@ -1,0 +1,5 @@
+/* DigiCTA uses shared styles from DigiDocuIQ.css */
+/* Only hero gradient variation needed */
+.digicta-hero {
+  background: linear-gradient(135deg, #0C1524 0%, #1B2D4F 100%);
+}

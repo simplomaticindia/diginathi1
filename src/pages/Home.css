@@ -16,9 +16,9 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 80% at 80% 40%, rgba(99, 91, 255, 0.18) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 60% at 15% 75%, rgba(0, 212, 255, 0.08) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 50% 10%, rgba(99, 91, 255, 0.08) 0%, transparent 70%);
+    radial-gradient(ellipse 70% 80% at 80% 40%, rgba(232, 121, 43, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 15% 75%, rgba(245, 166, 35, 0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 50% 10%, rgba(232, 121, 43, 0.08) 0%, transparent 70%);
   z-index: 0;
   pointer-events: none;
 }
@@ -28,8 +28,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(99, 91, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 91, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(232, 121, 43, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 121, 43, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   z-index: 0;
   pointer-events: none;
@@ -52,14 +52,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(99, 91, 255, 0.12);
-  color: #a78bfa;
+  background: rgba(232, 121, 43, 0.12);
+  color: #F5A623;
   padding: 0.5rem 1.25rem;
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 1.75rem;
-  border: 1px solid rgba(99, 91, 255, 0.25);
+  border: 1px solid rgba(232, 121, 43, 0.25);
 }
 
 .hero-headline {
@@ -80,7 +80,7 @@
 
 .hero-gradient-text {
   display: inline-block;
-  background: linear-gradient(135deg, #a78bfa 0%, #00D4FF 100%);
+  background: linear-gradient(135deg, #F5A623 0%, #E8792B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -134,7 +134,7 @@
   transform: translate(-50%, -50%);
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(99, 91, 255, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(232, 121, 43, 0.25) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -143,7 +143,7 @@
 .hero-img {
   width: 100%;
   border-radius: var(--radius-lg);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 60px rgba(99, 91, 255, 0.2);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 60px rgba(232, 121, 43, 0.2);
   position: relative;
   z-index: 1;
 }
@@ -158,7 +158,7 @@
   -webkit-backdrop-filter: blur(14px);
   padding: 0.6rem 1.1rem;
   border-radius: 50px;
-  border: 1px solid rgba(99, 91, 255, 0.35);
+  border: 1px solid rgba(232, 121, 43, 0.35);
   color: white;
   font-weight: 600;
   font-size: 0.85rem;
@@ -202,7 +202,7 @@
   color: white;
   line-height: 1;
   margin-bottom: 0.35rem;
-  background: linear-gradient(135deg, #a78bfa, #00D4FF);
+  background: linear-gradient(135deg, #F5A623, #E8792B);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -524,7 +524,7 @@
   left: -5%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(99, 91, 255, 0.13) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(232, 121, 43, 0.13) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -540,15 +540,15 @@
 
 .dms-eyebrow-badge {
   display: inline-block;
-  background: rgba(99, 91, 255, 0.15);
-  color: #a78bfa;
+  background: rgba(232, 121, 43, 0.15);
+  color: #F5A623;
   padding: 0.35rem 1rem;
   border-radius: 50px;
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  border: 1px solid rgba(167, 139, 250, 0.25);
+  border: 1px solid rgba(245, 166, 35, 0.25);
   margin-bottom: 1.25rem;
 }
 
@@ -660,7 +660,7 @@
 
 /* ── CTA BANNER ── */
 .cta-banner-section {
-  background: linear-gradient(135deg, var(--primary) 0%, #1a0a4a 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #1a1530 100%);
   padding: 5rem 0;
 }
 

@@ -7,6 +7,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isProductsOpen, setIsProductsOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const Header = () => {
   useEffect(() => {
     setIsMenuOpen(false)
     setIsServicesOpen(false)
+    setIsProductsOpen(false)
   }, [location])
 
   const services = [
@@ -28,6 +30,12 @@ const Header = () => {
     { name: 'Manpower Outsourcing', slug: 'manpower-outsourcing' },
     { name: 'IT Solution', slug: 'it-services' },
     { name: 'AI Service', slug: 'ai-service' }
+  ]
+
+  const products = [
+    { name: 'DigiDocSmart (DMS)', slug: 'digidocsmart', comingSoon: false },
+    { name: 'DigiDocuIQ', slug: 'digidocuiq', comingSoon: true },
+    { name: 'DigiCTA', slug: 'digicta', comingSoon: true }
   ]
 
   return (
@@ -73,8 +81,29 @@ const Header = () => {
               ))}
             </div>
           </div>
+
+          <div 
+            className="nav-item-dropdown"
+            onMouseEnter={() => setIsProductsOpen(true)}
+            onMouseLeave={() => setIsProductsOpen(false)}
+          >
+            <span className="nav-link dropdown-toggle">
+              Products <ChevronDown size={16} />
+            </span>
+            <div className={`dropdown-menu ${isProductsOpen ? 'show' : ''}`}>
+              {products.map(product => (
+                <Link 
+                  key={product.slug}
+                  to={`/products/${product.slug}`} 
+                  className={`dropdown-item ${product.comingSoon ? 'dropdown-item-soon' : ''}`}
+                >
+                  {product.name}
+                  {product.comingSoon && <span className="coming-soon-badge">Coming Soon</span>}
+                </Link>
+              ))}
+            </div>
+          </div>
           
-          <Link to="/digidocsmart" className="nav-link">DigiDocSmart (DMS)</Link>
           <Link to="/contact" className="nav-link">Contact</Link>
           <Link to="/contact" className="btn btn-primary">Get Started</Link>
         </nav>
