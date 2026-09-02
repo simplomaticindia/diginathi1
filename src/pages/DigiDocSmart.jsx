@@ -1,470 +1,252 @@
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Cloud, Lock, ArrowRight, Play, FileText, GitBranch, Shield, Activity, Search, Share2 } from 'lucide-react'
-import './DigiDocSmart.css'
+import { ArrowRight, ArrowUpRight, Check, Minus } from 'lucide-react'
+import CtaBand from '../components/CtaBand'
+import Reveal from '../components/Reveal'
+import { DmsLayers } from '../components/Diagrams'
+import { industries, dmsUrl } from '../data/site'
+import { useSeo } from '../lib/useSeo'
+import './Product.css'
 
-const DigiDocSmart = () => {
+const TOUR = [
+  {
+    id: 'dashboard',
+    eyebrow: 'The daily view',
+    title: 'Everything waiting on you, on one screen.',
+    body: 'What is in the system, what is moving, and what is stuck on your approval. Most people never need to go further than this page.',
+    points: ['Files, pages and storage at a glance', 'Approvals waiting on you, counted', 'Activity and upload trends over 14 days'],
+    img: '/assets/dms/dashboard_light.png',
+    alt: 'DigiDocSmart dashboard with file counts, storage used, active workflows and pending tasks'
+  },
+  {
+    id: 'search',
+    eyebrow: 'Finding things',
+    title: 'Search the contents, not just the filenames.',
+    body: 'Every document is indexed full-text on the way in. Filter by type, date, department, classification, owner or your own metadata fields — then save the filter if you run it weekly.',
+    points: ['Full-text across the whole archive', 'Filter by any indexed field', 'Saved searches and recent history'],
+    img: '/assets/dms/search_light.png',
+    alt: 'DigiDocSmart search screen with filters and results'
+  },
+  {
+    id: 'workflows',
+    eyebrow: 'Getting sign-off',
+    title: 'Approvals that chase themselves.',
+    body: 'Build the route once — two approvers, then finance, escalate if nobody acts in 48 hours — and every document of that type follows it. The audit report at the end is one click.',
+    points: ['Multi-step, multi-approver routes', 'Timeouts and automatic escalation', 'Exportable audit report per workflow'],
+    img: '/assets/dms/workflows_light.png',
+    alt: 'DigiDocSmart workflow management screen showing task counts and approval queues'
+  },
+  {
+    id: 'security',
+    eyebrow: 'Proving it',
+    title: 'A record of who touched what, that cannot be quietly edited.',
+    body: 'Each audit entry is hash-chained to the one before it. Alter a past entry and the chain breaks visibly. That is the difference between a log and evidence.',
+    points: ['Hash-chained, tamper-evident audit trail', 'Two-factor auth and session fingerprinting', 'Retention policies enforced by the system'],
+    img: '/assets/dms/security_dark.png',
+    alt: 'DigiDocSmart security and audit screen',
+    dark: true
+  }
+]
+
+const DEPLOY = [
+  { row: 'Time to first login', saas: 'Same day', prem: '2–4 weeks' },
+  { row: 'Where your files sit', saas: 'Our managed cloud', prem: 'Your servers, your network' },
+  { row: 'Updates', saas: 'We handle them', prem: 'Scheduled with your IT' },
+  { row: 'Backups & uptime', saas: 'Our responsibility', prem: 'Your infrastructure team' },
+  { row: 'Works offline / air-gapped', saas: false, prem: true },
+  { row: 'Data never leaves your country', saas: 'Region of your choice', prem: true },
+  { row: 'Typical fit', saas: 'Under 500 users, no data-residency rule', prem: 'Regulated, or a hard data-residency rule' }
+]
+
+export default function DigiDocSmart() {
+  useSeo({
+    title: 'DigiDocSmart — document management & approval workflows',
+    description:
+      'DigiDocSmart is a document management system with approval workflows, classification-based permissions and a hash-chained audit trail. Cloud or on-premises.',
+    path: '/products/digidocsmart'
+  })
+
   return (
-    <div className="dms-page">
-      {/* Hero Section */}
-      <section className="dms-hero-new">
-        <div className="container">
-          <div className="grid-2 hero-grid-new">
-            <motion.div 
-              className="hero-content-new"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="hero-badge-new">
-                <span className="pulse-dot"></span>
-                Available as SaaS & On-Premises
-              </div>
-              <h1>Smart Document Management for the Digital Age</h1>
-              <p className="hero-subtext">
-                DigiDocSmart gives your enterprise complete control over documents — from creation to archival. Secure storage, automated workflows, granular access control, and full audit trails. Deploy on our cloud or your own servers.
-              </p>
-              <div className="hero-cta-buttons">
-                <a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
-                  Start Free Trial
-                </a>
-                <button className="btn btn-ghost">
-                  <Play size={18} /> Watch Demo
-                </button>
-              </div>
-              <div className="hero-stats-row">
-                <div className="stat-item">
-                  <div className="stat-value">35+</div>
-                  <div className="stat-label">Features</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-value">99.9%</div>
-                  <div className="stat-label">Uptime SLA</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-value">256-bit</div>
-                  <div className="stat-label">Encryption</div>
-                </div>
-                <div className="stat-item">
-                  <div className="stat-value">6-Tier</div>
-                  <div className="stat-label">Access Control</div>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div 
-              className="hero-visual-new"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <img src="https://www.digidocsmart.com/assets/Dashbaord_dark-CVTbay_X.png" alt="DigiDocSmart Dashboard" className="dashboard-mockup" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trusted By Section */}
-      <section className="trusted-section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="trusted-content"
-          >
-            <p className="trusted-text">Trusted by enterprises across Hospitality, Healthcare, Real Estate, Construction, Manufacturing & more</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Feature Highlights Section */}
-      <section className="section features-highlight-section">
-        <div className="container">
-          <motion.div 
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2>Powerful Features for Modern Enterprises</h2>
-            <p>Everything you need to manage documents at scale</p>
-          </motion.div>
-
-          <div className="features-grid-3x2">
-            <motion.div
-              className="feature-card-new"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="feature-icon-new"><FileText size={28} /></div>
-              <h3>Document Management</h3>
-              <p>Hierarchical folders, drag-and-drop upload, bulk operations, custom metadata, tags, and favorites.</p>
-            </motion.div>
-
-            <motion.div
-              className="feature-card-new"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="feature-icon-new"><GitBranch size={28} /></div>
-              <h3>Workflow Automation</h3>
-              <p>Multi-step approval workflows with templates, automatic routing, timeout handling, and priority levels.</p>
-            </motion.div>
-
-            <motion.div
-              className="feature-card-new"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="feature-icon-new"><Shield size={28} /></div>
-              <h3>Enterprise Security</h3>
-              <p>Classification-based access (Public, Internal, Confidential, Restricted), 2FA, session fingerprinting, CSRF protection.</p>
-            </motion.div>
-
-            <motion.div
-              className="feature-card-new"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="feature-icon-new"><Activity size={28} /></div>
-              <h3>Audit & Compliance</h3>
-              <p>Tamper-proof audit trails with hash-chain integrity, geolocation tracking, device fingerprinting, exportable logs.</p>
-            </motion.div>
-
-            <motion.div
-              className="feature-card-new"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="feature-icon-new"><Search size={28} /></div>
-              <h3>Advanced Search</h3>
-              <p>Full-text search with filters by type, date, classification, tags, owner, department. Saved searches and history.</p>
-            </motion.div>
-
-            <motion.div
-              className="feature-card-new"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <div className="feature-icon-new"><Share2 size={28} /></div>
-              <h3>Collaboration & Sharing</h3>
-              <p>Internal and external sharing with password protection, download limits, expiration dates, and share analytics.</p>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="features-cta"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Link to="/contact" className="link-arrow">
-              See All 35+ Features <ArrowRight size={18} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Deployment Options Section */}
-      <section className="section deployment-brief-section">
-        <div className="container">
-          <motion.div 
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2>Choose Your Deployment</h2>
-            <p>Flexible options to match your infrastructure strategy</p>
-          </motion.div>
-
-          <div className="deployment-brief-grid">
-            <motion.div
-              className="deployment-brief-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="deployment-icon">
-                <Cloud size={32} />
-              </div>
-              <h3>SaaS / Cloud</h3>
-              <p>Get started in minutes. We handle infrastructure, updates, and security.</p>
-              <Link to="/contact" className="btn btn-primary btn-full">
-                Start Free Trial
-              </Link>
-            </motion.div>
-
-            <motion.div
-              className="deployment-brief-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="deployment-icon">
-                <Lock size={32} />
-              </div>
-              <h3>On-Premises</h3>
-              <p>Full data sovereignty. Deploy on your servers with complete control.</p>
-              <Link to="/contact" className="btn btn-outline btn-full">
-                Contact Sales
-              </Link>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="deployment-link"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Link to="/contact" className="link-arrow">
-              Compare deployment options <ArrowRight size={18} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Industry Use Cases Section */}
-      <section className="section industries-section">
-        <div className="container">
-          <motion.div 
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2>Built for industries where documents matter most</h2>
-          </motion.div>
-
-          <div className="industries-grid">
-            <motion.div
-              className="industry-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="industry-emoji">🏨</div>
-              <h3>Hospitality</h3>
-              <p>SOPs, vendor contracts, compliance certificates across properties</p>
-              <Link to="/contact" className="link-arrow-small">
-                Read Case Study <ArrowRight size={14} />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              className="industry-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="industry-emoji">🏥</div>
-              <h3>Hospital & Healthcare</h3>
-              <p>Patient records, clinical SOPs, accreditation documents, regulatory compliance</p>
-              <Link to="/contact" className="link-arrow-small">
-                Read Case Study <ArrowRight size={14} />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              className="industry-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="industry-emoji">🏘️</div>
-              <h3>Real Estate</h3>
-              <p>Title deeds, lease agreements, regulatory approvals, buyer documents</p>
-              <Link to="/contact" className="link-arrow-small">
-                Read Case Study <ArrowRight size={14} />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              className="industry-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="industry-emoji">🔨</div>
-              <h3>Construction & Railway</h3>
-              <p>Blueprints, permits, inspection reports, change orders</p>
-              <Link to="/contact" className="link-arrow-small">
-                Read Case Study <ArrowRight size={14} />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              className="industry-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="industry-emoji">🏭</div>
-              <h3>Manufacturing</h3>
-              <p>ISO document control, SOPs, quality reports, specifications</p>
-              <Link to="/contact" className="link-arrow-small">
-                Read Case Study <ArrowRight size={14} />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              className="industry-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <div className="industry-emoji">🏢</div>
-              <h3>Enterprise</h3>
-              <p>Multi-department, multi-location document governance at scale</p>
-              <Link to="/contact" className="link-arrow-small">
-                Read Case Study <ArrowRight size={14} />
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why DigiDocSmart Section */}
-      <section className="section why-dms-section">
-        <div className="container">
-          <motion.div 
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2>Why enterprises choose DigiDocSmart</h2>
-          </motion.div>
-
-          <div className="advantages-grid">
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="advantage-number">01</div>
-              <h3>Deploy Your Way</h3>
-              <p>Same platform, SaaS or On-Premises. Switch as your needs evolve.</p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="advantage-number">02</div>
-              <h3>Bank-Grade Security</h3>
-              <p>2FA, classification-based access, session fingerprinting, tamper-proof audit trails.</p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="advantage-number">03</div>
-              <h3>Zero Learning Curve</h3>
-              <p>Modern, intuitive UI. Productive from day one.</p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="advantage-number">04</div>
-              <h3>Powerful Workflow Engine</h3>
-              <p>Visual workflow builder with multi-step, multi-approver, timeout, and escalation support.</p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="advantage-number">05</div>
-              <h3>Compliance Ready</h3>
-              <p>Retention policies, hash-chain audit trails, classification enforcement, exportable compliance reports.</p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <div className="advantage-number">06</div>
-              <h3>Scales With You</h3>
-              <p>10 users to 10,000. Multi-department, multi-storage, feature flags for gradual rollout.</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="section final-cta-section">
-        <div className="container">
-          <motion.div 
-            className="final-cta-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2>Ready to take control of your documents?</h2>
-            <p>Start your free trial or schedule a personalized demo with our team.</p>
-            <div className="final-cta-buttons">
-              <Link to="/contact" className="btn btn-primary btn-large">
-                Start Free Trial
-              </Link>
-              <Link to="/contact" className="btn btn-secondary btn-large">
-                Schedule Demo
-              </Link>
+    <>
+      {/* ---------------------------------------------- hero */}
+      <section className="phero">
+        <div className="wrap phero-in">
+          <Reveal className="phero-copy">
+            <p className="eyebrow">Our product · Live today</p>
+            <h1>DigiDocSmart</h1>
+            <p className="phero-tag">
+              Document management, built for organisations that get audited.
+            </p>
+            <p className="lede phero-lede">
+              Store it, control who sees it, route it for approval, and prove afterwards
+              exactly what happened. Runs on our cloud, or entirely inside your own network.
+            </p>
+            <div className="btn-row phero-btns">
+              <a href={dmsUrl} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
+                Open digidocsmart.com <ArrowUpRight size={16} />
+              </a>
+              <Link to="/contact" className="btn btn--line">Book a walkthrough</Link>
             </div>
-          </motion.div>
+            <dl className="phero-facts">
+              {[
+                ['Cloud or on-prem', 'Same platform, either way'],
+                ['Hash-chained', 'Tamper-evident audit trail'],
+                ['4 levels', 'Public → Restricted classification'],
+                ['10 → 10,000', 'Users, without re-platforming']
+              ].map(([t, d]) => (
+                <div key={t}>
+                  <dt>{t}</dt>
+                  <dd>{d}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+
+          <Reveal delay={120} className="phero-shot">
+            <div className="shot-frame shot-frame--dark">
+              <div className="shot-bar"><span /><span /><span /></div>
+              <img
+                src="/assets/dms/dashboard_dark.png"
+                alt="DigiDocSmart dashboard in dark mode"
+                width="1280" height="720"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
-    </div>
+
+      {/* ---------------------------------------------- what it is */}
+      <section className="band band--sunk">
+        <div className="wrap">
+          <div className="dl-grid">
+            <Reveal>
+              <p className="eyebrow">What it is</p>
+              <h2 className="dl-h2">Four layers. Most systems give you the first two and stop.</h2>
+              <p className="lede dl-lede">
+                Plenty of tools will store your documents and let you make folders. Far fewer
+                will route a document for approval and then hand you evidence that stands up
+                in an audit. That gap is the entire reason DigiDocSmart exists.
+              </p>
+              <Link to="/contact" className="tlink dl-link">
+                Ask about your compliance regime <ArrowRight size={15} />
+              </Link>
+            </Reveal>
+            <Reveal delay={110} className="dl-diagram">
+              <DmsLayers />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------- tour */}
+      <section className="band">
+        <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">A walk through it</p>
+              <h2>Real screens, not marketing renders.</h2>
+            </div>
+            <p className="lede">
+              These are screenshots from the live product. If something here looks close to
+              what you need but not exact, say so on a call — a fair amount of it is configurable.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="tour">
+          {TOUR.map((t, i) => (
+            <div key={t.id} className={`tour-row ${i % 2 ? 'is-flipped' : ''}`}>
+              <div className="wrap tour-in">
+                <Reveal className="tour-copy">
+                  <p className="eyebrow">{t.eyebrow}</p>
+                  <h3>{t.title}</h3>
+                  <p className="tour-body">{t.body}</p>
+                  <ul className="ticks tour-points">
+                    {t.points.map(p => (
+                      <li key={p}><Check size={15} strokeWidth={2.4} /><span>{p}</span></li>
+                    ))}
+                  </ul>
+                </Reveal>
+                <Reveal delay={100} className="tour-shot">
+                  <div className={`shot-frame ${t.dark ? 'shot-frame--dark' : ''}`}>
+                    <div className="shot-bar"><span /><span /><span /></div>
+                    <img src={t.img} alt={t.alt} width="1280" height="720" loading="lazy" />
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------------------------------------------- deployment */}
+      <section className="band band--sunk">
+        <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">Deployment</p>
+              <h2>Our servers, or yours. Pick on facts, not fear.</h2>
+            </div>
+            <p className="lede">
+              On-premises is not automatically safer — it moves the responsibility to your team.
+              Here is the honest comparison so the choice is made on requirements.
+            </p>
+          </Reveal>
+
+          <Reveal className="cmp-wrap">
+            <table className="cmp">
+              <caption className="sr-only">Comparison of cloud and on-premises deployment</caption>
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Cloud (SaaS)</th>
+                  <th scope="col">On-premises</th>
+                </tr>
+              </thead>
+              <tbody>
+                {DEPLOY.map(d => (
+                  <tr key={d.row}>
+                    <th scope="row">{d.row}</th>
+                    {[d.saas, d.prem].map((v, i) => (
+                      <td key={i}>
+                        {v === true ? <Check size={17} className="cmp-yes" aria-label="Yes" />
+                          : v === false ? <Minus size={17} className="cmp-no" aria-label="No" />
+                          : v}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </Reveal>
+          <p className="cmp-note">Both options run the same codebase. You can move from one to the other later.</p>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------- industries */}
+      <section className="band band--tight">
+        <div className="wrap">
+          <Reveal>
+            <p className="eyebrow">Who runs it</p>
+            <h2 className="pind-h2">Sectors where a missing document is a real problem.</h2>
+          </Reveal>
+          <div className="pind-grid">
+            {industries.map((ind, i) => (
+              <Reveal key={ind.name} delay={i * 40} className="pind-cell">
+                <h4>{ind.name}</h4>
+                <p>{ind.note}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CtaBand
+        eyebrow="Try it"
+        title="See it with your own documents in it."
+        body="Bring three real files and the approval route you use today. In half an hour you will know whether this fits, which is more than any brochure can tell you."
+        primary={{ to: '/contact', text: 'Book a walkthrough' }}
+        secondary={{ href: dmsUrl, text: 'Open digidocsmart.com' }}
+      />
+    </>
   )
 }
-
-export default DigiDocSmart

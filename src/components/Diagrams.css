@@ -1,0 +1,162 @@
+/* Shared styling for the hand-built SVG schematics */
+
+.dgm { margin: 0; }
+
+.dgm-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+.dgm-scroll::-webkit-scrollbar { height: 5px; }
+.dgm-scroll::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 3px; }
+
+.dgm-svg { width: 100%; height: auto; color: var(--teal); }
+
+/* On a phone the schematic scrolls sideways — say so, because iOS hides scrollbars. */
+@media (max-width: 780px) {
+  .dgm::before {
+    content: 'Swipe the diagram sideways →';
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .08em;
+    color: var(--ink-faint);
+  }
+  .on-slab .dgm::before { color: rgba(255,255,255,.45); }
+}
+
+.dgm figcaption {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: .76rem;
+  line-height: 1.55;
+  letter-spacing: .01em;
+  color: var(--ink-mute);
+}
+
+/* --- boxes --- */
+.dgm-box rect {
+  fill: var(--paper-raised);
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+.dgm-box--good rect { fill: var(--teal-wash); stroke: var(--teal); }
+.dgm-box--flag rect { fill: var(--amber-wash); stroke: var(--amber); }
+
+.dgm-num {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  fill: var(--amber-deep);
+}
+.dgm-title {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  fill: var(--ink);
+}
+.dgm-sub {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  fill: var(--ink-mute);
+}
+.dgm-note {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  fill: var(--ink-faint);
+}
+.dgm-lbl {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  fill: var(--ink-mute);
+}
+
+/* --- connectors --- */
+.dgm-arrow path {
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dgm-arrow.is-dashed path {
+  stroke: var(--ink-faint);
+  stroke-dasharray: 5 5;
+}
+.dgm-arrow.is-dashed { color: var(--ink-faint); }
+
+.dgm-axis, .dgm-grid {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+.dgm-grid { stroke-dasharray: 3 5; }
+.dgm-tick { stroke: var(--amber); stroke-width: 1.5; }
+
+/* --- gate (diamond) --- */
+.dgm-gate path {
+  fill: var(--paper-raised);
+  stroke: var(--teal);
+  stroke-width: 1.5;
+}
+.dgm-gate-t {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--teal-deep);
+  text-anchor: middle;
+}
+
+/* --- paper stack --- */
+.dgm-paper rect {
+  fill: var(--paper-raised);
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+.dgm-paper line { stroke: var(--rule-strong); stroke-width: 1.5; stroke-linecap: round; }
+
+/* --- timeline demo dots --- */
+.dgm-demo circle { fill: var(--amber); }
+
+/* --- timezone --- */
+.dgm-track { fill: var(--paper-sunk); stroke: var(--rule); stroke-width: 1; }
+.dgm-work--us { fill: rgba(14,124,139,.18); stroke: var(--teal); stroke-width: 1; }
+.dgm-work--in { fill: rgba(233,161,22,.2); stroke: var(--amber-deep); stroke-width: 1; }
+.dgm-overlap {
+  fill: rgba(14,124,139,.1);
+  stroke: var(--teal);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+.dgm-inbar {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  fill: var(--ink-body);
+}
+.dgm-overlap-t {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  fill: var(--teal-deep);
+  text-anchor: middle;
+}
+
+/* On slab backgrounds, flip the schematic to light-on-dark */
+.on-slab .dgm-svg { color: var(--amber); }
+.on-slab .dgm figcaption { border-top-color: var(--rule-dark); color: rgba(255,255,255,.5); }
+.on-slab .dgm-box rect { fill: rgba(255,255,255,.05); stroke: rgba(255,255,255,.22); }
+.on-slab .dgm-box--good rect { fill: rgba(14,124,139,.3); stroke: var(--teal); }
+.on-slab .dgm-box--flag rect { fill: rgba(233,161,22,.16); stroke: var(--amber); }
+.on-slab .dgm-title { fill: #fff; }
+.on-slab .dgm-sub { fill: rgba(255,255,255,.58); }
+.on-slab .dgm-note, .on-slab .dgm-lbl { fill: rgba(255,255,255,.45); }
+.on-slab .dgm-num { fill: var(--amber); }
+.on-slab .dgm-arrow path { stroke: var(--amber); }
+.on-slab .dgm-arrow.is-dashed path { stroke: rgba(255,255,255,.35); }
+.on-slab .dgm-gate path { fill: rgba(255,255,255,.05); stroke: var(--amber); }
+.on-slab .dgm-gate-t { fill: var(--amber); }

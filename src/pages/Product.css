@@ -1,0 +1,207 @@
+/* ============================================================ product hero */
+
+.phero {
+  padding-top: clamp(44px, 6vw, 76px);
+  padding-bottom: clamp(48px, 6vw, 78px);
+  border-bottom: 1px solid var(--rule);
+}
+.phero-in { display: grid; gap: clamp(40px, 5vw, 60px); align-items: center; }
+
+.phero h1 { margin-top: 20px; }
+.phero-tag {
+  margin-top: 14px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.16rem, 2.2vw, 1.5rem);
+  line-height: 1.35;
+  color: var(--teal);
+}
+.phero-lede { margin-top: 20px; }
+.phero-btns { margin-top: 30px; }
+
+.phero-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 24px;
+  margin-top: clamp(34px, 4vw, 44px);
+  padding-top: 28px;
+  border-top: 1px solid var(--rule-strong);
+}
+.phero-facts dt {
+  font-family: var(--mono);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--teal-deep);
+}
+.phero-facts dd {
+  margin: 5px 0 0;
+  font-size: .87rem;
+  line-height: 1.45;
+  color: var(--ink-mute);
+}
+
+/* ============================================================ layers block */
+
+.dl-grid { display: grid; gap: clamp(36px, 5vw, 56px); align-items: center; }
+.dl-h2 { margin-top: 16px; max-width: 18ch; }
+.dl-lede { margin-top: 18px; }
+.dl-link { margin-top: 24px; }
+
+/* ============================================================ tour */
+
+.tour { margin-top: clamp(44px, 5vw, 64px); }
+.tour-row { border-top: 1px solid var(--rule); }
+.tour-in {
+  display: grid;
+  gap: clamp(30px, 4vw, 52px);
+  padding-block: clamp(44px, 5vw, 68px);
+  align-items: center;
+}
+.tour-copy h3 { margin: 16px 0 14px; max-width: 20ch; }
+.tour-body { font-size: 1rem; line-height: 1.62; max-width: 48ch; }
+.tour-points { margin-top: 22px; }
+
+/* ============================================================ comparison */
+
+.cmp-wrap {
+  margin-top: clamp(32px, 4vw, 44px);
+  overflow-x: auto;
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+  background: var(--paper-raised);
+}
+.cmp {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: .93rem;
+}
+.cmp th, .cmp td {
+  padding: 15px 18px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--rule);
+}
+.cmp thead th {
+  font-family: var(--mono);
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  background: var(--paper-sunk);
+  white-space: nowrap;
+}
+.cmp tbody th {
+  font-weight: 500;
+  color: var(--ink);
+  width: 34%;
+}
+.cmp tbody tr:last-child th,
+.cmp tbody tr:last-child td { border-bottom: 0; }
+.cmp tbody tr:hover { background: rgba(14,124,139,.035); }
+.cmp-yes { color: var(--teal); }
+.cmp-no { color: var(--ink-faint); }
+.cmp-note {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: .74rem;
+  color: var(--ink-faint);
+}
+
+/* ============================================================ industries */
+
+.pind-h2 { margin-top: 16px; max-width: 22ch; }
+.pind-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: clamp(32px, 4vw, 44px);
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.pind-cell { background: var(--paper); padding: 22px 20px; }
+.pind-cell h4 { font-family: var(--sans); font-weight: 600; font-size: .98rem; }
+.pind-cell p { margin-top: 6px; font-size: .85rem; color: var(--ink-mute); line-height: 1.5; }
+
+/* ============================================================ in-development */
+
+.soon-stages { border-top: 1px solid var(--rule-strong); padding-top: 22px; }
+.soon-stages .eyebrow { margin-bottom: 16px; }
+.soon-stages ul { list-style: none; padding: 0; display: grid; gap: 2px; }
+
+.soon-stage {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.soon-stage svg { margin-top: 3px; color: var(--ink-faint); }
+.soon-stage.is-done svg { color: var(--teal); }
+.soon-stage.is-now svg { color: var(--amber); }
+.soon-stage strong { display: block; font-size: .95rem; font-weight: 500; color: var(--ink); }
+.soon-stage span { display: block; font-size: .84rem; color: var(--ink-mute); margin-top: 2px; }
+.soon-stage em {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: .64rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 3px;
+  white-space: nowrap;
+}
+.soon-stage.is-done em { color: var(--teal); }
+.soon-stage.is-now em { color: var(--amber-deep); }
+
+.soon-why { padding-bottom: clamp(44px, 5vw, 60px); border-bottom: 1px solid var(--rule); }
+.soon-why-p { max-width: 52ch; }
+.soon-modules-head { margin-top: clamp(44px, 5vw, 60px); }
+
+.soon-modules {
+  display: grid;
+  gap: 30px 40px;
+  margin-top: clamp(30px, 4vw, 40px);
+}
+.soon-module h3 { margin: 8px 0 8px; font-size: 1.1rem; }
+.soon-module p { font-size: .93rem; line-height: 1.6; }
+
+.soon-diagram { padding: clamp(20px, 3vw, 32px); }
+
+.soon-ask-band { border-top: 1px solid var(--rule); }
+.soon-ask-eyebrow { justify-content: center; }
+.soon-ask {
+  margin-top: 18px;
+  font-family: var(--display);
+  font-size: clamp(1.24rem, 2.6vw, 1.7rem);
+  line-height: 1.4;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+}
+.soon-ask-btns { margin-top: 30px; justify-content: center; }
+.soon-ask-ticks {
+  margin-top: 34px;
+  justify-content: center;
+  display: inline-grid;
+  text-align: left;
+}
+
+/* ============================================================ breakpoints */
+
+@media (min-width: 620px) {
+  .soon-modules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pind-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 980px) {
+  .phero-in { grid-template-columns: .92fr 1.08fr; }
+  .phero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dl-grid { grid-template-columns: 1fr 1fr; }
+  .tour-in { grid-template-columns: .84fr 1.16fr; }
+  .tour-row.is-flipped .tour-copy { order: 2; }
+  .tour-row.is-flipped .tour-in { grid-template-columns: 1.16fr .84fr; }
+  .soon-modules { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pind-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

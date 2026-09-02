@@ -1,0 +1,18 @@
+.phead {
+  padding-top: clamp(44px, 6vw, 78px);
+  padding-bottom: clamp(40px, 5vw, 62px);
+  border-bottom: 1px solid var(--rule);
+}
+.phead--sunk { background: var(--paper-sunk); }
+.phead--slab { background: var(--slab); border-bottom-color: transparent; }
+
+.phead-in { display: grid; gap: clamp(32px, 4vw, 52px); align-items: end; }
+.phead h1 { margin-top: 20px; max-width: 17ch; }
+.phead-lede { margin-top: 22px; }
+
+.phead-aside { align-self: end; }
+
+@media (min-width: 940px) {
+  .phead-in { grid-template-columns: 1.25fr .75fr; }
+  .phead-main .phead-lede { max-width: 54ch; }
+}

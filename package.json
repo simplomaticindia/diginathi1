@@ -1,6 +1,6 @@
 {
-  "name": "diginathi-react",
-  "version": "1.0.0",
+  "name": "diginathi-website",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -8,17 +8,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.22.0",
-    "framer-motion": "^11.0.5",
     "react-hook-form": "^7.50.1",
-    "lucide-react": "^0.344.0"
+    "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.1.4"
-  }
+  },
+  "description": "Diginathi Private Limited — corporate website"
 }

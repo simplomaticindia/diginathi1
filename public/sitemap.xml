@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://diginathi.in/</loc><priority>1.0</priority></url>
+  <url><loc>https://diginathi.in/services</loc><priority>0.9</priority></url>
+  <url><loc>https://diginathi.in/services/software-development</loc><priority>0.9</priority></url>
+  <url><loc>https://diginathi.in/services/ai-automation</loc><priority>0.9</priority></url>
+  <url><loc>https://diginathi.in/services/digitization</loc><priority>0.8</priority></url>
+  <url><loc>https://diginathi.in/services/data-capture</loc><priority>0.8</priority></url>
+  <url><loc>https://diginathi.in/products/digidocsmart</loc><priority>0.9</priority></url>
+  <url><loc>https://diginathi.in/products/digidocuiq</loc><priority>0.6</priority></url>
+  <url><loc>https://diginathi.in/products/digicta</loc><priority>0.6</priority></url>
+  <url><loc>https://diginathi.in/about</loc><priority>0.7</priority></url>
+  <url><loc>https://diginathi.in/contact</loc><priority>0.8</priority></url>
+</urlset>

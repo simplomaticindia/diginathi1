@@ -1,466 +1,346 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import {
-  Shield, Rocket, Users, CheckCircle, ArrowRight,
-  FileText, Keyboard, Users as UsersIcon, Monitor, Bot,
-  TrendingUp, Star, Award, Globe, Lock, Zap
-} from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Check } from 'lucide-react'
+import Reveal from '../components/Reveal'
+import { AgentFlow, TimezoneOverlap } from '../components/Diagrams'
+import { services, products, industries, principles, dmsUrl } from '../data/site'
+import { useSeo } from '../lib/useSeo'
 import './Home.css'
 
-const Home = () => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0)
-  const heroTexts = [
-    'Intelligent Digitization',
-    'Precision Data Entry',
-    'Reliable Manpower',
-    'Enterprise IT Solutions',
-    'AI-Powered Automation',
-    'DigiDocSmart DMS'
-  ]
+const dms = products[0]
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextIndex(prev => (prev + 1) % heroTexts.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  const services = [
-    {
-      title: 'Digitization of Records',
-      description: 'Transform physical documents into secure, searchable digital assets with OCR, metadata extraction, and compliance handling.',
-      icon: <FileText size={26} />,
-      highlights: ['File OCR & Metadata Mapping', 'Secure Digital Archival', 'Compliance Ready'],
-      slug: 'digitization-of-records',
-      color: '#E8792B'
-    },
-    {
-      title: 'Data Entry Solutions',
-      description: 'Accurate, high-volume data processing across financial, healthcare, and business domains — error-free and on-time.',
-      icon: <Keyboard size={26} />,
-      highlights: ['High-Volume Processing', 'Quality-Controlled Workflows', 'Multi-Domain Expertise'],
-      slug: 'data-entry-solution',
-      color: '#F5A623'
-    },
-    {
-      title: 'Manpower Outsourcing',
-      description: 'Skilled professionals deployed across industries with full compliance, payroll, and workforce management.',
-      icon: <UsersIcon size={26} />,
-      highlights: ['Rapid Resource Deployment', 'Payroll & Compliance', 'Flexible Workforce Scaling'],
-      slug: 'manpower-outsourcing',
-      color: '#1B2D4F'
-    },
-    {
-      title: 'IT Solution',
-      description: 'Custom application development, enterprise deployment, business tools, and complete IT supply chain management.',
-      icon: <Monitor size={26} />,
-      highlights: ['Custom App Development', 'Enterprise Deployment', 'IT Supplies & Support'],
-      slug: 'it-services',
-      color: '#2A4270'
-    },
-    {
-      title: 'AI Service',
-      description: 'Intelligent automation with AI agents, document processing AI, custom applications, and enterprise chatbot integration.',
-      icon: <Bot size={26} />,
-      highlights: ['AI Agent Development', 'Document AI Processing', 'Enterprise Chatbots'],
-      slug: 'ai-service',
-      color: '#E8792B'
-    }
-  ]
-
-  const industries = ['Hospitality', 'Healthcare', 'Real Estate', 'Construction', 'Manufacturing', 'Finance', 'Education', 'Government']
+export default function Home() {
+  useSeo({
+    title: 'Enterprise software, AI automation & digitization',
+    description:
+      'Diginathi builds enterprise applications and AI agents, and turns paper archives into structured data. Engineering team in Kolkata working US business hours.',
+    path: '/'
+  })
 
   return (
-    <div className="home-page">
-
-      {/* ===== HERO ===== */}
-      <section className="hero-dark">
-        <div className="hero-dark-mesh" aria-hidden="true"></div>
-        <div className="container hero-dark-inner">
-          <motion.div
-            className="hero-content-col"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="hero-pill">
-              <Zap size={13} />
-              Empowering Businesses with Digital Innovation
-            </span>
-            <h1 className="hero-headline">
-              Future&#8209;Ready
-              <span className="hero-rotating-wrapper">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={currentTextIndex}
-                    initial={{ opacity: 0, y: 28 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -28 }}
-                    transition={{ duration: 0.45 }}
-                    className="hero-gradient-text"
-                  >
-                    {heroTexts[currentTextIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
+    <>
+      {/* ================================================= HERO */}
+      <section className="hero">
+        <div className="wrap hero-in">
+          <div className="hero-lead">
+            <p className="eyebrow">Est. 2023 · Kolkata, working US hours</p>
+            <h1>
+              We build the software<br />your operation runs on.
+              <span className="hero-h1-alt">And the agents that run it while you sleep.</span>
             </h1>
-            <p className="hero-subtext">
-              End-to-end solutions for Digitization, Data Entry, Manpower, IT, and AI.
-              Diginathi empowers enterprises to operate smarter, faster, and more efficiently.
+            <p className="lede hero-lede">
+              Diginathi is a small engineering company that does four things properly:
+              enterprise applications, AI automation, records digitization, and turning
+              documents into clean data. No résumé farming, no reselling someone else's platform.
             </p>
-            <div className="hero-actions">
-              <a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Discover DigiDocSmart <ArrowRight size={18} />
-              </a>
-              <Link to="/services" className="hero-ghost-btn">
-                Explore Services
+            <div className="btn-row hero-btns">
+              <Link to="/contact" className="btn btn--primary">
+                Talk to an engineer <ArrowRight size={17} />
+              </Link>
+              <Link to="/products/digidocsmart" className="btn btn--line">
+                See DigiDocSmart
               </Link>
             </div>
-          </motion.div>
-
-          <motion.div
-            className="hero-visual-col"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="hero-glow" aria-hidden="true"></div>
-            <img
-              src="/assets/generated/hero_base_tech.png"
-              alt="Diginathi Technology Platform"
-              className="hero-img"
-            />
-            <motion.div className="float-badge float-tl" animate={{ y: [0, -12, 0] }} transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}>
-              <Bot size={15} /> AI Services
-            </motion.div>
-            <motion.div className="float-badge float-bl" animate={{ y: [0, -16, 0] }} transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}>
-              <FileText size={15} /> Digitization
-            </motion.div>
-            <motion.div className="float-badge float-tr" animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut', delay: 0.5 }}>
-              <Monitor size={15} /> IT Solutions
-            </motion.div>
-            <motion.div className="float-badge float-br" animate={{ y: [0, -14, 0] }} transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 1.5 }}>
-              <Keyboard size={15} /> Data Entry
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Stats Strip */}
-        <motion.div
-          className="hero-stats-strip"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-        >
-          <div className="container hero-stats-row">
-            {[
-              { number: '10M+', label: 'Pages Digitised' },
-              { number: '100%', label: 'Client Satisfaction' },
-              { number: '50+', label: 'Projects Delivered' },
-              { number: '10+', label: 'Industry Served (Hospitals, Manufacturing, Education...)' }
-            ].map((s, i) => (
-              <div key={i} className="hero-stat-item">
-                <div className="hero-stat-num">{s.number}</div>
-                <div className="hero-stat-lbl">{s.label}</div>
-              </div>
-            ))}
           </div>
-        </motion.div>
-      </section>
 
-      {/* ===== INDUSTRIES BAND ===== */}
-      <section className="industries-band">
-        <div className="container">
-          <p className="ind-label">Trusted across industries</p>
-          <div className="ind-pills">
-            {industries.map(ind => (
-              <span key={ind} className="ind-pill">{ind}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SERVICES ===== */}
-      <section className="section services-home-section">
-        <div className="container">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="section-eyebrow">Our Expertise</span>
-            <h2>Comprehensive Business Services</h2>
-            <p className="section-lead">End-to-end solutions designed to streamline operations, reduce costs, and drive growth.</p>
-          </motion.div>
-
-          <div className="services-home-grid">
-            {services.map((s, i) => (
-              <motion.div
-                key={s.slug}
-                className="svc-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-              >
-                <div className="svc-top-bar" style={{ background: s.color }}></div>
-                <div className="svc-icon" style={{ color: s.color, background: `${s.color}18` }}>
-                  {s.icon}
-                </div>
-                <h3 className="svc-title">{s.title}</h3>
-                <p className="svc-desc">{s.description}</p>
-                <ul className="svc-highlights">
-                  {s.highlights.map((h, j) => (
-                    <li key={j}>
-                      <CheckCircle size={13} style={{ color: s.color, flexShrink: 0 }} />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-                <Link to={`/services/${s.slug}`} className="svc-link" style={{ color: s.color }}>
-                  Learn more <ArrowRight size={15} />
-                </Link>
-              </motion.div>
-            ))}
-
-            <motion.div
-              className="svc-card svc-cta-card"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-            >
-              <h3>Need a Custom Solution?</h3>
-              <p>Let's discuss how we can tailor our services to your specific business requirements and budget.</p>
-              <Link to="/contact" className="btn" style={{ background: 'rgba(255,255,255,0.15)', color: 'white', border: '1px solid rgba(255,255,255,0.3)', marginTop: 'auto' }}>
-                Free Consultation <ArrowRight size={16} />
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== ABOUT ===== */}
-      <section id="about" className="section about-section-new">
-        <div className="container">
-          <div className="about-new-grid">
-            <motion.div
-              className="about-img-col"
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="about-img-frame">
-                <img src="/assets/generated/company_motto_innovation.png" alt="Diginathi Innovation" />
-                <div className="about-badge">
-                  <Award size={24} className="about-badge-icon" />
-                  <div>
-                    <div className="ab-label">Trusted Since</div>
-                    <div className="ab-value">2023</div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="about-content-col"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="section-eyebrow">Who We Are</span>
-              <h2>Reliable Services.<br /><span className="gradient-text">Long-Term Partnership.</span></h2>
-              <p className="about-lead">
-                Diginathi Private Limited is a fast-growing service provider dedicated to helping businesses
-                operate more efficiently through diverse professional solutions. Established with a vision to
-                deliver excellence and reliability, we specialize in <strong>Digitization of Records</strong> and secure data management.
-              </p>
-              <p>
-                We combine skilled professionals with modern technology to provide cost-effective solutions that meet industry standards.
-                From Data Entry to AI-powered services &mdash; Diginathi is your trusted digital transformation partner.
-              </p>
-              <div className="about-checkgrid">
-                {['Trusted Partner Since 2023', 'Cost-Effective Solutions', 'Compliance Focused', 'Experienced Team'].map(f => (
-                  <div key={f} className="about-check-item">
-                    <CheckCircle size={18} className="ab-check" />
-                    <span>{f}</span>
-                  </div>
-                ))}
-              </div>
-              <Link to="/contact" className="btn btn-primary about-cta-btn">
-                Work with Us <ArrowRight size={16} />
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== STATS BANNER ===== */}
-      <section className="stats-banner-section">
-        <div className="container stats-banner-row">
-          {[
-            { icon: <TrendingUp size={22} />, number: '10M+', label: 'Pages Digitised' },
-            { icon: <Star size={22} />, number: '100%', label: 'Client Satisfaction' },
-            { icon: <Award size={22} />, number: '50+', label: 'Projects Delivered' },
-            { icon: <Globe size={22} />, number: '10+', label: 'Industry Served (Hospitals, Manufacturing, Education...)' }
-          ].map((s, i) => (
-            <motion.div
-              key={i}
-              className="stats-banner-item"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-            >
-              <div className="sb-icon">{s.icon}</div>
-              <div className="sb-num">{s.number}</div>
-              <div className="sb-lbl">{s.label}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* ===== DIGIDOCSMART ===== */}
-      <section className="dms-dark-section">
-        <div className="dms-dark-glow" aria-hidden="true"></div>
-        <div className="container dms-dark-inner">
-          <motion.div
-            className="dms-content-col"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="dms-eyebrow-badge">Flagship Product</span>
-            <h2 className="dms-heading">DigiDocSmart (DMS)</h2>
-            <p className="dms-subtext">
-              Smart Document Management for the Digital Age. Automate workflows, ensure compliance,
-              and secure your enterprise data &mdash; available as SaaS or On-Premises.
-            </p>
-            <div className="dms-feature-chips">
-              {[
-                { icon: <Lock size={14} />, text: '256-bit Encryption' },
-                { icon: <Globe size={14} />, text: 'Cloud & On-Prem' },
-                { icon: <Bot size={14} />, text: 'AI-Powered Search' },
-                { icon: <Shield size={14} />, text: 'Tamper-Proof Audits' }
-              ].map(c => (
-                <div key={c.text} className="dms-chip">{c.icon}{c.text}</div>
+          {/* Editorial index card — a table of contents, not a stock photo */}
+          <aside className="hero-index" aria-label="What we do">
+            <div className="hero-index-head">
+              <span>What we do</span>
+              <span>In priority order</span>
+            </div>
+            <ul>
+              {services.map(s => (
+                <li key={s.slug}>
+                  <Link to={`/services/${s.slug}`}>
+                    <span className="numtag">{s.num}</span>
+                    <span className="hero-index-name">{s.title}</span>
+                    <span className="hero-index-kick">{s.kicker}</span>
+                    <ArrowUpRight size={16} className="hero-index-arrow" />
+                  </Link>
+                </li>
               ))}
-            </div>
-            <div className="dms-action-row">
-              <a href="https://digidocsmart.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Explore DigiDocSmart <ArrowRight size={18} />
-              </a>
-              <Link to="/products/digidocsmart" className="btn dms-ghost-btn">
-                View Product Details
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="dms-visual-col"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-          >
-            <img
-              src="https://www.digidocsmart.com/assets/Dashbaord_dark-CVTbay_X.png"
-              alt="DigiDocSmart Dashboard Interface"
-              className="dms-dashboard-img"
-            />
-          </motion.div>
+            </ul>
+            <p className="hero-index-foot">
+              Manpower supply is no longer part of what we do.
+            </p>
+          </aside>
         </div>
-      </section>
 
-      {/* ===== WHY DIGINATHI ===== */}
-      <section className="section why-new-section">
-        <div className="container">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="section-eyebrow">Why Diginathi?</span>
-            <h2>We Deliver Excellence</h2>
-            <p className="section-lead">Our commitment to quality, compliance, and client satisfaction sets us apart from the rest.</p>
-          </motion.div>
-
-          <div className="why-new-grid">
+        <div className="wrap">
+          <div className="hero-facts">
             {[
-              {
-                icon: <Shield size={28} />,
-                title: 'Secure & Compliant',
-                description: 'Strict data security protocols and industry compliance standards ensure your information is always protected and accessible.',
-                color: '#E8792B'
-              },
-              {
-                icon: <Rocket size={28} />,
-                title: 'Technology Driven',
-                description: 'Leveraging the latest technology to deliver efficient, scalable, and future-proof solutions for businesses of all sizes.',
-                color: '#F5A623'
-              },
-              {
-                icon: <Users size={28} />,
-                title: 'Client Centric',
-                description: "Your success is our priority. We work closely with you to understand and exceed your unique business requirements.",
-                color: '#1B2D4F'
-              }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                className="why-card-new"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-              >
-                <div className="why-icon-new" style={{ background: `${item.color}15`, color: item.color }}>
-                  {item.icon}
-                </div>
-                <h3 className="why-title-new">{item.title}</h3>
-                <p>{item.description}</p>
-              </motion.div>
+              { v: '10M+', l: 'Pages digitized' },
+              { v: '2 wks', l: 'To your first working demo' },
+              { v: '4 hrs', l: 'Live overlap with US Eastern' },
+              { v: '100%', l: 'Code ownership stays with you' }
+            ].map((f, i) => (
+              <Reveal key={f.l} delay={i * 70} className="hero-fact">
+                <div className="figure-num">{f.v}</div>
+                <div className="figure-lbl">{f.l}</div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== CTA BANNER ===== */}
-      <section className="cta-banner-section">
-        <div className="container">
-          <motion.div
-            className="cta-banner-inner"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="cta-banner-text">
-              <h2>Ready to Transform Your Business?</h2>
-              <p>Join organizations that trust Diginathi for their digital transformation journey.</p>
+      {/* ================================================= SERVICES */}
+      <section className="band band--sunk" id="services">
+        <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">Services</p>
+              <h2>Four disciplines, one team that talks to each other.</h2>
             </div>
-            <div className="cta-banner-actions">
-              <Link to="/contact" className="btn cta-primary-btn">
-                Get Started Today <ArrowRight size={18} />
-              </Link>
-              <Link to="/services" className="btn cta-outline-btn">
-                View All Services
-              </Link>
-            </div>
-          </motion.div>
+            <p className="lede">
+              Most vendors sell you one of these and subcontract the rest. We do all four
+              in-house, which is why the digitization actually lands inside working software
+              instead of a folder of PDFs.
+            </p>
+          </Reveal>
+
+          <div className="svc-rows">
+            {services.map((s, i) => {
+              const Icon = s.icon
+              return (
+                <Reveal key={s.slug} delay={i * 60}>
+                  <Link to={`/services/${s.slug}`} className="svc-row">
+                    <span className="svc-row-num numtag">{s.num}</span>
+                    <span className="svc-row-icon"><Icon size={22} strokeWidth={1.6} /></span>
+                    <div className="svc-row-body">
+                      <h3>{s.title}</h3>
+                      <p className="svc-row-line">{s.heroLine}</p>
+                      <p className="svc-row-sum">{s.summary}</p>
+                    </div>
+                    <span className="svc-row-go">
+                      <ArrowRight size={18} />
+                    </span>
+                  </Link>
+                </Reveal>
+              )
+            })}
+          </div>
         </div>
       </section>
 
-    </div>
+      {/* ================================================= AI FOCUS */}
+      <section className="band band--slab on-slab ai-band">
+        <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">Where we are pushing hardest</p>
+              <h2>AI automation, with a person still holding the wheel.</h2>
+            </div>
+            <p className="lede ai-lede">
+              An agent that reads an invoice, checks it against the purchase order, and routes
+              the one mismatched line to a human is worth more than a chatbot on your homepage.
+              This is the work we care about most.
+            </p>
+          </Reveal>
+
+          <Reveal className="ai-diagram">
+            <AgentFlow />
+          </Reveal>
+
+          <div className="ai-points">
+            {[
+              {
+                t: 'We measure before we promise',
+                d: 'Four-week pilot on your real documents. We publish the accuracy, including the cases it gets wrong. If the numbers do not justify the build, you have spent four weeks.'
+              },
+              {
+                t: 'Nothing happens silently',
+                d: 'Every decision is audit-logged with its inputs and confidence score. Every step has a manual override. You set the threshold at which a person must look.'
+              },
+              {
+                t: 'It gets better at your documents',
+                d: 'Corrections your reviewers make feed back into the system, so accuracy on your specific paperwork climbs over the first few months instead of flatlining.'
+              }
+            ].map((p, i) => (
+              <Reveal key={p.t} delay={i * 80} className="ai-point">
+                <h4>{p.t}</h4>
+                <p>{p.d}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="ai-cta">
+            <Link to="/services/ai-automation" className="btn btn--primary">
+              How our AI work runs <ArrowRight size={17} />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ================================================= DMS */}
+      <section className="band dms-band">
+        <div className="wrap">
+          <div className="dms-grid">
+            <Reveal className="dms-copy">
+              <p className="eyebrow">Our product · Live today</p>
+              <h2>
+                DigiDocSmart
+                <span className="dms-abbr">DMS</span>
+              </h2>
+              <p className="lede dms-lede">{dms.tagline}</p>
+              <p className="dms-body">{dms.blurb}</p>
+
+              <ul className="ticks dms-ticks">
+                {[
+                  'Approval workflows with escalation and timeouts',
+                  'Classification-based permissions, down to the document',
+                  'Hash-chained audit trail you can hand to an auditor',
+                  'Runs on our cloud or entirely inside your network'
+                ].map(t => (
+                  <li key={t}><Check size={16} strokeWidth={2.2} /><span>{t}</span></li>
+                ))}
+              </ul>
+
+              <div className="btn-row dms-btns">
+                <Link to="/products/digidocsmart" className="btn btn--primary">
+                  Product detail <ArrowRight size={17} />
+                </Link>
+                <a href={dmsUrl} target="_blank" rel="noopener noreferrer" className="btn btn--line">
+                  Open digidocsmart.com <ArrowUpRight size={16} />
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120} className="dms-shot">
+              <div className="shot-frame shot-frame--dark">
+                <div className="shot-bar"><span /><span /><span /></div>
+                <img
+                  src="/assets/dms/dashboard_dark.png"
+                  alt="DigiDocSmart dashboard showing file counts, storage use, active workflows and pending tasks"
+                  width="1280" height="720" loading="lazy"
+                />
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal className="prod-more">
+            <p className="eyebrow">Also in the workshop</p>
+            <div className="prod-more-grid">
+              {products.slice(1).map(p => {
+                const Icon = p.icon
+                return (
+                  <Link key={p.slug} to={`/products/${p.slug}`} className="prod-mini">
+                    <span className="prod-mini-icon"><Icon size={20} strokeWidth={1.6} /></span>
+                    <div>
+                      <h4>{p.name} <span className="chip">In development</span></h4>
+                      <p>{p.tagline}</p>
+                    </div>
+                    <ArrowRight size={17} className="prod-mini-go" />
+                  </Link>
+                )
+              })}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ================================================= US CLIENTS */}
+      <section className="band band--sunk" id="us-clients">
+        <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">For our US clients</p>
+              <h2>An offshore team that is awake when you are.</h2>
+            </div>
+            <p className="lede">
+              We are honest about this: our engineers are in Kolkata. What we do about it is
+              shift our day so there are four hours every afternoon where you can get a person,
+              not a ticket.
+            </p>
+          </Reveal>
+
+          <Reveal className="tz-wrap card">
+            <TimezoneOverlap />
+          </Reveal>
+
+          <div className="us-grid">
+            {[
+              { t: 'Contracts and invoicing in USD', d: 'Standard US-style MSA and SOW, net-30 terms, wire or ACH.' },
+              { t: 'A written handover every day', d: 'What moved, what is blocked, what we need from you — in your inbox before your morning.' },
+              { t: 'Your NDA, not ours', d: 'We sign yours. Confidentiality terms cover every individual on the project, named.' },
+              { t: 'One named engineer, not a pool', d: 'You get the same person on every call. No rotating account manager between you and the build.' }
+            ].map((u, i) => (
+              <Reveal key={u.t} delay={i * 70} className="us-item">
+                <h4>{u.t}</h4>
+                <p>{u.d}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================= PRINCIPLES */}
+      <section className="band">
+        <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">How we work</p>
+              <h2>Four commitments we will put in the contract.</h2>
+            </div>
+            <p className="lede">
+              These are not values on a wall. Each one is a clause you can hold us to,
+              and the reason clients stay past the first project.
+            </p>
+          </Reveal>
+
+          <div className="prin-grid">
+            {principles.map((p, i) => (
+              <Reveal key={p.num} delay={i * 70} className="prin">
+                <span className="numtag">{p.num}</span>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================= INDUSTRIES */}
+      <section className="band band--tight ind-band">
+        <div className="wrap">
+          <Reveal>
+            <p className="eyebrow">Where our work lands</p>
+            <h2 className="ind-h2">Sectors where a missing document is a real problem.</h2>
+          </Reveal>
+          <div className="ind-grid">
+            {industries.map((ind, i) => (
+              <Reveal key={ind.name} delay={i * 40} className="ind-cell">
+                <h4>{ind.name}</h4>
+                <p>{ind.note}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================= CTA */}
+      <section className="band band--slab on-slab cta-band">
+        <div className="wrap cta-in">
+          <Reveal>
+            <p className="eyebrow">Next step</p>
+            <h2 className="cta-h2">
+              Tell us the process that is costing you the most, and we'll tell you whether
+              software can fix it.
+            </h2>
+            <p className="lede cta-lede">
+              A 30-minute call, no deck. If the answer is that you do not need us,
+              that is a fine outcome and we will say so.
+            </p>
+            <div className="btn-row cta-btns">
+              <Link to="/contact" className="btn btn--accent">
+                Book a call <ArrowRight size={17} />
+              </Link>
+              <a href="mailto:info@diginathi.in" className="btn btn--line">
+                info@diginathi.in
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
   )
 }
-
-export default Home

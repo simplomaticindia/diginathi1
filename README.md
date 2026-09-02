@@ -1,148 +1,84 @@
-# Diginathi React Website
+# Diginathi website
 
-Modern, responsive React website for Diginathi Private Limited with improved design, better contrast, and working contact form.
+React + Vite. Static build, deployed on Vercel.
 
-## Features
-
-- ✨ Modern, interactive UI with smooth animations
-- 🎨 Improved color contrast for better readability
-- 📱 Fully responsive design
-- 📧 Working contact form with validation
-- ⚡ Fast performance with Vite
-- 🎯 SEO optimized
-- 🚀 Ready for Vercel deployment
-
-## Tech Stack
-
-- React 18
-- React Router DOM
-- Framer Motion (animations)
-- React Hook Form (form handling)
-- Lucide React (icons)
-- Vite (build tool)
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 16+ and npm
-
-### Installation
-
-1. Install dependencies:
 ```bash
 npm install
+npm run dev        # http://localhost:5173
+npm run build      # → dist/
+npm run preview    # serve the built output
 ```
 
-2. Start development server:
-```bash
-npm run dev
-```
+## Before it goes live
 
-3. Build for production:
-```bash
-npm run build
-```
+**Set the contact form key.** In Vercel → Settings → Environment Variables, add
+`VITE_FORMSPREE_ID` (the part after `/f/` in your Formspree endpoint) for all
+environments, then redeploy. Without it the form shows an "email us directly"
+fallback rather than pretending to send. See `.env.example`.
 
-4. Preview production build:
-```bash
-npm run preview
-```
+## Where the content lives
 
-## Contact Form Setup
+Almost all copy is in one file: **`src/data/site.js`**.
 
-The contact form uses Web3Forms API. To enable it:
+| What | Where |
+|---|---|
+| Services (titles, copy, process, deliverables, facts) | `services` array |
+| Products | `products` array |
+| Company details, phones, address, hours | `company` object |
+| Industries, working principles | `industries`, `principles` |
+| Old URL → new URL mapping | `legacyServiceSlugs` |
 
-1. Sign up at [Web3Forms](https://web3forms.com/)
-2. Get your access key
-3. Replace `YOUR_WEB3FORMS_ACCESS_KEY` in `src/pages/Contact.jsx` with your actual key
+Edit that file and the nav, footer, cards, detail pages and sitemap copy all
+follow. Page-specific copy that appears exactly once (the DigiDocSmart screen
+tour, the in-development product detail) sits in its own page file.
 
-## Deployment to Vercel
-
-### Option 1: Using Vercel CLI
-
-1. Install Vercel CLI:
-```bash
-npm install -g vercel
-```
-
-2. Deploy:
-```bash
-vercel
-```
-
-### Option 2: Using Vercel Dashboard
-
-1. Push your code to GitHub
-2. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-3. Click "New Project"
-4. Import your GitHub repository
-5. Vercel will auto-detect Vite and configure build settings
-6. Click "Deploy"
-
-### Build Settings (Auto-configured)
-
-- **Framework Preset**: Vite
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-
-## Project Structure
+## Structure
 
 ```
 src/
-├── components/       # Reusable components
-│   ├── Header.jsx
-│   ├── Footer.jsx
-│   └── WhatsAppFloat.jsx
-├── pages/           # Page components
-│   ├── Home.jsx
-│   ├── Services.jsx
-│   ├── ServiceDetail.jsx
-│   ├── DigiDocSmart.jsx
-│   └── Contact.jsx
-├── App.jsx          # Main app component
-├── main.jsx         # Entry point
-└── index.css        # Global styles
-
-public/
-├── assets/          # Images and assets
-└── brochures/       # PDF brochures
+  data/site.js          all shared content
+  lib/useSeo.js         per-page <title> and meta tags
+  components/
+    Header, Footer, PageHead, CtaBand, Reveal, ScrollToTop, WhatsAppFloat
+    Diagrams.jsx        hand-built SVG schematics (agent flow, timezone, etc.)
+  pages/
+    Home, About, Services, ServiceDetail,
+    DigiDocSmart, ProductSoon, Contact, NotFound
+  index.css             design tokens + shared primitives
 ```
 
-## Key Improvements
+## Design system
 
-### Design Enhancements
-- Modern gradient backgrounds
-- Smooth animations and transitions
-- Interactive hover effects
-- Better spacing and typography
-- Card-based layouts
+Tokens are at the top of `src/index.css`. The palette comes from the logo:
+teal `#0E7C8B`, amber `#E9A116`, on warm paper `#FBF9F5`.
 
-### Contrast Improvements
-- Darker text colors for better readability
-- Improved color combinations
-- Better contrast ratios (WCAG AA compliant)
-- Enhanced visibility on all backgrounds
+Type: **Fraunces** for display, **IBM Plex Sans** for body, **IBM Plex Mono**
+for labels and figures. Loaded from Google Fonts in `index.html`.
 
-### Interactive Features
-- Smooth scroll animations
-- Hover effects on cards and buttons
-- Mobile-friendly navigation
-- Animated page transitions
+Conventions worth keeping:
+- `.wrap` for width, `.band` for vertical section padding, `.band--sunk` /
+  `.band--slab` for alternating backgrounds (`.on-slab` flips text colours).
+- `.eyebrow` mono label, `.lede` intro paragraph, `.numtag` section numbers.
+- Scroll reveals use `<Reveal>` (IntersectionObserver + one CSS class), not an
+  animation library.
+- Diagrams live in `Diagrams.jsx` and scroll horizontally inside
+  `.dgm-scroll` on narrow screens rather than shrinking to illegibility.
 
-### Contact Form
-- Real-time validation
-- Error messages
-- Success feedback
-- Integration with Web3Forms API
+## Routes
 
-## Browser Support
+`/` · `/about` · `/services` · `/services/:slug` · `/products/digidocsmart` ·
+`/products/digidocuiq` · `/products/digicta` · `/contact` · `*` → 404
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+Old URLs from the previous site redirect: `it-services` →
+`software-development`, `ai-service` → `ai-automation`,
+`digitization-of-records` → `digitization`, `data-entry-solution` →
+`data-capture`, `manpower-outsourcing` → `/services` (service retired),
+`/digidocsmart` → `/products/digidocsmart`.
 
-## License
+## Assets
 
-© 2026 Diginathi Private Limited. All rights reserved.
+- `public/assets/Logo.png` — the only carried-over brand asset.
+- `public/assets/dms/*.png` — real DigiDocSmart screenshots. Re-download from
+  digidocsmart.com when the product UI changes; the previous site hot-linked
+  them and the link had already broken.
+- `public/brochures/*.pdf` — linked from service detail pages.
