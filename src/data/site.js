@@ -103,7 +103,7 @@ export const services = [
       { value: 'Fixed', label: 'Scoped price ranges' }
     ],
 
-    brochure: '/brochures/it-services-brochure.pdf',
+    brochure: null,   // old PDF is titled 'IT Services' — relink once it's rewritten
     related: ['ai-automation', 'data-capture']
   },
 
@@ -331,7 +331,7 @@ export const services = [
       { value: 'NDA', label: 'On every project' }
     ],
 
-    brochure: '/brochures/data-entry-solution-brochure.pdf',
+    brochure: null,   // old PDF is titled 'Data Entry Solution' — relink once it's rewritten
     related: ['digitization', 'ai-automation']
   }
 ]
