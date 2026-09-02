@@ -60,9 +60,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <p className="hero-index-foot">
-              Manpower supply is no longer part of what we do.
-            </p>
+            
           </aside>
         </div>
 
