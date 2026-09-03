@@ -1,17 +1,22 @@
 .hdr {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: var(--paper);
+  background: var(--ink);
   border-bottom: 1px solid transparent;
   transition: border-color .25s var(--ease), background .25s var(--ease);
 }
 .hdr.is-stuck,
 .hdr.is-open {
-  border-bottom-color: var(--rule);
-  background: rgba(251,249,245,.92);
+  border-bottom-color: var(--rule-dark);
+  background: rgba(22,33,31,.92);
   backdrop-filter: saturate(150%) blur(10px);
 }
+
+/* offset page content for the fixed header */
+#main { padding-top: 74px; }
 
 .hdr-bar {
   display: flex;
@@ -41,13 +46,13 @@
   border-radius: 3px;
   font-size: .95rem;
   font-weight: 450;
-  color: var(--ink-body);
+  color: rgba(251,249,245,.82);
   text-decoration: none;
   transition: color .18s var(--ease), background .18s var(--ease);
 }
 .hdr-link:hover,
 .hdr-link.is-active,
-.hdr-link.active { color: var(--ink); background: rgba(14,124,139,.07); }
+.hdr-link.active { color: #fff; background: rgba(255,255,255,.08); }
 .hdr-link--btn { font-family: inherit; }
 .hdr-link svg { transition: transform .2s var(--ease); opacity: .55; }
 .hdr-link.is-active svg { transform: rotate(180deg); opacity: 1; }
@@ -69,9 +74,9 @@
   height: 46px;
   margin-right: -10px;
   border-radius: 3px;
-  color: var(--ink);
+  color: rgba(251,249,245,.9);
 }
-.hdr-burger:hover { background: rgba(14,124,139,.07); }
+.hdr-burger:hover { background: rgba(255,255,255,.08); }
 
 /* ---------- Desktop mega panel ---------- */
 
