@@ -36,8 +36,8 @@ export default function ServiceDetail() {
   return (
     <>
       <PageHead
-        eyebrow={`Service ${service.num} · ${service.kicker}`}
         title={service.title}
+        standfirst={service.heroLine}
         lede={service.summary}
         aside={
           <div className="sd-headfacts">
@@ -72,7 +72,6 @@ export default function ServiceDetail() {
             {/* ---------------- diagram ---------------- */}
             {Diagram && (
               <Reveal as="section" className="sd-sec sd-diagram">
-                <p className="eyebrow">How it works</p>
                 <Diagram />
               </Reveal>
             )}

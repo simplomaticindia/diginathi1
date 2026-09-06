@@ -39,6 +39,8 @@ export const dmsUrl = 'https://digidocsmart.com'
 export const services = [
   {
     slug: 'software-development',
+    takes: 'How your operation actually runs',
+    makes: 'The system your staff open every morning',
     num: '01',
     icon: Code2,
     title: 'Enterprise Software Development',
@@ -115,6 +117,8 @@ export const services = [
 
   {
     slug: 'ai-automation',
+    takes: 'Work arriving faster than people can clear it',
+    makes: 'Decisions made, and the doubtful ones raised',
     num: '02',
     icon: Bot,
     title: 'AI Automation & AI Agents',
@@ -191,6 +195,8 @@ export const services = [
 
   {
     slug: 'digitization',
+    takes: 'Shelves of paper nobody can search',
+    makes: 'An indexed archive with permissions on it',
     num: '03',
     icon: Archive,
     title: 'Digitization of Records',
@@ -267,6 +273,8 @@ export const services = [
 
   {
     slug: 'data-capture',
+    takes: 'Scans, forms and exports in twelve formats',
+    makes: 'Validated records in your schema',
     num: '04',
     icon: Table2,
     title: 'Data Capture & Structuring',

@@ -43,19 +43,23 @@ export default function Services() {
   return (
     <>
       <PageHead
-        eyebrow="Services"
-        title="Four things, done properly."
-        lede="We removed manpower supply from our offering so we could go deeper on the work that actually compounds for a client: the software, the automation, and getting your records into a state where both are possible."
+        title="Four disciplines, and one team that has to live with all of them."
+        lede="Most vendors sell you one of these and subcontract the rest. That is how a digitization project ends as a folder of 400,000 PDFs named scan_0001. We do all four in-house, so the records land inside working software instead of beside it."
         aside={
-          <ol className="phead-toc">
-            {services.map(s => (
-              <li key={s.slug}>
-                <a href={`#${s.slug}`}>
-                  <span className="numtag">{s.num}</span> {s.title}
-                </a>
-              </li>
-            ))}
-          </ol>
+          <div className="srv-io">
+            <p className="srv-io-cap">What each one takes in, and hands back</p>
+            <ul>
+              {services.map(s => (
+                <li key={s.slug}>
+                  <a href={`#${s.slug}`}>
+                    <strong>{s.short}</strong>
+                    <span className="srv-io-takes">{s.takes}</span>
+                    <span className="srv-io-makes">{s.makes}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         }
       />
 
@@ -63,7 +67,6 @@ export default function Services() {
       <section className="band band--tight">
         <div className="wrap">
           <Reveal>
-            <p className="eyebrow">Start here</p>
             <h2 className="srv-router-h2">If one of these sounds like your Tuesday, you are in the right place.</h2>
           </Reveal>
 

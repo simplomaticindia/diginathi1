@@ -74,7 +74,6 @@ export default function Home() {
         <div className="wrap">
           <Reveal className="sec-head sec-head--split">
             <div>
-              <p className="eyebrow">Services</p>
               <h2>Four disciplines, one team that talks to each other.</h2>
             </div>
             <p className="lede">
@@ -162,7 +161,7 @@ export default function Home() {
         <div className="wrap">
           <div className="dms-grid">
             <Reveal className="dms-copy">
-              <p className="eyebrow">Our product · Live today</p>
+              <p className="eyebrow">Our own product, in use today</p>
               <h2>
                 DigiDocSmart
                 <span className="dms-abbr">DMS</span>

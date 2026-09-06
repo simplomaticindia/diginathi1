@@ -109,27 +109,20 @@ a { color: inherit; }
 
 strong, b { font-weight: 600; color: var(--ink); }
 
-/* Mono eyebrow — the recurring "engineering label" motif */
+/* Section marker. Sentence case and quiet — it labels a section, it does not
+   announce one. Previously tracked-out all-caps mono behind an amber rule, which
+   put identical chrome above every heading on every page. Mono is now reserved
+   for text that is actually machine output: field names, IDs, confidence values. */
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: .72rem;
+  display: block;
+  font-family: var(--sans);
+  font-size: .86rem;
   font-weight: 500;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--teal);
+  line-height: 1.4;
+  color: var(--ink-mute);
 }
-.eyebrow::before {
-  content: '';
-  width: 26px;
-  height: 1px;
-  background: var(--amber);
-  flex: none;
-}
-.eyebrow--plain::before { display: none; }
-.on-slab .eyebrow { color: var(--amber); }
+.eyebrow--plain { }   /* kept: some call sites still pass it */
+.on-slab .eyebrow { color: rgba(255, 255, 255, .5); }
 
 .lede {
   font-size: clamp(1.08rem, 1.7vw, 1.28rem);
@@ -320,13 +313,13 @@ strong, b { font-weight: 600; color: var(--ink); }
   color: var(--ink);
   letter-spacing: -0.02em;
 }
+/* The number is the display element; the label just names it. Sentence case —
+   tracked-out uppercase mono here was the same chrome as the old eyebrows. */
 .figure-lbl {
-  font-family: var(--mono);
-  font-size: .7rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: .84rem;
   color: var(--ink-mute);
-  margin-top: 10px;
+  margin-top: 9px;
   line-height: 1.45;
 }
 .on-slab .figure-num { color: #fff; }

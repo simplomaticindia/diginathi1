@@ -10,12 +10,12 @@ import './About.css'
 
 const NOT_US = [
   {
-    t: 'A staffing agency',
-    d: 'We used to supply manpower. We stopped, because doing it well and doing engineering well are different businesses and we were only interested in one of them.'
+    t: 'A staffing agency billing by the head',
+    d: 'We do not rent you five developers and leave you to work out what to do with them. We take responsibility for an outcome and staff it ourselves. Supplying people and building software are different businesses, and we are only in one of them.'
   },
   {
-    t: 'A body shop billing by the head',
-    d: 'We do not sell you five developers and let you work out what to do with them. We take responsibility for an outcome and staff it ourselves.'
+    t: 'Convinced that everything should be automated',
+    d: 'Plenty of work is too rare, too varied or too consequential to hand to a model, and some of it is cheaper to leave alone. When we find that in your process we will tell you, even though the honest answer is the smaller invoice.'
   },
   {
     t: 'A reseller with a badge',
@@ -31,7 +31,7 @@ const TIMELINE = [
   { y: '2023', t: 'Diginathi is founded', d: 'Starting with what we knew: records digitization and data work for organisations drowning in paper.' },
   { y: '2024', t: 'Software becomes the core', d: 'Clients kept asking where the digitized records should live. Building the answer turned out to be the more valuable half of the job.' },
   { y: '2025', t: 'DigiDocSmart ships', d: 'The document management system we had been building for clients one at a time, turned into a product with cloud and on-premises deployment.' },
-  { y: '2026', t: 'AI automation takes the lead', d: 'Manpower supply is retired. Enterprise software and AI automation become the focus, with digitization and data capture feeding both.' }
+  { y: '2026', t: 'AI automation takes the lead', d: 'Agents that read, check and route real work become the centre of what we build, with digitization and data capture feeding them. Manpower supply is retired the same year.' }
 ]
 
 export default function About() {
@@ -45,16 +45,15 @@ export default function About() {
   return (
     <>
       <PageHead
-        eyebrow="About us"
         title="A small engineering company that says no to things."
-        lede="Diginathi Private Limited was founded in 2023. We are based in Kolkata, we work US business hours, and we have deliberately narrowed what we do rather than widened it."
+        lede="Founded in 2023, in Kolkata. We do four things — enterprise software, AI automation, records digitization and data capture — and we do all four with our own people, which is the only reason they fit together properly."
         aside={
           <dl className="ab-vitals">
             {[
-              ['Founded', String(company.founded)],
-              ['Registered', 'Kolkata, India'],
-              ['Serving', 'United States & India'],
-              ['Live overlap', '4 hours with US Eastern, daily']
+              ['Founded', `${company.founded}, in Kolkata`],
+              ['What we do', 'Four disciplines, all in-house'],
+              ['Working day', 'Moved, to overlap US Eastern'],
+              ['Live overlap', 'Four hours, every working day']
             ].map(([k, v]) => (
               <div key={k}>
                 <dt>{k}</dt>
@@ -70,7 +69,6 @@ export default function About() {
         <div className="wrap">
           <div className="ab-story">
             <Reveal className="ab-story-copy">
-              <p className="eyebrow">How we got here</p>
               <p className="ab-bigp">
                 We started by scanning paper. It turns out that the interesting problem is
                 never the scanning — it is what happens to the information afterwards.
@@ -82,9 +80,11 @@ export default function About() {
                 and hiring engineers meant deciding what we were not going to do.
               </p>
               <p>
-                In 2026 we retired manpower supply entirely. What is left is four disciplines
-                that reinforce each other: we build the system, we automate the work inside it,
-                and we get your existing records into a state where both are possible.
+                What we kept is four disciplines that need each other. We get your existing
+                records into a state a computer can use, we build the system they live in,
+                and we automate the work that happens inside it. Hire one of those from us
+                and you get a good piece of work. Hire the set and nobody is left arguing
+                about whose side of the join the problem is on.
               </p>
             </Reveal>
 
@@ -197,8 +197,10 @@ export default function About() {
             <div className="ab-do-list">
               {services.map(s => (
                 <Link key={s.slug} to={`/services/${s.slug}`} className="ab-do-item">
-                  <span className="numtag">{s.num}</span>
-                  <strong>{s.title}</strong>
+                  <span>
+                    <strong>{s.title}</strong>
+                    <span className="ab-do-line">{s.heroLine}</span>
+                  </span>
                   <ArrowRight size={16} />
                 </Link>
               ))}

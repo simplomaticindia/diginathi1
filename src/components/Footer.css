@@ -55,12 +55,10 @@
 }
 
 .ftr-col h4 {
-  font-family: var(--mono);
-  font-size: .7rem;
-  font-weight: 500;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.42);
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.5);
   margin-bottom: 16px;
 }
 .ftr-col ul { list-style: none; padding: 0; display: grid; gap: 11px; }
@@ -78,10 +76,8 @@
 .ftr-col svg { flex: none; opacity: .55; }
 
 .ftr-soon {
-  font-family: var(--mono);
-  font-size: .6rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: .72rem;
   color: var(--amber);
   border: 1px solid rgba(233,161,22,.35);
   border-radius: 2px;
@@ -95,10 +91,8 @@
 .ftr-num + .ftr-wa { margin-left: 23px; }   /* icon (15) + flex gap (8) */
 
 .ftr-wa {
-  font-family: var(--mono);
-  font-size: .58rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: .7rem;
   color: #4FD07A;
   border: 1px solid rgba(79,208,122,.32);
   border-radius: 2px;
@@ -124,10 +118,9 @@
   border-bottom: 1px solid var(--rule-dark);
 }
 .ftr-hours-lbl {
-  font-family: var(--mono);
-  font-size: .68rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: .84rem;
+  font-weight: 500;
   color: var(--amber);
 }
 .ftr-hours-val { font-size: .93rem; color: rgba(255,255,255,.78); }

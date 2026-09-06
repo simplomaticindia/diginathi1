@@ -34,12 +34,10 @@
 .ct-row + .ct-row, .ct-row + .ct-field { margin-top: 18px; }
 
 .ct-field label {
-  font-family: var(--mono);
-  font-size: .7rem;
+  font-family: var(--sans);
+  font-size: .88rem;
   font-weight: 500;
-  letter-spacing: .11em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-body);
 }
 .ct-field label span[aria-hidden] { color: var(--amber-deep); }
 .ct-opt { text-transform: none; letter-spacing: 0; color: var(--ink-faint); font-size: .72rem; }
@@ -141,12 +139,10 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  font-family: var(--mono);
-  font-size: .72rem;
-  font-weight: 500;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
+  font-family: var(--sans);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
   margin-bottom: 20px;
 }
 
@@ -155,12 +151,10 @@
 .ct-list svg { color: var(--teal); margin-top: 3px; }
 .ct-list span {
   display: block;
-  font-family: var(--mono);
-  font-size: .64rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 3px;
+  font-family: var(--sans);
+  font-size: .8rem;
+  color: var(--ink-mute);
+  margin-bottom: 2px;
 }
 .ct-list a, .ct-list p {
   font-size: .97rem;
@@ -172,12 +166,10 @@
 
 .ct-hours dl { display: grid; gap: 14px; }
 .ct-hours dt {
-  font-family: var(--mono);
-  font-size: .64rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 3px;
+  font-family: var(--sans);
+  font-size: .8rem;
+  color: var(--ink-mute);
+  margin-bottom: 2px;
 }
 .ct-hours dd { margin: 0; font-size: .95rem; color: var(--ink); }
 .ct-hours-note {
