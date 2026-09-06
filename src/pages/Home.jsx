@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Check } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { AgentFlow, TimezoneOverlap } from '../components/Diagrams'
+import CaptureDemo from '../components/CaptureDemo'
 import { services, products, industries, principles, dmsUrl } from '../data/site'
 import { useSeo } from '../lib/useSeo'
 import './Home.css'
@@ -22,9 +23,8 @@ export default function Home() {
       <section className="hero">
         <div className="wrap hero-in">
           <div className="hero-lead">
-            <p className="eyebrow">Est. 2023 · Kolkata, working US hours</p>
             <h1>
-              We build the software<br />your operation runs on.
+              We build the software your operation runs on.
               <span className="hero-h1-alt">And the agents that run it while you sleep.</span>
             </h1>
             <p className="lede hero-lede">
@@ -40,28 +40,16 @@ export default function Home() {
                 See DigiDocSmart
               </Link>
             </div>
+            <p className="hero-where">
+              Kolkata, since 2023. We keep US hours, so most days you get an answer
+              before lunch.
+            </p>
           </div>
 
-          {/* Editorial index card — a table of contents, not a stock photo */}
-          <aside className="hero-index" aria-label="What we do">
-            <div className="hero-index-head">
-              <span>What we do</span>
-              <span>In priority order</span>
-            </div>
-            <ul>
-              {services.map(s => (
-                <li key={s.slug}>
-                  <Link to={`/services/${s.slug}`}>
-                    <span className="numtag">{s.num}</span>
-                    <span className="hero-index-name">{s.title}</span>
-                    <span className="hero-index-kick">{s.kicker}</span>
-                    <ArrowUpRight size={16} className="hero-index-arrow" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            
-          </aside>
+          {/* The hero's one moving part: the work itself, running. */}
+          <div className="hero-demo">
+            <CaptureDemo />
+          </div>
         </div>
 
         <div className="wrap">
