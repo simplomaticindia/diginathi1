@@ -21,7 +21,7 @@
 }
 .ftr-tag {
   font-family: var(--display);
-  font-style: italic;
+  font-variation-settings: 'opsz' 16;
   font-size: 1rem;
   color: var(--amber);
   margin-top: 8px;
@@ -88,6 +88,23 @@
   padding: 1px 5px;
 }
 
+/* the phone rows sit in a narrow column — never break a number across lines,
+   let the WhatsApp tag drop underneath instead */
+.ftr-contact a { flex-wrap: wrap; row-gap: 4px; }
+.ftr-num { white-space: nowrap; }
+.ftr-num + .ftr-wa { margin-left: 23px; }   /* icon (15) + flex gap (8) */
+
+.ftr-wa {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #4FD07A;
+  border: 1px solid rgba(79,208,122,.32);
+  border-radius: 2px;
+  padding: 1px 5px;
+}
+
 .ftr-addr {
   display: flex;
   gap: 8px;
@@ -126,6 +143,14 @@
   color: rgba(255,255,255,.42);
 }
 .ftr-base-note { font-family: var(--mono); font-size: .74rem; }
+
+/* the fixed WhatsApp pill floats bottom-right — keep the last line clear of it.
+   Narrow: the base stacks, so add height. Wide: it sits beside, so add width. */
+.ftr { padding-bottom: 92px; }
+@media (min-width: 700px) {
+  .ftr { padding-bottom: 32px; }
+  .ftr-base-note { margin-right: 172px; }
+}
 
 @media (min-width: 700px) {
   .ftr-cols { grid-template-columns: repeat(4, minmax(0, 1fr)); }

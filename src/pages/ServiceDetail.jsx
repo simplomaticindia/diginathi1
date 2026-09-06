@@ -128,7 +128,9 @@ export default function ServiceDetail() {
               </Link>
               <div className="sd-card-links">
                 <a href={`mailto:${company.email}`}><Mail size={15} />{company.email}</a>
-                <a href={`tel:${company.phones[0].replace(/\s/g, '')}`}><Phone size={15} />{company.phones[0]}</a>
+                <a href={`tel:${company.phones[0].number.replace(/\s/g, '')}`}>
+                  <Phone size={15} />{company.phones[0].number}
+                </a>
               </div>
               <p className="sd-card-hours">{company.hours.us}</p>
             </div>

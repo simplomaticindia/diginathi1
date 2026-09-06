@@ -213,11 +213,11 @@ export default function Contact() {
                   </div>
                 </li>
                 {company.phones.map(p => (
-                  <li key={p}>
+                  <li key={p.number}>
                     <Phone size={17} />
                     <div>
-                      <span>Phone</span>
-                      <a href={`tel:${p.replace(/\s/g, '')}`}>{p}</a>
+                      <span>{p.wa ? 'Phone & WhatsApp' : 'Phone'}</span>
+                      <a href={`tel:${p.number.replace(/\s/g, '')}`}>{p.number}</a>
                     </div>
                   </li>
                 ))}
@@ -251,7 +251,7 @@ export default function Contact() {
 
             <div className="ct-map">
               <iframe
-                src="https://www.google.com/maps?q=Satyen+Roy+Road,+Kolkata+700034&output=embed"
+                src={`https://www.google.com/maps?q=${company.mapQuery}&z=15&output=embed`}
                 title="Diginathi office location on a map"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

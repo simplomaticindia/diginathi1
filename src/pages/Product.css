@@ -11,7 +11,7 @@
 .phero-tag {
   margin-top: 14px;
   font-family: var(--display);
-  font-style: italic;
+  font-variation-settings: 'opsz' 26;
   font-size: clamp(1.16rem, 2.2vw, 1.5rem);
   line-height: 1.35;
   color: var(--teal);

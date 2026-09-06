@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react'
-import { services, products } from '../data/site'
+import { company, services, products } from '../data/site'
 import './Header.css'
 
 const PANELS = {
@@ -187,8 +187,10 @@ export default function Header() {
             Talk to an engineer
           </Link>
           <p className="hdr-drawer-foot">
-            <a href="mailto:info@diginathi.in">info@diginathi.in</a><br />
-            <a href="tel:+919147743251">+91 91477 43251</a>
+            <a href={`mailto:${company.email}`}>{company.email}</a>
+            {company.phones.map(ph => (
+              <a key={ph.number} href={`tel:${ph.number.replace(/\s/g, '')}`}>{ph.number}</a>
+            ))}
           </p>
         </div>
       </div>

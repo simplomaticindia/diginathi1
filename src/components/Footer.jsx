@@ -71,8 +71,12 @@ export default function Footer() {
                   <a href={`mailto:${company.email}`}><Mail size={15} />{company.email}</a>
                 </li>
                 {company.phones.map(p => (
-                  <li key={p}>
-                    <a href={`tel:${p.replace(/\s/g, '')}`}><Phone size={15} />{p}</a>
+                  <li key={p.number}>
+                    <a href={`tel:${p.number.replace(/\s/g, '')}`}>
+                      <Phone size={15} />
+                      <span className="ftr-num">{p.number}</span>
+                      {p.wa && <span className="ftr-wa">WhatsApp</span>}
+                    </a>
                   </li>
                 ))}
                 <li className="ftr-addr">

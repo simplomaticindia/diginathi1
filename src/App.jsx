@@ -27,8 +27,9 @@ export default function App() {
           <Route path="/products/digidocsmart" element={<DigiDocSmart />} />
           <Route path="/products/:slug" element={<ProductSoon />} />
 
-          {/* Old URL from the previous site */}
+          {/* Old URLs — keep existing links and search results landing somewhere real */}
           <Route path="/digidocsmart" element={<Navigate to="/products/digidocsmart" replace />} />
+          <Route path="/products/digicta" element={<Navigate to="/products/digiact" replace />} />
 
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

@@ -138,17 +138,6 @@ strong, b { font-weight: 600; color: var(--ink); }
   max-width: 62ch;
 }
 
-.serif-accent {
-  font-family: var(--display);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--teal);
-}
-
-.amber-mark {
-  background-image: linear-gradient(transparent 62%, var(--amber-wash) 62%);
-}
-
 /* --------------------------------------------------------------------------
    Layout
    -------------------------------------------------------------------------- */
