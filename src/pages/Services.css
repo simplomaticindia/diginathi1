@@ -1,22 +1,51 @@
 /* table of contents in the page head */
-.phead-toc {
+/* Hero panel: what each discipline receives, and what it hands back.
+   Replaces a table of contents that repeated the nav directly above it. */
+.srv-io-cap {
+  font-size: .84rem;
+  color: var(--ink-mute);
+  padding-bottom: 10px;
+}
+.srv-io ul {
   list-style: none;
   padding: 0;
   margin: 0;
   border-top: 1px solid var(--rule-strong);
 }
-.phead-toc li { border-bottom: 1px solid var(--rule); }
-.phead-toc a {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
+.srv-io li { border-bottom: 1px solid var(--rule); }
+.srv-io a {
+  display: grid;
+  gap: 3px;
   padding: 13px 2px;
-  font-size: .96rem;
-  color: var(--ink-body);
   text-decoration: none;
-  transition: color .16s var(--ease), padding-left .16s var(--ease);
+  transition: padding-left .18s var(--ease);
 }
-.phead-toc a:hover { color: var(--teal); padding-left: 8px; }
+.srv-io a:hover { padding-left: 8px; }
+.srv-io strong {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.srv-io-takes,
+.srv-io-makes {
+  font-size: .86rem;
+  line-height: 1.45;
+  color: var(--ink-mute);
+  padding-left: 17px;
+  position: relative;
+}
+/* → and ← rather than bullets: these two lines are a direction, not a list */
+.srv-io-takes::before,
+.srv-io-makes::before {
+  position: absolute;
+  left: 0;
+  font-size: .8rem;
+}
+.srv-io-takes::before { content: 'in'; color: var(--ink-faint); font-size: .68rem; top: 2px; }
+.srv-io-makes::before { content: 'out'; color: var(--teal); font-size: .68rem; top: 2px; }
+.srv-io-makes { color: var(--ink-body); padding-left: 26px; }
+.srv-io-takes { padding-left: 26px; }
+.srv-io a:hover .srv-io-makes { color: var(--teal-deep); }
 
 /* ---------------------------------------- router */
 

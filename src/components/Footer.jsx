@@ -99,7 +99,7 @@ export default function Footer() {
         <div className="ftr-base">
           <p>© {year} {company.legalName}. All rights reserved.</p>
           <p className="ftr-base-note">
-            Registered in India · Serving clients in the United States and India
+            Registered in India. Serving clients in the United States and India.
           </p>
         </div>
       </div>

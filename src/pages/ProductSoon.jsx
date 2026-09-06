@@ -30,10 +30,10 @@ const DETAIL = {
       { t: 'API and webhooks', d: 'Push documents in, get structured records out, into whatever system you already run.' }
     ],
     stages: [
-      { s: 'done', t: 'Extraction engine', d: 'In use on our own service engagements' },
-      { s: 'now', t: 'Self-serve interface', d: 'In build — the part that lets you run it yourself' },
-      { s: 'next', t: 'Review queue & reporting', d: 'Designed, not yet built' },
-      { s: 'next', t: 'Public API', d: 'Planned after the first pilot clients' }
+      { s: 'done', t: 'Extraction engine', d: 'Running today on our own client engagements' },
+      { s: 'now', t: 'Self-serve interface', d: 'The part that lets you point it at your own folder' },
+      { s: 'next', t: 'Review queue & reporting', d: 'Drawn up, not yet written' },
+      { s: 'next', t: 'Public API', d: 'Waits until the first pilots are through' }
     ],
     diagram: true,
     ask: 'If you have a document type with real volume behind it, we want it in the pilot. Pilot clients help set the roadmap and get the work done at cost.'
@@ -58,10 +58,10 @@ const DETAIL = {
       { t: 'Mobile first', d: 'Because attendance and field updates happen on a phone, not at a desk.' }
     ],
     stages: [
-      { s: 'done', t: 'Data model & attendance', d: 'Built' },
-      { s: 'now', t: 'Pipeline module', d: 'In build' },
-      { s: 'next', t: 'Reporting layer', d: 'Designed, not yet built' },
-      { s: 'next', t: 'External release', d: 'After a full quarter of pilot use' }
+      { s: 'done', t: 'Data model & attendance', d: 'Check-in, leave and rosters, in daily use here' },
+      { s: 'now', t: 'Pipeline module', d: 'Leads and deals now; automatic chasing after' },
+      { s: 'next', t: 'Reporting layer', d: 'Drawn up, not yet written' },
+      { s: 'next', t: 'External release', d: 'Only after a full quarter of our own use'}
     ],
     diagram: false,
     ask: 'If you want to be an early user, tell us how your team works today and we will tell you honestly whether it is ready for you yet.'
@@ -87,7 +87,7 @@ export default function ProductSoon() {
   return (
     <>
       <PageHead
-        eyebrow={`In development · ${d.kicker}`}
+        eyebrow={`Still being built — ${d.kicker.toLowerCase()}`}
         title={d.headline}
         lede={d.lede}
         aside={

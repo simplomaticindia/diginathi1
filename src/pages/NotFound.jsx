@@ -10,12 +10,10 @@ export default function NotFound() {
   return (
     <section className="band nf">
       <div className="wrap wrap--narrow">
-        <p className="eyebrow">Error 404</p>
         <h1 className="nf-h1">That page is not here.</h1>
         <p className="lede nf-lede">
-          Either we moved it or the link was wrong. We restructured this site recently —
-          manpower supply is no longer one of our services, and a few pages were renamed.
-          Here is everything that does exist:
+          Either the link was wrong or we moved it. Rather than guess which,
+          here is the whole site on one screen.
         </p>
 
         <div className="nf-cols">

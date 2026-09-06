@@ -6,10 +6,8 @@
   border-top: 1px solid var(--rule-strong);
 }
 .ab-vitals dt {
-  font-family: var(--mono);
-  font-size: .68rem;
-  letter-spacing: .13em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: .82rem;
   color: var(--ink-mute);
 }
 .ab-vitals dd {

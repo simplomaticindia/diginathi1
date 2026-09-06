@@ -58,7 +58,6 @@ export default function Contact() {
   return (
     <>
       <PageHead
-        eyebrow="Contact"
         title="Tell us what is actually going wrong."
         lede="Not a polished brief — the messy version is more useful. Describe the process that costs you the most time and we will tell you honestly whether software can fix it, and roughly what that would take."
         aside={

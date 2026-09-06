@@ -81,12 +81,9 @@
 }
 .sd-card h4 {
   font-family: var(--sans);
-  font-size: .74rem;
-  font-weight: 500;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  font-family: var(--mono);
+  font-size: .98rem;
+  font-weight: 600;
+  color: var(--ink);
   margin-bottom: 14px;
 }
 .sd-card--talk { border-top: 3px solid var(--teal); }

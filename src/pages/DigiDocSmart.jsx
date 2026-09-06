@@ -71,7 +71,7 @@ export default function DigiDocSmart() {
       <section className="phero">
         <div className="wrap phero-in">
           <Reveal className="phero-copy">
-            <p className="eyebrow">Our product · Live today</p>
+            <p className="eyebrow">Our own product, in use today</p>
             <h1>DigiDocSmart</h1>
             <p className="phero-tag">
               Document management, built for organisations that get audited.

@@ -45,16 +45,15 @@ export default function About() {
   return (
     <>
       <PageHead
-        eyebrow="About us"
         title="A small engineering company that says no to things."
-        lede="Diginathi Private Limited was founded in 2023. We are based in Kolkata, we work US business hours, and we have deliberately narrowed what we do rather than widened it."
+        lede="Founded in 2023, in Kolkata. Most companies our age are still adding services to the list. We spent last year taking one off it, because the four that are left get better the more we do only them."
         aside={
           <dl className="ab-vitals">
             {[
-              ['Founded', String(company.founded)],
-              ['Registered', 'Kolkata, India'],
-              ['Serving', 'United States & India'],
-              ['Live overlap', '4 hours with US Eastern, daily']
+              ['Founded', `${company.founded}, in Kolkata`],
+              ['Services offered', 'Four. It was five.'],
+              ['Working day', 'Moved, to overlap US Eastern'],
+              ['Live overlap', 'Four hours, every working day']
             ].map(([k, v]) => (
               <div key={k}>
                 <dt>{k}</dt>
@@ -70,7 +69,6 @@ export default function About() {
         <div className="wrap">
           <div className="ab-story">
             <Reveal className="ab-story-copy">
-              <p className="eyebrow">How we got here</p>
               <p className="ab-bigp">
                 We started by scanning paper. It turns out that the interesting problem is
                 never the scanning — it is what happens to the information afterwards.
