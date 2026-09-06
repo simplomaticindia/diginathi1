@@ -1,0 +1,241 @@
+/* The capture surface — the dark half of the hero.
+   Paper on the left of the page, screen on the right: the transformation the
+   company performs, laid out in reading order. */
+
+.cap { margin: 0; }
+
+.cap-surface {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  background: var(--slab);
+  border-radius: 5px;
+  box-shadow: 0 24px 60px -34px rgba(12, 33, 38, .7);
+}
+
+/* ---------------------------------------------------------------- the page */
+
+.cap-doc {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #F2EEE4;
+  /* very slightly off-square, the way a page sits on a scanner bed */
+  transform: rotate(-.6deg);
+}
+
+.cap-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(9px, 4.5cqw, 17px);
+  padding: 7% 7% 6.5%;
+  color: #2A2A26;
+  container-type: inline-size;
+}
+
+.cap-doc-name {
+  font-family: var(--sans);
+  font-size: clamp(.66rem, 3.6cqw, .82rem);
+  font-weight: 600;
+  letter-spacing: .01em;
+  line-height: 1.25;
+}
+.cap-doc-sub {
+  font-family: var(--sans);
+  font-size: clamp(.5rem, 2.7cqw, .62rem);
+  color: #7A756A;
+  margin-top: 3px;
+}
+
+.cap-doc-meta,
+.cap-doc-total,
+.cap-doc-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: clamp(.5rem, 2.7cqw, .63rem);
+  color: #6C675E;
+}
+.cap-doc-meta {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #D9D3C5;
+}
+.cap-doc-meta b { font-weight: 500; color: #2A2A26; }
+
+.cap-doc-rules { display: grid; gap: 6px; }
+.cap-doc-rules span {
+  height: 3px;
+  border-radius: 2px;
+  background: #DCD6C8;
+}
+
+.cap-doc-total {
+  padding-top: 4px;
+  border-top: 1px solid #D9D3C5;
+}
+.cap-doc-total b {
+  font-size: clamp(.66rem, 3.4cqw, .84rem);
+  font-weight: 500;
+  color: #2A2A26;
+}
+
+.cap-doc-foot b { font-weight: 400; }
+
+/* the scrawl: legible enough to read, ragged enough to distrust */
+.cap-scrawl {
+  font-family: var(--display);
+  font-size: clamp(.66rem, 3.6cqw, .88rem);
+  color: #3B5C86;
+  transform: rotate(-2.4deg);
+  transform-origin: right center;
+}
+
+/* ---- extraction highlights ----
+   Drawn by the value itself, so the box is always exactly on the field. */
+.cap-hit {
+  position: relative;
+  border-radius: 2px;
+  box-shadow: 0 0 0 0 rgba(14, 124, 139, 0);
+  background: transparent;
+  transition: background .26s var(--ease), box-shadow .26s var(--ease);
+}
+.cap-hit.is-lit {
+  background: rgba(14, 124, 139, .17);
+  box-shadow: 0 0 0 2.5px rgba(14, 124, 139, .17), 0 0 0 3.5px rgba(14, 124, 139, .85);
+}
+.cap-hit--flag.is-lit {
+  background: rgba(233, 161, 22, .22);
+  box-shadow: 0 0 0 2.5px rgba(233, 161, 22, .22), 0 0 0 3.5px rgba(233, 161, 22, .95);
+}
+
+/* one pass of the scanner head, on first read only */
+.cap-sweep {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 38%;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(90, 214, 226, .14) 62%,
+    rgba(140, 235, 245, .46)
+  );
+  border-bottom: 1px solid rgba(150, 240, 250, .8);
+}
+.cap.is-reading .cap-sweep { animation: cap-sweep 1.5s var(--ease) forwards; }
+
+@keyframes cap-sweep {
+  0%   { opacity: 0; transform: translateY(-100%); }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(255%); }
+}
+
+/* ---------------------------------------------------------------- the data */
+
+.cap-fields {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.cap-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 12px;
+  align-items: baseline;
+  padding: 9px 12px;
+  background: var(--slab);
+  font-family: var(--mono);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.cap-field.is-in { opacity: 1; transform: none; }
+
+.cap-key {
+  grid-column: 1;
+  font-size: .6rem;
+  letter-spacing: .06em;
+  color: rgba(255, 255, 255, .4);
+}
+.cap-val {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: .82rem;
+  color: #EAF3F3;
+  overflow-wrap: anywhere;
+}
+.cap-conf {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cap-bar {
+  display: block;
+  width: 46px;
+  height: 2px;
+  background: rgba(255, 255, 255, .13);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.cap-bar span {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+  /* widens from 0 as the field lands */
+  transition: width .5s var(--ease) .1s;
+}
+.cap-conf em {
+  font-style: normal;
+  font-size: .62rem;
+  color: rgba(255, 255, 255, .45);
+  min-width: 3ch;
+  text-align: right;
+}
+
+.cap-field.is-flag .cap-val   { color: var(--amber); }
+.cap-field.is-flag .cap-bar span { background: var(--amber); }
+.cap-field.is-flag .cap-conf em  { color: var(--amber); }
+
+.cap-verdict {
+  margin-top: 14px;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, .58);
+  opacity: 0;
+  transition: opacity .45s var(--ease);
+}
+.cap-verdict.is-in { opacity: 1; }
+
+.cap figcaption {
+  margin-top: 14px;
+  font-size: .84rem;
+  line-height: 1.55;
+  color: var(--ink-mute);
+  max-width: 46ch;
+}
+
+/* ---------------------------------------------------------------- wide */
+
+@media (min-width: 560px) {
+  .cap-surface { grid-template-columns: .92fr 1.08fr; align-items: start; gap: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cap-sweep { display: none; }
+  .cap-field, .cap-hit, .cap-verdict, .cap-bar span { transition: none; }
+}

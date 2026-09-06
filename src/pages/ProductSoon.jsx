@@ -39,8 +39,8 @@ const DETAIL = {
     ask: 'If you have a document type with real volume behind it, we want it in the pilot. Pilot clients help set the roadmap and get the work done at cost.'
   },
 
-  digicta: {
-    headline: 'DigiCTA',
+  digiact: {
+    headline: 'DigiACT',
     kicker: 'Customers, tasks and attendance in one place',
     lede:
       'For teams currently running their pipeline in one tool, their tasks in another, and their attendance in a WhatsApp group. One system, one set of numbers, no reconciling three exports at month end.',
@@ -185,7 +185,7 @@ export default function ProductSoon() {
       <CtaBand
         eyebrow="Meanwhile"
         title="The service version of this already runs today."
-        body="Everything DigiDocuIQ and DigiCTA will do, we can do as a managed service right now. The product is about handing you the controls, not about capability we do not have."
+        body="Everything DigiDocuIQ and DigiACT will do, we can do as a managed service right now. The product is about handing you the controls, not about capability we do not have."
         primary={{ to: '/services/ai-automation', text: 'See AI automation' }}
         secondary={{ to: '/contact', text: 'Talk to us' }}
       />

@@ -82,7 +82,7 @@
 .srv-block-line {
   margin-top: 14px;
   font-family: var(--display);
-  font-style: italic;
+  font-variation-settings: 'opsz' 20;
   font-size: 1.15rem;
   color: var(--teal-deep);
   line-height: 1.35;

@@ -12,12 +12,18 @@ export const company = {
   tagline: 'Intelligence that drives growth',
   founded: 2023,
   email: 'info@diginathi.in',
-  phones: ['+91 91477 43251', '+91 91477 43253'],
-  whatsapp: '919147743251',
+  /* wa: true marks the line that also answers on WhatsApp */
+  phones: [
+    { number: '+91 91477 43253', wa: true },
+    { number: '+91 91477 43251' },
+    { number: '+91 91477 43252' }
+  ],
+  whatsapp: '919147743253',
   address: {
-    line1: '74/10/B Satyen Roy Road',
-    line2: 'Kolkata 700034, India'
+    line1: 'G65, Rajdanga Main Road, E.K.T.P.',
+    line2: 'Behind Taj Vivanta, Kolkata 700107, India'
   },
+  mapQuery: 'Rajdanga+Main+Road,+Kolkata,+West+Bengal+700107',
   hours: {
     ist: 'Mon–Fri, 9:00 AM – 6:00 PM IST',
     us: '9:00 AM – 1:00 PM ET, every working day'
@@ -366,9 +372,9 @@ export const products = [
     external: null
   },
   {
-    slug: 'digicta',
+    slug: 'digiact',
     icon: LayoutGrid,
-    name: 'DigiCTA',
+    name: 'DigiACT',
     abbr: 'CRM',
     tagline: 'Customers, tasks and attendance in one place.',
     blurb:
@@ -390,7 +396,7 @@ export const industries = [
   { name: 'Real Estate', note: 'Title deeds, leases, approvals' },
   { name: 'Construction', note: 'Drawings, permits, inspection reports' },
   { name: 'Hospitality', note: 'Multi-property SOPs and vendor contracts' },
-  { name: 'Financial Services', note: 'Onboarding files, reconciliation, retention' },
+  { name: 'Banking & NBFCs', note: 'Loan documents, onboarding files, reconciliation, retention' },
   { name: 'Education', note: 'Student records, admissions, compliance' },
   { name: 'Government', note: 'Public records and long-term preservation' }
 ]
