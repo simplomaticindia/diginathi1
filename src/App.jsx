@@ -8,6 +8,7 @@ import About from './pages/About'
 import Services from './pages/Services'
 import ServiceDetail from './pages/ServiceDetail'
 import DigiDocSmart from './pages/DigiDocSmart'
+import DigiAssetTrack from './pages/DigiAssetTrack'
 import ProductSoon from './pages/ProductSoon'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/products/digidocsmart" element={<DigiDocSmart />} />
+          <Route path="/products/digiassettrack" element={<DigiAssetTrack />} />
           <Route path="/products/:slug" element={<ProductSoon />} />
 
           {/* Old URLs — keep existing links and search results landing somewhere real */}

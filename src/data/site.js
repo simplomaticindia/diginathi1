@@ -1,6 +1,6 @@
 import {
   Code2, Bot, Archive, Table2,
-  FileText, Brain, LayoutGrid
+  FileText, Brain, LayoutGrid, QrCode
 } from 'lucide-react'
 
 /* Single source of truth for everything the site says.
@@ -367,6 +367,17 @@ export const products = [
       'Store, route, approve and prove. Every document with a permission rule, every action with a tamper-evident audit trail. Runs on our cloud or inside your own network.',
     status: 'live',
     external: dmsUrl
+  },
+  {
+    slug: 'digiassettrack',
+    icon: QrCode,
+    name: 'DigiAssetTrack',
+    abbr: 'FAR',
+    tagline: 'The fixed asset register for organisations that get audited.',
+    blurb:
+      'A QR sticker on every asset, checked room by room with any phone, even where there is no signal. Schedule II depreciation and a signed audit trail your auditor can trust. Hosted by us, or on your own server.',
+    status: 'live',
+    external: null
   },
   {
     slug: 'digidocuiq',

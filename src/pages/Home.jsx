@@ -3,11 +3,13 @@ import { ArrowRight, ArrowUpRight, Check } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { AgentFlow, TimezoneOverlap } from '../components/Diagrams'
 import CaptureDemo from '../components/CaptureDemo'
-import { services, products, industries, principles, dmsUrl } from '../data/site'
+import { services, products, getProduct, industries, principles, dmsUrl } from '../data/site'
 import { useSeo } from '../lib/useSeo'
 import './Home.css'
 
-const dms = products[0]
+const dms = getProduct('digidocsmart')
+const dat = getProduct('digiassettrack')
+const inDevelopment = products.filter(p => p.status === 'soon')
 
 export default function Home() {
   useSeo({
@@ -202,10 +204,60 @@ export default function Home() {
             </Reveal>
           </div>
 
+          <div className="dms-grid dat-grid">
+            <Reveal className="dms-copy">
+              <p className="eyebrow">Our own product, for the asset register</p>
+              <h2>
+                {dat.name}
+                <span className="dms-abbr">{dat.abbr}</span>
+              </h2>
+              <p className="lede dms-lede">{dat.tagline}</p>
+              <p className="dms-body">{dat.blurb}</p>
+
+              <ul className="ticks dms-ticks">
+                {[
+                  'QR stickers, tag numbers issued in walking order',
+                  'Phone verification that works without signal',
+                  'Schedule II depreciation, SLM and WDV',
+                  'Signed audit trail, checked every morning'
+                ].map(t => (
+                  <li key={t}><Check size={16} strokeWidth={2.2} /><span>{t}</span></li>
+                ))}
+              </ul>
+
+              <div className="btn-row dms-btns">
+                <Link to={`/products/${dat.slug}`} className="btn btn--primary">
+                  Product detail <ArrowRight size={17} />
+                </Link>
+                <Link to={`/products/${dat.slug}#contact`} className="btn btn--line">
+                  Book a demo
+                </Link>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120} className="dat-shot">
+              <div className="shot-frame">
+                <div className="shot-bar"><span /><span /><span /></div>
+                <img
+                  src="/assets/dat/dashboard.jpg"
+                  alt="DigiAssetTrack dashboard showing the tagging pipeline, pending approvals and verification progress"
+                  width="1600" height="1000" loading="lazy"
+                />
+              </div>
+              <div className="dat-shot-phone">
+                <img
+                  src="/assets/dat/phone-verify.jpg"
+                  alt="DigiAssetTrack phone verification screen scanning a room"
+                  width="780" height="1688" loading="lazy"
+                />
+              </div>
+            </Reveal>
+          </div>
+
           <Reveal className="prod-more">
             <p className="eyebrow">Also in the workshop</p>
             <div className="prod-more-grid">
-              {products.slice(1).map(p => {
+              {inDevelopment.map(p => {
                 const Icon = p.icon
                 return (
                   <Link key={p.slug} to={`/products/${p.slug}`} className="prod-mini">

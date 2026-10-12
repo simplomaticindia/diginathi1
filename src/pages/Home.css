@@ -162,6 +162,29 @@
 .shot-frame--dark .shot-bar span { background: #2c4d55; }
 .shot-frame img { width: 100%; display: block; }
 
+/* DigiAssetTrack: second product row, screenshot on the left on desktop,
+   with the phone screen overlapping the corner of the browser frame */
+.dat-grid {
+  margin-top: clamp(64px, 8vw, 104px);
+  padding-top: clamp(56px, 7vw, 88px);
+  border-top: 1px solid var(--rule-strong);
+}
+.dat-grid > * { min-width: 0; }
+.dat-shot { position: relative; padding-bottom: 36px; padding-right: 28px; }
+.dat-shot .shot-frame img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
+.dat-shot-phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(96px, 22%, 150px);
+  border: 6px solid var(--slab);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--slab);
+  box-shadow: 0 24px 48px -24px rgba(12, 33, 38, .55);
+}
+.dat-shot-phone img { aspect-ratio: 390 / 760; object-fit: cover; object-position: top; }
+
 /* smaller products */
 .prod-more {
   margin-top: clamp(56px, 7vw, 88px);
@@ -270,6 +293,8 @@
   .hero-in { grid-template-columns: 1.02fr .98fr; align-items: start; }
   .hero-demo { margin-top: 10px; }
   .dms-grid { grid-template-columns: .95fr 1.05fr; }
+  .dat-grid { grid-template-columns: 1.05fr .95fr; }
+  .dat-grid .dat-shot { order: -1; }
   .prin-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .ind-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .us-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }

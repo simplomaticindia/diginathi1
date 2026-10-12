@@ -67,7 +67,7 @@ Conventions worth keeping:
 ## Routes
 
 `/` · `/about` · `/services` · `/services/:slug` · `/products/digidocsmart` ·
-`/products/digidocuiq` · `/products/digicta` · `/contact` · `*` → 404
+`/products/digiassettrack` · `/products/digidocuiq` · `/products/digicta` · `/contact` · `*` → 404
 
 Old URLs from the previous site redirect: `it-services` →
 `software-development`, `ai-service` → `ai-automation`,
@@ -81,4 +81,7 @@ Old URLs from the previous site redirect: `it-services` →
 - `public/assets/dms/*.png` — real DigiDocSmart screenshots. Re-download from
   digidocsmart.com when the product UI changes; the previous site hot-linked
   them and the link had already broken.
+- `public/assets/dat/*.jpg` — DigiAssetTrack screenshots from the demo database
+  (`Demo Healthcare Pvt. Ltd.`, not a customer). Desktop shots are resized to
+  1600px wide from the product repo's `website/img/`.
 - `public/brochures/*.pdf` — linked from service detail pages.
