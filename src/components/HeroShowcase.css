@@ -173,6 +173,19 @@
   .hs-surface--assist { grid-template-columns: .82fr 1.18fr; align-items: start; }
 }
 
+/* ---------------------------------------------------------------- phones */
+
+.hs-tab-short { display: none; }
+@media (max-width: 560px) {
+  .hs-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
+  .hs-tabs button { justify-content: center; padding: 10px 6px 12px; font-size: .84rem; }
+  .hs-tab-num, .hs-tab-long { display: none; }
+  .hs-tab-short { display: inline; }
+  .hs-surface { padding: 14px; min-height: 0; gap: 12px; }
+  .hs-app { padding: 12px 12px 8px; }
+  .hs-fig figcaption { font-size: .8rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hs-panel, .hs-tab-timer { animation: none; }
   .hs-orders li, .hs-ship, .hs-a, .hs-a li, .hs-src, .hs-act { transition: none; }

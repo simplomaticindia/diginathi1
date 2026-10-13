@@ -261,10 +261,10 @@ export const services = [
     ],
 
     facts: [
-      { value: '0', label: 'Systems replaced' },
-      { value: 'Read-only', label: 'Until you trust it' },
-      { value: 'Your', label: 'Permissions, respected' },
-      { value: 'Private', label: 'Model hosting option' }
+      { value: '4 wks', label: 'To a pilot on your live data' },
+      { value: '100%', label: 'Of AI actions audit-logged' },
+      { value: 'Any', label: 'System with an API, database or screen' },
+      { value: 'Day 1', label: 'Read-only, so nothing can break' }
     ],
 
     brochure: null,

@@ -7,9 +7,9 @@ import './HeroShowcase.css'
    tab; never rotates for people who asked for reduced motion. */
 
 const TABS = [
-  { id: 'build', num: '01', label: 'Software we build' },
-  { id: 'agent', num: '02', label: 'AI agents' },
-  { id: 'assist', num: '03', label: 'AI in your ERP' }
+  { id: 'build', num: '01', label: 'Software we build', short: 'Software' },
+  { id: 'agent', num: '02', label: 'AI agents', short: 'AI agents' },
+  { id: 'assist', num: '03', label: 'AI in your ERP', short: 'AI in ERP' }
 ]
 const ROTATE_MS = 8000
 
@@ -157,10 +157,12 @@ export default function HeroShowcase() {
         {TABS.map((t, i) => (
           <button
             key={t.id} id={`hs-tab-${t.id}`} type="button" role="tab"
-            aria-selected={i === tab} aria-controls="hs-panel" tabIndex={i === tab ? 0 : -1}
+            aria-label={t.label} aria-selected={i === tab} aria-controls="hs-panel" tabIndex={i === tab ? 0 : -1}
             onClick={() => pick(i)}
           >
-            <span className="hs-tab-num">{t.num}</span>{t.label}
+            <span className="hs-tab-num">{t.num}</span>
+            <span className="hs-tab-long">{t.label}</span>
+            <span className="hs-tab-short" aria-hidden="true">{t.short}</span>
             {i === tab && auto && !paused && <span className="hs-tab-timer" key={tab} />}
           </button>
         ))}

@@ -41,7 +41,7 @@ export default function Home() {
             <p className="lede hero-lede">
               Diginathi is an engineering company. We build enterprise applications, hand the
               repetitive work to AI agents, and add AI to the ERP, CRM and in-house software you
-              already depend on. No résumé farming, no reselling someone else's platform.
+              already depend on.<span className="hero-lede-more"> No résumé farming, no reselling someone else's platform.</span>
             </p>
             <ul className="hero-pillars">
               {PILLARS.map(p => (
@@ -81,7 +81,7 @@ export default function Home() {
           <div className="hero-facts">
             {[
               { v: '2 wks', l: 'To your first working demo' },
-              { v: '0', l: 'Systems you have to replace to get AI' },
+              { v: '4 wks', l: 'To an AI pilot on your live data' },
               { v: '4 hrs', l: 'Live overlap with US Eastern' },
               { v: '100%', l: 'Code ownership stays with you' }
             ].map((f, i) => (
