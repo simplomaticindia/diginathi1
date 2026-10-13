@@ -46,12 +46,12 @@ export default function About() {
     <>
       <PageHead
         title="A small engineering company that says no to things."
-        lede="Founded in 2023, in Kolkata. We do four things — enterprise software, AI automation, records digitization and data capture — and we do all four with our own people, which is the only reason they fit together properly."
+        lede="Founded in 2023, in Kolkata. We build enterprise software, automate work with AI agents, add AI to the systems companies already run, and handle the records and data underneath. All of it with our own people, which is the only reason it fits together."
         aside={
           <dl className="ab-vitals">
             {[
               ['Founded', `${company.founded}, in Kolkata`],
-              ['What we do', 'Four disciplines, all in-house'],
+              ['What we do', 'Software and AI, all in-house'],
               ['Working day', 'Moved, to overlap US Eastern'],
               ['Live overlap', 'Four hours, every working day']
             ].map(([k, v]) => (
@@ -80,9 +80,9 @@ export default function About() {
                 and hiring engineers meant deciding what we were not going to do.
               </p>
               <p>
-                What we kept is four disciplines that need each other. We get your existing
+                What we kept is a set of disciplines that need each other. We get your existing
                 records into a state a computer can use, we build the system they live in,
-                and we automate the work that happens inside it. Hire one of those from us
+                and we put AI to work inside it, or inside the system you already have. Hire one of those from us
                 and you get a good piece of work. Hire the set and nobody is left arguing
                 about whose side of the join the problem is on.
               </p>

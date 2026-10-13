@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
 import Reveal from '../components/Reveal'
+import ProductTour from '../components/ProductTour'
 import { company } from '../data/site'
 import { useSeo } from '../lib/useSeo'
 import './Product.css'
@@ -112,70 +113,6 @@ const SCREENS = [
   { key: 'dark', label: 'Dark mode', sub: 'Light, dark or automatic', img: 'dashboard-dark.jpg', url: 'dashboard', title: 'Easy on the eyes on a night shift.', points: ['Light, dark, or follow the device', 'Same layout and data in both', 'Installs on a phone home screen like an app'] }
 ]
 const screenIndex = (key) => SCREENS.findIndex(s => s.key === key)
-
-function Tour({ current, onChange }) {
-  const tabsRef = useRef(null)
-  const n = SCREENS.length
-
-  useEffect(() => {
-    SCREENS.forEach(s => { new Image().src = `${IMG}/${s.img}` })
-  }, [])
-
-  const go = (i, focus) => {
-    const k = (i + n) % n
-    onChange(k)
-    if (focus) {
-      const b = tabsRef.current?.children[k]
-      b?.focus({ preventScroll: true })
-      b?.scrollIntoView({ block: 'nearest', inline: 'nearest' })
-    }
-  }
-
-  const onKey = (e) => {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); go(current + 1, true) }
-    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1, true) }
-  }
-
-  const s = SCREENS[current]
-  return (
-    <div className="dat-tour">
-      <div className="dat-tabs" role="tablist" aria-label="Product screens" ref={tabsRef} onKeyDown={onKey}>
-        {SCREENS.map((t, i) => (
-          <button
-            key={t.key} id={`dat-tab-${t.key}`} type="button" role="tab"
-            aria-selected={i === current} tabIndex={i === current ? 0 : -1}
-            onClick={() => go(i, true)}
-          >
-            <b>{t.label}</b><small>{t.sub}</small>
-          </button>
-        ))}
-      </div>
-
-      <div className="dat-viewer" role="tabpanel" aria-labelledby={`dat-tab-${s.key}`} aria-live="polite">
-        {s.phone ? (
-          <div key={s.key} className="dat-phone dat-swap">
-            <img src={`${IMG}/${s.img}`} alt={s.title} width="780" height="1688" />
-          </div>
-        ) : (
-          <div key={s.key} className="dat-browser dat-swap">
-            <div className="dat-browser-bar"><i /><i /><i /><span>digiassettrack/{s.url}</span></div>
-            <img src={`${IMG}/${s.img}`} alt={s.title} width="1600" height="1000" />
-          </div>
-        )}
-        <div className="dat-viewer-copy">
-          <div>
-            <h3>{s.title}</h3>
-            <ul>{s.points.map(p => <li key={p}>{p}</li>)}</ul>
-          </div>
-          <div className="dat-pager">
-            <button type="button" aria-label="Previous screen" onClick={() => go(current - 1, false)}>←</button>
-            <button type="button" aria-label="Next screen" onClick={() => go(current + 1, false)}>→</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 /* ==========================================================================
    Rollout steps
@@ -581,7 +518,7 @@ export default function DigiAssetTrack() {
               or use the arrows.
             </p>
           </Reveal>
-          <Tour current={screen} onChange={setScreen} />
+          <ProductTour screens={SCREENS} base={IMG} host="digiassettrack" current={screen} onChange={setScreen} />
         </div>
       </section>
 

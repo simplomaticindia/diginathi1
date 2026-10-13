@@ -78,9 +78,11 @@ Old URLs from the previous site redirect: `it-services` →
 ## Assets
 
 - `public/assets/Logo.png` — the only carried-over brand asset.
-- `public/assets/dms/*.png` — real DigiDocSmart screenshots. Re-download from
-  digidocsmart.com when the product UI changes; the previous site hot-linked
-  them and the link had already broken.
+- `public/assets/dms/*.jpg` — DigiDocSmart screenshots from demo.digidocsmart.com,
+  filled with sample documents for the fictional Demo Healthcare Pvt. Ltd.
+  Captured at 2x and resized to 1600px. Two dashboard cards (document
+  intelligence counts, active workflows) were adjusted before capture because the
+  demo's extraction worker was failing; IP addresses in the audit shot are masked.
 - `public/assets/dat/*.jpg` — DigiAssetTrack screenshots from the demo database
   (`Demo Healthcare Pvt. Ltd.`, not a customer). Desktop shots are resized to
   1600px wide from the product repo's `website/img/`.

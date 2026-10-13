@@ -12,7 +12,7 @@
   padding-bottom: clamp(48px, 6vw, 76px);
 }
 
-.hero h1 { margin-top: 0; }
+.hero h1 { margin-top: 0; font-size: clamp(2.5rem, 5.4vw, 4.1rem); }
 .hero-h1-alt {
   display: block;
   margin-top: 18px;
@@ -41,6 +41,29 @@
 
 .hero-lede { margin-top: 26px; }
 .hero-btns { margin-top: 32px; }
+
+/* --- the three things we are hired for --- */
+.hero-pillars {
+  list-style: none;
+  padding: 0;
+  margin-top: 28px;
+  border-top: 1px solid var(--rule-strong);
+}
+.hero-pillars li { border-bottom: 1px solid var(--rule); }
+.hero-pillars a {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 18px;
+  gap: 12px;
+  align-items: baseline;
+  padding: 13px 0;
+  text-decoration: none;
+  transition: padding .18s var(--ease);
+}
+.hero-pillars a:hover { padding-left: 6px; }
+.hero-pillar-body b { display: block; font-weight: 600; color: var(--ink); font-size: 1rem; }
+.hero-pillar-body span { display: block; font-size: .9rem; line-height: 1.45; color: var(--ink-mute); margin-top: 2px; }
+.hero-pillar-go { color: var(--ink-faint); align-self: center; transition: color .18s var(--ease); }
+.hero-pillars a:hover .hero-pillar-go { color: var(--teal); }
 
 /* --- fact strip --- */
 .hero-facts {
@@ -111,11 +134,43 @@
 
 .ai-cta { margin-top: 40px; }
 
+/* ============================================================ AI ON EXISTING SYSTEMS */
+
+.ax-diagram { margin-bottom: clamp(36px, 5vw, 56px); }
+.ax-points { display: grid; gap: 28px; }
+.ax-point { padding-top: 18px; border-top: 2px solid var(--teal); }
+.ax-point h4 { font-family: var(--sans); font-weight: 600; font-size: 1rem; margin-bottom: 8px; }
+.ax-point p { font-size: .93rem; }
+.ax-foot {
+  margin-top: clamp(36px, 5vw, 52px);
+  padding-top: 28px;
+  border-top: 1px solid var(--rule-strong);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+.ax-systems { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; max-width: 760px; font-size: .9rem; color: var(--ink-mute); }
+.ax-systems span { flex-basis: 100%; margin-bottom: 4px; }
+.ax-systems b {
+  font: 500 .8rem/1 var(--mono);
+  color: var(--ink);
+  padding: 7px 10px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: var(--paper-raised);
+}
+
 /* ============================================================ DMS */
 
 .dms-grid { display: grid; gap: clamp(40px, 5vw, 64px); align-items: center; }
 
-.dms-copy h2 {
+.dms-name {
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  font-variation-settings: 'opsz' 72;
+}
+.dms-copy h2, .dms-copy .dms-name {
   display: flex;
   align-items: baseline;
   gap: 14px;
@@ -285,6 +340,7 @@
   .prin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ind-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .prod-more-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ax-points { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .svc-row { grid-template-columns: 42px 34px 1fr 28px; }
   .svc-row-icon { display: block; }
 }
@@ -298,6 +354,7 @@
   .prin-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .ind-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .us-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ax-points { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 @media (min-width: 1200px) {

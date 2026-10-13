@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Check } from 'lucide-react'
 import Reveal from '../components/Reveal'
-import { AgentFlow, TimezoneOverlap } from '../components/Diagrams'
-import CaptureDemo from '../components/CaptureDemo'
-import { services, products, getProduct, industries, principles, dmsUrl } from '../data/site'
+import { AgentFlow, AiOverlay, TimezoneOverlap } from '../components/Diagrams'
+import HeroShowcase from '../components/HeroShowcase'
+import { services, products, getProduct, getService, industries, principles, dmsUrl } from '../data/site'
 import { useSeo } from '../lib/useSeo'
 import './Home.css'
 
@@ -11,11 +11,20 @@ const dms = getProduct('digidocsmart')
 const dat = getProduct('digiassettrack')
 const inDevelopment = products.filter(p => p.status === 'soon')
 
+/* The three things we are hired for, in the order we want to be known for them. */
+const PILLARS = [
+  { slug: 'software-development', title: 'Enterprise software', line: 'Applications, portals and integrations built around how you work.' },
+  { slug: 'ai-automation', title: 'AI automation and agents', line: 'Agents that read, decide and act, with a person on the exceptions.' },
+  { slug: 'ai-for-existing-systems', title: 'AI for your existing systems', line: 'AI inside SAP, Tally, Zoho or your in-house app. Nothing replaced.' }
+].map(p => ({ ...p, num: getService(p.slug).num }))
+
+const SYSTEMS = ['SAP', 'Oracle', 'Tally', 'Zoho', 'Salesforce', 'Dynamics 365', 'Odoo', 'Your in-house app']
+
 export default function Home() {
   useSeo({
-    title: 'Enterprise software, AI automation & digitization',
+    title: 'Enterprise software, AI automation & AI for existing systems',
     description:
-      'Diginathi builds enterprise applications and AI agents, and turns paper archives into structured data. Engineering team in Kolkata working US business hours.',
+      'Diginathi builds enterprise applications, automates work with AI agents, and adds AI to the ERP, CRM and in-house systems you already run. Engineering team in Kolkata working US business hours.',
     path: '/'
   })
 
@@ -26,20 +35,34 @@ export default function Home() {
         <div className="wrap hero-in">
           <div className="hero-lead">
             <h1>
-              We build the software your operation runs on.
-              <span className="hero-h1-alt">And the agents that run it while you sleep.</span>
+              We build the software your business runs on.
+              <span className="hero-h1-alt">Then we put AI to work inside it, and inside the systems you already own.</span>
             </h1>
             <p className="lede hero-lede">
-              Diginathi is a small engineering company that does four things properly:
-              enterprise applications, AI automation, records digitization, and turning
-              documents into clean data. No résumé farming, no reselling someone else's platform.
+              Diginathi is an engineering company. We build enterprise applications, hand the
+              repetitive work to AI agents, and add AI to the ERP, CRM and in-house software you
+              already depend on. No résumé farming, no reselling someone else's platform.
             </p>
+            <ul className="hero-pillars">
+              {PILLARS.map(p => (
+                <li key={p.slug}>
+                  <Link to={`/services/${p.slug}`}>
+                    <span className="numtag">{p.num}</span>
+                    <span className="hero-pillar-body">
+                      <b>{p.title}</b>
+                      <span>{p.line}</span>
+                    </span>
+                    <ArrowRight size={16} className="hero-pillar-go" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
             <div className="btn-row hero-btns">
               <Link to="/contact" className="btn btn--primary">
                 Talk to an engineer <ArrowRight size={17} />
               </Link>
-              <Link to="/products/digidocsmart" className="btn btn--line">
-                See DigiDocSmart
+              <Link to="/services" className="btn btn--line">
+                Everything we do
               </Link>
             </div>
             <p className="hero-where">
@@ -48,17 +71,17 @@ export default function Home() {
             </p>
           </div>
 
-          {/* The hero's one moving part: the work itself, running. */}
+          {/* The hero's one moving part: the three things we do, each running. */}
           <div className="hero-demo">
-            <CaptureDemo />
+            <HeroShowcase />
           </div>
         </div>
 
         <div className="wrap">
           <div className="hero-facts">
             {[
-              { v: '10M+', l: 'Pages digitized' },
               { v: '2 wks', l: 'To your first working demo' },
+              { v: '0', l: 'Systems you have to replace to get AI' },
               { v: '4 hrs', l: 'Live overlap with US Eastern' },
               { v: '100%', l: 'Code ownership stays with you' }
             ].map((f, i) => (
@@ -76,12 +99,12 @@ export default function Home() {
         <div className="wrap">
           <Reveal className="sec-head sec-head--split">
             <div>
-              <h2>Four disciplines, one team that talks to each other.</h2>
+              <h2>Software and AI first. The data work underneath.</h2>
             </div>
             <p className="lede">
-              Most vendors sell you one of these and subcontract the rest. We do all four
-              in-house, which is why the digitization actually lands inside working software
-              instead of a folder of PDFs.
+              Most vendors sell you one of these and subcontract the rest. We do all of it
+              in-house, so the AI works on clean data, inside software that was built to
+              take it.
             </p>
           </Reveal>
 
@@ -158,16 +181,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================================================= DMS */}
-      <section className="band dms-band">
+      {/* ================================================= AI ON EXISTING SYSTEMS */}
+      <section className="band band--sunk ax-band" id="ai-existing">
         <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">AI for the systems you already run</p>
+              <h2>Your ERP stays. The busywork leaves.</h2>
+            </div>
+            <p className="lede">
+              Most companies do not need a new system. They need the one they have to stop
+              depending on people to feed it. We add AI through its own API, under its own
+              permissions, and nothing is written back without a person's say-so.
+            </p>
+          </Reveal>
+
+          <Reveal className="ax-diagram">
+            <AiOverlay />
+          </Reveal>
+
+          <div className="ax-points">
+            {[
+              { t: 'Replace nothing', d: 'Years of data and process stay where they are. We work through your system\'s API, a read-only view, or the screen itself when there is nothing else.' },
+              { t: 'Your permissions, not ours', d: 'The assistant sees exactly what the signed-in user may see. A store clerk cannot ask it for the salary register.' },
+              { t: 'Read-only until trusted', d: 'Pilots answer questions on live data without changing it. Writes come later, and go through an approval step you control.' },
+              { t: 'Private when it must be', d: 'Models hosted in your cloud or on your own servers for regulated data. Every prompt and answer is logged in your environment.' }
+            ].map((p, i) => (
+              <Reveal key={p.t} delay={i * 70} className="ax-point">
+                <h4>{p.t}</h4>
+                <p>{p.d}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="ax-foot">
+            <p className="ax-systems">
+              <span>If it has an API, a database or just a screen, we can work with it:</span>
+              {SYSTEMS.map(n => <b key={n}>{n}</b>)}
+            </p>
+            <Link to="/services/ai-for-existing-systems" className="btn btn--primary">
+              How we add AI to your system <ArrowRight size={17} />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ================================================= PRODUCTS */}
+      <section className="band dms-band" id="products">
+        <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">Our own products</p>
+              <h2>Proof we ship: software we built, run and support ourselves.</h2>
+            </div>
+            <p className="lede">
+              The same engineers who build client systems built these. Use them as they are,
+              or as a head start on something of your own.
+            </p>
+          </Reveal>
+
           <div className="dms-grid">
             <Reveal className="dms-copy">
-              <p className="eyebrow">Our own product, in use today</p>
-              <h2>
+              <p className="eyebrow">For documents and approvals</p>
+              <h3 className="dms-name">
                 DigiDocSmart
                 <span className="dms-abbr">DMS</span>
-              </h2>
+              </h3>
               <p className="lede dms-lede">{dms.tagline}</p>
               <p className="dms-body">{dms.blurb}</p>
 
@@ -187,18 +266,18 @@ export default function Home() {
                   Product detail <ArrowRight size={17} />
                 </Link>
                 <a href={dmsUrl} target="_blank" rel="noopener noreferrer" className="btn btn--line">
-                  Open digidocsmart.com <ArrowUpRight size={16} />
+                  digidocsmart.com <ArrowUpRight size={16} />
                 </a>
               </div>
             </Reveal>
 
             <Reveal delay={120} className="dms-shot">
-              <div className="shot-frame shot-frame--dark">
+              <div className="shot-frame">
                 <div className="shot-bar"><span /><span /><span /></div>
                 <img
-                  src="/assets/dms/dashboard_dark.png"
-                  alt="DigiDocSmart dashboard showing file counts, storage use, active workflows and pending tasks"
-                  width="1280" height="720" loading="lazy"
+                  src="/assets/dms/dashboard.jpg"
+                  alt="DigiDocSmart dashboard with pending approvals, upload activity and recent audit events"
+                  width="1600" height="1000" loading="lazy"
                 />
               </div>
             </Reveal>
@@ -206,11 +285,11 @@ export default function Home() {
 
           <div className="dms-grid dat-grid">
             <Reveal className="dms-copy">
-              <p className="eyebrow">Our own product, for the asset register</p>
-              <h2>
+              <p className="eyebrow">For fixed assets and audits</p>
+              <h3 className="dms-name">
                 {dat.name}
                 <span className="dms-abbr">{dat.abbr}</span>
-              </h2>
+              </h3>
               <p className="lede dms-lede">{dat.tagline}</p>
               <p className="dms-body">{dat.blurb}</p>
 

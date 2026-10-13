@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, Download, Mail, Phone, AlertCircle } f
 import PageHead from '../components/PageHead'
 import CtaBand from '../components/CtaBand'
 import Reveal from '../components/Reveal'
-import { AgentFlow, PaperToData, BuildTimeline, DataPipeline } from '../components/Diagrams'
+import { AgentFlow, AiOverlay, PaperToData, BuildTimeline, DataPipeline } from '../components/Diagrams'
 import { getService, services, company, legacyServiceSlugs } from '../data/site'
 import { useSeo } from '../lib/useSeo'
 import './ServiceDetail.css'
@@ -11,6 +11,7 @@ import './ServiceDetail.css'
 const DIAGRAM = {
   'software-development': BuildTimeline,
   'ai-automation': AgentFlow,
+  'ai-for-existing-systems': AiOverlay,
   'digitization': PaperToData,
   'data-capture': DataPipeline
 }
@@ -180,7 +181,7 @@ export default function ServiceDetail() {
       </div>
 
       <CtaBand
-        title={`Have a ${service.short.toLowerCase()} problem you want a second opinion on?`}
+        title={`Have ${/^[aeiou]/i.test(service.short) ? 'an' : 'a'} ${service.short.split(' ').map(w => (w === 'AI' ? w : w.toLowerCase())).join(' ')} problem you want a second opinion on?`}
         body="Send us the messy version. We do not need a written brief to have a useful first conversation."
         secondary={{ to: '/services', text: 'All services' }}
       />

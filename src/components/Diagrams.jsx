@@ -88,6 +88,45 @@ export function AgentFlow() {
   )
 }
 
+/* ------------------------------------------------- AI on existing systems */
+
+export function AiOverlay() {
+  const systems = ['ERP: SAP, Oracle, Tally', 'CRM: Salesforce, Zoho', 'HRMS and payroll', 'Your in-house application']
+  return (
+    <Frame
+      viewBox="0 0 900 340"
+      minWidth={780}
+      caption="AI added on top of the systems you already run. Nothing is replaced, and nothing is written without a person."
+    >
+      <Box x={8} y={106} w={150} h={82} title="Your staff" sub="In the screens they use" />
+      <Arrow d="M158 147 L222 147" label="asks" lx={174} ly={136} />
+
+      <Box x={230} y={66} w={232} h={162} num="AI LAYER" title="Assistant, agents, search" sub="Sees what the user may see" tone="good" />
+
+      {/* read path: one bus feeding every system */}
+      <g className="dgm-arrow"><path d="M462 112 L552 112" /></g>
+      <g className="dgm-arrow"><path d="M552 37 L552 247" /></g>
+      {systems.map((t, i) => (
+        <g key={t}>
+          <Arrow d={`M552 ${37 + i * 70} L644 ${37 + i * 70}`} />
+          <Box x={652} y={12 + i * 70} w={240} h={50} title={t} />
+        </g>
+      ))}
+      <text className="dgm-lbl" x="470" y="100">reads through</text>
+      <text className="dgm-lbl" x="470" y="130">your own API</text>
+
+      {/* write path: drafts wait for a person */}
+      <Arrow d="M346 232 L346 292 L452 292" dashed label="drafts an entry" lx={356} ly={270} />
+      <Box x={460} y={264} w={172} h={56} title="A person approves" tone="flag" />
+      <Arrow d="M632 292 L772 292 L772 278" />
+
+      <text className="dgm-note" x="8" y="334">
+        Every prompt, answer and action is written to an audit log in your environment.
+      </text>
+    </Frame>
+  )
+}
+
 /* -------------------------------------------------------------- Digitization */
 
 export function PaperToData() {
@@ -237,31 +276,6 @@ export function TimezoneOverlap() {
       <text className="dgm-note" x="8" y="224">
         Outside that window: a written handover lands in your inbox before you start.
       </text>
-    </Frame>
-  )
-}
-
-/* ------------------------------------------------------------------ DMS map */
-
-export function DmsLayers() {
-  const rows = [
-    { t: 'Capture', s: 'Upload, scan, email-in, API' },
-    { t: 'Control', s: 'Folders, metadata, classification, retention' },
-    { t: 'Route', s: 'Multi-step approvals, escalation, timeouts' },
-    { t: 'Prove', s: 'Hash-chained audit trail, exportable evidence' }
-  ]
-  return (
-    <Frame
-      viewBox="0 0 640 330"
-      minWidth={520}
-      caption="Four layers. Most systems give you the first two and stop."
-    >
-      {rows.map((r, i) => (
-        <g key={r.t}>
-          <Box x={40} y={12 + i * 82} w={560} h={70} num={`0${i + 1}`} title={r.t} sub={r.s} />
-          {i < rows.length - 1 && <Arrow d={`M320 ${82 + i * 82} L320 ${90 + i * 82}`} />}
-        </g>
-      ))}
     </Frame>
   )
 }

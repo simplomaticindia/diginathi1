@@ -19,6 +19,11 @@ const ROUTER = [
     why: 'That is a task an agent can take, with a review queue behind it.'
   },
   {
+    say: '“Our ERP has the answer, but only one person knows how to get it out.”',
+    go: 'ai-for-existing-systems',
+    why: 'Add AI to the system you already run, instead of replacing it.'
+  },
+  {
     say: '“We have a storeroom of files and no way to find anything.”',
     go: 'digitization',
     why: 'Scan, index and load into a system people can actually search.'
@@ -34,7 +39,7 @@ export default function Services() {
   useSeo({
     title: 'Services',
     description:
-      'Enterprise software development, AI automation and AI agents, records digitization, and data capture and structuring. Four disciplines, one in-house team.',
+      'Enterprise software development, AI automation and AI agents, AI for existing ERP and CRM systems, records digitization, and data capture. One in-house team.',
     path: '/services'
   })
 
@@ -43,8 +48,8 @@ export default function Services() {
   return (
     <>
       <PageHead
-        title="Four disciplines, and one team that has to live with all of them."
-        lede="Most vendors sell you one of these and subcontract the rest. That is how a digitization project ends as a folder of 400,000 PDFs named scan_0001. We do all four in-house, so the records land inside working software instead of beside it."
+        title="Software, AI, and the data underneath. One team that has to live with all of it."
+        lede="Most vendors sell you one of these and subcontract the rest. That is how a digitization project ends as a folder of 400,000 PDFs named scan_0001. We do all of it in-house, so the records land inside working software, and the AI works inside the systems you already run."
         aside={
           <div className="srv-io">
             <p className="srv-io-cap">What each one takes in, and hands back</p>

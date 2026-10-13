@@ -8,7 +8,7 @@ const PANELS = {
   services: {
     label: 'Services',
     to: '/services',
-    intro: 'Four things we do, in the order we are best at them.',
+    intro: 'Software, AI, and the data underneath, in that order.',
     items: services.map(s => ({
       to: `/services/${s.slug}`,
       num: s.num,

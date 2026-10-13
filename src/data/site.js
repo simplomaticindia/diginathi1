@@ -1,5 +1,5 @@
 import {
-  Code2, Bot, Archive, Table2,
+  Code2, Bot, Cpu, Archive, Table2,
   FileText, Brain, LayoutGrid, QrCode
 } from 'lucide-react'
 
@@ -33,7 +33,7 @@ export const company = {
 export const dmsUrl = 'https://digidocsmart.com'
 
 /* ==========================================================================
-   SERVICES — ordered by priority. Software first, AI second.
+   SERVICES — ordered by priority. Software first, then AI, then the data work underneath.
    ========================================================================== */
 
 export const services = [
@@ -190,14 +190,92 @@ export const services = [
     ],
 
     brochure: null,
-    related: ['software-development', 'digitization']
+    related: ['ai-for-existing-systems', 'software-development']
+  },
+
+  {
+    slug: 'ai-for-existing-systems',
+    takes: 'An ERP or CRM you paid for and cannot replace',
+    makes: 'The same system, with AI working inside it',
+    num: '03',
+    icon: Cpu,
+    title: 'AI for Your Existing Applications',
+    short: 'AI for Existing Systems',
+    kicker: 'Keep the system, add the intelligence',
+    summary:
+      'We add AI to the ERP, CRM, HRMS and in-house applications you already run: reading documents into them, answering questions from them, and doing the steps between them. Nothing gets ripped out.',
+    heroLine: 'Your ERP stays. It just stops needing so many people to feed it.',
+
+    problem: {
+      title: 'Why replacing the system is the wrong answer',
+      body:
+        'You have years of data and process inside SAP, Oracle, Tally, Zoho, Salesforce or an application your own team wrote. It works. It is also where your staff spend their day re-keying invoices, hunting for a record across five screens, and copying figures into a report. The vendor\'s AI features are a year away and priced per seat. A migration would cost more than the problem.',
+      symptoms: [
+        'Staff typing data from PDFs and emails into the ERP',
+        'Answers that exist in the system but take a specialist to pull out',
+        'Two applications that both need the same update, made twice',
+        'A vendor AI roadmap you are waiting on, with no date'
+      ]
+    },
+
+    offer: {
+      title: 'What we add',
+      items: [
+        {
+          name: 'An assistant inside the screens you already use',
+          body: 'Summarise a customer record, explain why an order is on hold, draft the reply. It sits in your application, sees only what the signed-in user is allowed to see, and cites the records it used.'
+        },
+        {
+          name: 'Documents straight into the ERP',
+          body: 'Invoices, purchase orders, claims and delivery notes read and posted as draft entries through your system\'s own API, matched against masters, with anything uncertain held for a person.'
+        },
+        {
+          name: 'Questions in plain language',
+          body: '"Which suppliers are over 60 days?" answered from your live data, with the query shown so finance can check it. Read-only access, so it cannot change anything it reports on.'
+        },
+        {
+          name: 'Agents that work across systems',
+          body: 'Read the ticket in the CRM, check stock in the ERP, update both and notify the customer. The kind of task that today needs a person with three logins.'
+        },
+        {
+          name: 'Private deployment where you need it',
+          body: 'Models hosted in your cloud or on your own servers when data cannot leave. Every prompt, answer and action is written to an audit log you own.'
+        }
+      ]
+    },
+
+    process: [
+      { step: '01', title: 'Map the system', desc: 'We look at how your application exposes data: APIs, database views, exports, or only the screen. Then we agree exactly what the AI may read and what it may never touch.' },
+      { step: '02', title: 'One use case, read-only', desc: 'A three-to-four-week pilot on one high-value task, with read-only access. You see real answers on real data before anything is allowed to write back.' },
+      { step: '03', title: 'Add actions with approval', desc: 'Once the answers are trusted, the AI can draft entries and updates. Writes go through your application\'s own rules and need a person\'s approval until you decide otherwise.' },
+      { step: '04', title: 'Roll out and measure', desc: 'Usage, accuracy and time saved reported monthly. Your permissions model stays the source of truth, so a new joiner gets exactly the access their role allows.' }
+    ],
+
+    deliverables: [
+      'An integration that uses your system\'s own API or a read-only view, documented',
+      'A permissions map: what the AI can read, draft and change',
+      'Audit log of every prompt, answer and action, in your environment',
+      'Pilot report with measured accuracy and time saved',
+      'Private model hosting option for regulated data',
+      'Source code and prompts owned by you'
+    ],
+
+    facts: [
+      { value: '0', label: 'Systems replaced' },
+      { value: 'Read-only', label: 'Until you trust it' },
+      { value: 'Your', label: 'Permissions, respected' },
+      { value: 'Private', label: 'Model hosting option' }
+    ],
+
+    brochure: null,
+    related: ['ai-automation', 'software-development']
   },
 
   {
     slug: 'digitization',
     takes: 'Shelves of paper nobody can search',
     makes: 'An indexed archive with permissions on it',
-    num: '03',
+    num: '04',
     icon: Archive,
     title: 'Digitization of Records',
     short: 'Digitization',
@@ -275,7 +353,7 @@ export const services = [
     slug: 'data-capture',
     takes: 'Scans, forms and exports in twelve formats',
     makes: 'Validated records in your schema',
-    num: '04',
+    num: '05',
     icon: Table2,
     title: 'Data Capture & Structuring',
     short: 'Data Capture',
