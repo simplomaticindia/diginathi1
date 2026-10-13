@@ -77,8 +77,9 @@ export default function ProductSoon() {
   const d = DETAIL[slug]
 
   useSeo({
-    title: product ? `${product.name} — ${product.tagline}` : 'Product',
-    description: d?.lede,
+    title: product ? `${product.name}: ${product.tagline.replace(/\.$/, '')}` : 'Product',
+    crumb: product?.name,
+    description: product?.seoDescription || d?.lede,
     path: `/products/${slug}`
   })
 

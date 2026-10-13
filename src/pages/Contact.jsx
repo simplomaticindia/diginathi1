@@ -5,6 +5,8 @@ import PageHead from '../components/PageHead'
 import Reveal from '../components/Reveal'
 import { company, services, products } from '../data/site'
 import { useSeo } from '../lib/useSeo'
+import { useConsent } from '../lib/consent'
+import { Link } from 'react-router-dom'
 import './Contact.css'
 
 const FORM_ID = import.meta.env.VITE_FORMSPREE_ID
@@ -18,10 +20,11 @@ const TOPICS = [
 
 export default function Contact() {
   useSeo({
-    title: 'Contact',
+    title: 'Contact Us',
     description:
-      'Talk to a Diginathi engineer about enterprise software, AI automation, digitization or DigiDocSmart. We answer within one business day.',
-    path: '/contact'
+      'Talk to a Diginathi engineer about software, AI automation or our products. Kolkata office, clients across India and the US. Reply within one business day.',
+    path: '/contact',
+    pageType: 'ContactPage'
   })
 
   const [state, setState] = useState('idle') // idle | sending | sent | error
@@ -192,8 +195,9 @@ export default function Contact() {
                 </button>
 
                 <p className="ct-fine">
-                  We use what you send here to reply to you. Nothing else, and we do not
-                  pass it to anyone.
+                  We use what you send only to reply and to discuss your project. It is
+                  delivered to us through Formspree and never sold. See our{' '}
+                  <Link to="/privacy">privacy policy</Link> for how long we keep it and your rights.
                 </p>
               </form>
             )}
@@ -248,17 +252,38 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="ct-map">
-              <iframe
-                src={`https://www.google.com/maps?q=${company.mapQuery}&z=15&output=embed`}
-                title="Diginathi office location on a map"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+            <OfficeMap />
           </Reveal>
         </div>
       </section>
     </>
+  )
+}
+
+/* Google Maps sets its own cookies, so the embed waits for functional consent.
+   Until then, a placeholder offers to load it or open Google Maps in a new tab. */
+function OfficeMap() {
+  const { functional, allowFunctional } = useConsent()
+  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${company.mapQuery}`
+  return (
+    <div className="ct-map">
+      {functional ? (
+        <iframe
+          src={`https://www.google.com/maps?q=${company.mapQuery}&z=15&output=embed`}
+          title="Diginathi office location on a map"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      ) : (
+        <div className="ct-map-gate">
+          <MapPin size={22} />
+          <p>The map is provided by Google, which sets its own cookies.</p>
+          <div className="ct-map-btns">
+            <button type="button" className="btn btn--primary" onClick={allowFunctional}>Load map</button>
+            <a className="btn btn--line" href={mapsLink} target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }

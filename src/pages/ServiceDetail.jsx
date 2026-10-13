@@ -6,6 +6,7 @@ import Reveal from '../components/Reveal'
 import { AgentFlow, AiOverlay, PaperToData, BuildTimeline, DataPipeline } from '../components/Diagrams'
 import { getService, services, company, legacyServiceSlugs } from '../data/site'
 import { useSeo } from '../lib/useSeo'
+import { serviceLd } from '../lib/seo'
 import './ServiceDetail.css'
 
 const DIAGRAM = {
@@ -21,9 +22,11 @@ export default function ServiceDetail() {
   const service = getService(slug)
 
   useSeo({
-    title: service ? service.title : 'Service not found',
-    description: service?.summary,
-    path: `/services/${slug}`
+    title: service ? (service.seoTitle || service.title) : 'Service not found',
+    crumb: service?.title,
+    description: service?.seoDescription || service?.summary,
+    path: `/services/${slug}`,
+    jsonLd: service ? [serviceLd({ path: `/services/${slug}`, name: service.title, description: service.summary })] : []
   })
 
   if (!service) {

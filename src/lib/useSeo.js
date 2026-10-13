@@ -1,30 +1,38 @@
-import { useEffect } from 'react'
+import { createContext, useContext, useEffect } from 'react'
+import { buildHead } from './seo'
 
-const set = (selector, attr, value) => {
-  let el = document.head.querySelector(selector)
-  if (!el) {
-    el = document.createElement(selector.startsWith('link') ? 'link' : 'meta')
-    const m = selector.match(/\[(.+?)="(.+?)"\]/)
-    if (m) el.setAttribute(m[1], m[2])
-    document.head.appendChild(el)
+/* At build time the prerender passes an object through this context and each
+   page writes its SEO fields into it during render. In the browser there is no
+   provider, and the effect below keeps <head> in step on client navigation. */
+export const SeoContext = createContext(null)
+
+const applyHead = (head) => {
+  document.title = head.title
+  document.head.querySelectorAll('[data-seo]').forEach(el => el.remove())
+  const frag = document.createDocumentFragment()
+  head.meta.forEach(([k, v, c]) => {
+    const m = document.createElement('meta')
+    m.setAttribute(k, v); m.setAttribute('content', c); m.setAttribute('data-seo', '')
+    frag.appendChild(m)
+  })
+  if (head.canonical) {
+    const l = document.createElement('link')
+    l.rel = 'canonical'; l.href = head.canonical; l.setAttribute('data-seo', '')
+    frag.appendChild(l)
   }
-  el.setAttribute(attr, value)
+  const s = document.createElement('script')
+  s.type = 'application/ld+json'; s.textContent = JSON.stringify(head.jsonLd); s.setAttribute('data-seo', '')
+  frag.appendChild(s)
+  document.head.appendChild(frag)
 }
 
-/* ponytail: 20 lines instead of react-helmet. Upgrade only if we ever need SSR. */
-export function useSeo({ title, description, path }) {
+/* fields: { title, description, path, image, type, pageType, jsonLd, noindex, crumb } */
+export function useSeo(fields) {
+  const ssr = useContext(SeoContext)
+  if (ssr) ssr.fields = fields
+
+  const key = JSON.stringify(fields)
   useEffect(() => {
-    const full = title ? `${title} — Diginathi` : 'Diginathi'
-    document.title = full
-    if (description) {
-      set('meta[name="description"]', 'content', description)
-      set('meta[property="og:description"]', 'content', description)
-    }
-    set('meta[property="og:title"]', 'content', full)
-    if (path) {
-      const url = `https://diginathi.in${path}`
-      set('link[rel="canonical"]', 'href', url)
-      set('meta[property="og:url"]', 'content', url)
-    }
-  }, [title, description, path])
+    applyHead(buildHead(JSON.parse(key)))
+  }, [key])
 }

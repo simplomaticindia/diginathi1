@@ -299,6 +299,20 @@
   padding: 3px 7px;
 }
 
+/* ============================================================ ACROSS INDIA */
+
+.india-band { border-top: 1px solid var(--rule); }
+.india-cities { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.india-cities li {
+  font-size: .9rem;
+  padding: 7px 12px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+.india-note { margin-top: 20px; font-size: .92rem; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+
 /* ============================================================ US CLIENTS */
 
 .tz-wrap { padding: clamp(20px, 3vw, 32px); }

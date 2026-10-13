@@ -39,6 +39,9 @@ export const dmsUrl = 'https://digidocsmart.com'
 export const services = [
   {
     slug: 'software-development',
+    seoTitle: 'Custom Software Development Company in India',
+    seoDescription:
+      'Custom enterprise applications, portals and integrations, delivered in two-week slices with full code ownership. Serving clients across India and the US.',
     takes: 'How your operation actually runs',
     makes: 'The system your staff open every morning',
     num: '01',
@@ -117,6 +120,9 @@ export const services = [
 
   {
     slug: 'ai-automation',
+    seoTitle: 'AI Automation & AI Agent Development Services',
+    seoDescription:
+      'AI agents that read documents, decide and act, with a human review queue and full audit log. Four-week pilots on your own data, across India and the US.',
     takes: 'Work arriving faster than people can clear it',
     makes: 'Decisions made, and the doubtful ones raised',
     num: '02',
@@ -195,6 +201,9 @@ export const services = [
 
   {
     slug: 'ai-for-existing-systems',
+    seoTitle: 'AI Integration for ERP, CRM & Existing Systems',
+    seoDescription:
+      'Add AI to SAP, Oracle, Tally, Zoho, Salesforce or your in-house app without replacing it. Read-only pilots, your permissions, private models if needed.',
     takes: 'An ERP or CRM you paid for and cannot replace',
     makes: 'The same system, with AI working inside it',
     num: '03',
@@ -273,6 +282,9 @@ export const services = [
 
   {
     slug: 'digitization',
+    seoTitle: 'Records Digitization & Scanning Services in India',
+    seoDescription:
+      'Records digitization with on-site scanning, OCR, indexing and chain of custody. Searchable PDF/A loaded into your document system, anywhere in India.',
     takes: 'Shelves of paper nobody can search',
     makes: 'An indexed archive with permissions on it',
     num: '04',
@@ -351,6 +363,9 @@ export const services = [
 
   {
     slug: 'data-capture',
+    seoTitle: 'Data Capture, Extraction & Data Entry Services',
+    seoDescription:
+      'Fields extracted from invoices, forms and records, validated against your rules and delivered in your schema. AI-assisted, human-verified.',
     takes: 'Scans, forms and exports in twelve formats',
     makes: 'Validated records in your schema',
     num: '05',
@@ -459,6 +474,7 @@ export const products = [
   },
   {
     slug: 'digidocuiq',
+    seoDescription: 'Intelligent document processing: reads invoices, forms and contracts, extracts the fields and checks them against your rules. In development at Diginathi.',
     icon: Brain,
     name: 'DigiDocuIQ',
     abbr: 'IDP',
@@ -470,6 +486,7 @@ export const products = [
   },
   {
     slug: 'digiact',
+    seoDescription: 'CRM, tasks and attendance in one system, for teams that run sales in one tool and attendance on WhatsApp. In development at Diginathi.',
     icon: LayoutGrid,
     name: 'DigiACT',
     abbr: 'CRM',

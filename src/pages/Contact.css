@@ -196,3 +196,20 @@
 @media (min-width: 980px) {
   .ct-grid { grid-template-columns: 1.15fr .85fr; }
 }
+
+.ct-map-gate {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+  background: var(--paper-sunk);
+  color: var(--ink-mute);
+  font-size: .9rem;
+}
+.ct-map-gate svg { color: var(--teal); }
+.ct-map-btns { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.ct-map-btns .btn { min-height: 44px; padding: 10px 16px; }
+.ct-fine a { color: var(--teal); }

@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal'
 import ProductTour from '../components/ProductTour'
 import { company } from '../data/site'
 import { useSeo } from '../lib/useSeo'
+import { faqLd, softwareLd } from '../lib/seo'
 import './Product.css'
 import './DigiAssetTrack.css'
 
@@ -440,10 +441,16 @@ const EMPTY_FORM = { name: '', org: '', phone: '', email: '', kind: KINDS[0], as
 
 export default function DigiAssetTrack() {
   useSeo({
-    title: 'DigiAssetTrack — fixed asset register with QR tagging',
+    title: 'DigiAssetTrack Fixed Asset Management Software',
+    crumb: 'DigiAssetTrack',
     description:
-      'DigiAssetTrack is a fixed asset register with QR tagging, offline phone verification, Schedule II depreciation and a signed audit trail. Hosted by Diginathi or on your own server.',
-    path: '/products/digiassettrack'
+      'Fixed asset register with QR tagging, offline phone verification, Schedule II depreciation and a signed audit trail. Hosted, or on your own server.',
+    path: '/products/digiassettrack',
+    image: '/og/digiassettrack.jpg',
+    jsonLd: [
+      softwareLd({ path: '/products/digiassettrack', name: 'DigiAssetTrack', image: '/og/digiassettrack.jpg', description: 'Fixed asset register with QR tagging, offline phone verification, Schedule II depreciation and a signed audit trail, built for Indian organisations.' }),
+      faqLd('/products/digiassettrack', FAQ)
+    ]
   })
 
   const [screen, setScreen] = useState(0)

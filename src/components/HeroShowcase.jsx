@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import CaptureDemo from './CaptureDemo'
 import './HeroShowcase.css'
 
@@ -9,7 +11,9 @@ import './HeroShowcase.css'
 const TABS = [
   { id: 'build', num: '01', label: 'Software we build', short: 'Software' },
   { id: 'agent', num: '02', label: 'AI agents', short: 'AI agents' },
-  { id: 'assist', num: '03', label: 'AI in your ERP', short: 'AI in ERP' }
+  { id: 'assist', num: '03', label: 'AI in your ERP', short: 'AI in ERP' },
+  { id: 'dms', num: 'DMS', label: 'DigiDocSmart', short: 'DigiDocSmart', product: true },
+  { id: 'far', num: 'FAR', label: 'DigiAssetTrack', short: 'DigiAssetTrack', product: true }
 ]
 const ROTATE_MS = 8000
 
@@ -121,6 +125,27 @@ function AssistPanel() {
   )
 }
 
+/* ------------------------------------------------------------ products */
+
+function ProductPanel({ name, line, img, alt, phone, to, caption }) {
+  return (
+    <figure className="hs-fig">
+      <div className="hs-surface hs-surface--product">
+        <div className="hs-shot">
+          <div className="hs-win-bar"><i /><i /><i /><span>{name.toLowerCase()}</span></div>
+          <img src={img} alt={alt} width="1600" height="1000" />
+          {phone && <img className="hs-phone" src={phone} alt="" width="780" height="1688" />}
+        </div>
+        <div className="hs-prod-foot">
+          <p><b>{name}</b> {line}</p>
+          <Link to={to} className="hs-prod-link">See {name} <ArrowRight size={15} /></Link>
+        </div>
+      </div>
+      <figcaption>{caption}</figcaption>
+    </figure>
+  )
+}
+
 /* ------------------------------------------------------------ shell */
 
 export default function HeroShowcase() {
@@ -158,6 +183,7 @@ export default function HeroShowcase() {
           <button
             key={t.id} id={`hs-tab-${t.id}`} type="button" role="tab"
             aria-label={t.label} aria-selected={i === tab} aria-controls="hs-panel" tabIndex={i === tab ? 0 : -1}
+            className={t.product ? 'is-product' : ''}
             onClick={() => pick(i)}
           >
             <span className="hs-tab-num">{t.num}</span>
@@ -171,6 +197,24 @@ export default function HeroShowcase() {
         {tab === 0 && <BuildPanel />}
         {tab === 1 && <CaptureDemo />}
         {tab === 2 && <AssistPanel />}
+        {tab === 3 && (
+          <ProductPanel
+            name="DigiDocSmart" to="/products/digidocsmart"
+            line="Documents, approvals and an audit trail you can verify."
+            img="/assets/dms/dashboard.jpg"
+            alt="DigiDocSmart dashboard with pending approvals and recent audit events"
+            caption="Our document management product, in use today. Cloud or on-premises, DPDP Act ready."
+          />
+        )}
+        {tab === 4 && (
+          <ProductPanel
+            name="DigiAssetTrack" to="/products/digiassettrack"
+            line="QR-tagged fixed asset register, verified by phone."
+            img="/assets/dat/dashboard.jpg" phone="/assets/dat/phone-verify.jpg"
+            alt="DigiAssetTrack dashboard with the tagging pipeline and verification progress"
+            caption="Our fixed asset product: tag, verify offline, depreciate under Schedule II, and prove it to the auditor."
+          />
+        )}
       </div>
     </div>
   )

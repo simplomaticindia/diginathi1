@@ -36,10 +36,11 @@ const TIMELINE = [
 
 export default function About() {
   useSeo({
-    title: 'About us',
+    title: 'About Diginathi',
     description:
-      'Diginathi is an engineering company in Kolkata building enterprise software and AI automation for clients in the United States and India. Founded 2023.',
-    path: '/about'
+      'Diginathi is a software and AI engineering company founded in Kolkata in 2023, working with clients across India and in the United States.',
+    path: '/about',
+    pageType: 'AboutPage'
   })
 
   return (

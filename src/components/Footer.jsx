@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Linkedin, ArrowUpRight } from 'lucide-react'
 import { company, services, products } from '../data/site'
+import { CookieSettingsLink } from './CookieConsent'
 import './Footer.css'
 
 export default function Footer() {
@@ -14,8 +15,9 @@ export default function Footer() {
             <p className="ftr-wordmark">Diginathi</p>
             <p className="ftr-tag">{company.tagline}</p>
             <p className="ftr-blurb">
-              We build enterprise software and AI automation, and turn paper archives
-              into data. Engineering in Kolkata, working your hours.
+              We build enterprise software and AI automation, and add AI to the systems
+              you already run. Engineering in Kolkata, working with clients across India
+              and in US hours.
             </p>
             <a
               href="https://www.linkedin.com/company/diginathi"
@@ -98,8 +100,15 @@ export default function Footer() {
 
         <div className="ftr-base">
           <p>© {year} {company.legalName}. All rights reserved.</p>
+          <nav className="ftr-legal" aria-label="Legal">
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/cookies">Cookies</Link>
+            <Link to="/terms">Terms</Link>
+            <CookieSettingsLink className="ftr-legal-btn" />
+            <Link to="/privacy#us-privacy">Your privacy choices</Link>
+          </nav>
           <p className="ftr-base-note">
-            Registered in India. Serving clients in the United States and India.
+            Registered in India. Serving clients across India and in the United States.
           </p>
         </div>
       </div>

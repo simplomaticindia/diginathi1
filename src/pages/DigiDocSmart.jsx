@@ -6,6 +6,7 @@ import Reveal from '../components/Reveal'
 import ProductTour from '../components/ProductTour'
 import { dmsUrl } from '../data/site'
 import { useSeo } from '../lib/useSeo'
+import { faqLd, softwareLd } from '../lib/seo'
 import './Product.css'
 
 /* Screens come from the demo workspace, filled with sample documents for a
@@ -116,10 +117,16 @@ const jump = (id) => (e) => {
 
 export default function DigiDocSmart() {
   useSeo({
-    title: 'DigiDocSmart — document management, approvals & audit trail',
+    title: 'DigiDocSmart Document Management Software',
+    crumb: 'DigiDocSmart',
     description:
-      'DigiDocSmart stores every record with a classification, reads data out of scans, routes documents for approval and keeps a hash-chained audit trail. DPDP Act ready. Cloud or on-premises.',
-    path: '/products/digidocsmart'
+      'Document management with OCR, approval workflows and a hash-chained audit trail. DPDP Act ready, cloud or on-premises. Built by Diginathi in India.',
+    path: '/products/digidocsmart',
+    image: '/og/digidocsmart.jpg',
+    jsonLd: [
+      softwareLd({ path: '/products/digidocsmart', name: 'DigiDocSmart', image: '/og/digidocsmart.jpg', description: 'Document management system with classification-based access, OCR and data extraction, multi-step approval workflows and a hash-chained audit trail. Cloud or on-premises.' }),
+      faqLd('/products/digidocsmart', FAQ)
+    ]
   })
   const [screen, setScreen] = useState(0)
   const show = (key) => (e) => { setScreen(screenIndex(key)); jump('tour')(e) }

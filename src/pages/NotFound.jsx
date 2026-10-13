@@ -5,7 +5,7 @@ import { useSeo } from '../lib/useSeo'
 import './NotFound.css'
 
 export default function NotFound() {
-  useSeo({ title: 'Page not found', description: 'That page does not exist.' })
+  useSeo({ title: 'Page not found', description: 'That page does not exist.', path: '/404', noindex: true })
 
   return (
     <section className="band nf">

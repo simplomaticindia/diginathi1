@@ -37,7 +37,9 @@ const ROUTER = [
 
 export default function Services() {
   useSeo({
-    title: 'Services',
+    title: 'Software, AI Automation & Digitization Services',
+    crumb: 'Services',
+    pageType: 'CollectionPage',
     description:
       'Enterprise software development, AI automation and AI agents, AI for existing ERP and CRM systems, records digitization, and data capture. One in-house team.',
     path: '/services'

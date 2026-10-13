@@ -5,6 +5,7 @@ import { AgentFlow, AiOverlay, TimezoneOverlap } from '../components/Diagrams'
 import HeroShowcase from '../components/HeroShowcase'
 import { services, products, getProduct, getService, industries, principles, dmsUrl } from '../data/site'
 import { useSeo } from '../lib/useSeo'
+import { CITIES } from '../lib/seo'
 import './Home.css'
 
 const dms = getProduct('digidocsmart')
@@ -22,9 +23,9 @@ const SYSTEMS = ['SAP', 'Oracle', 'Tally', 'Zoho', 'Salesforce', 'Dynamics 365',
 
 export default function Home() {
   useSeo({
-    title: 'Enterprise software, AI automation & AI for existing systems',
+    title: 'Software & AI Automation Company in India',
     description:
-      'Diginathi builds enterprise applications, automates work with AI agents, and adds AI to the ERP, CRM and in-house systems you already run. Engineering team in Kolkata working US business hours.',
+      'Diginathi builds enterprise software, AI agents and AI for your existing ERP and CRM. Based in Kolkata, serving clients across India and in US hours.',
     path: '/'
   })
 
@@ -350,6 +351,30 @@ export default function Home() {
                 )
               })}
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ================================================= ACROSS INDIA */}
+      <section className="band band--tight india-band" id="where-we-work">
+        <div className="wrap">
+          <Reveal className="sec-head sec-head--split">
+            <div>
+              <p className="eyebrow">Where we work</p>
+              <h2>Across India, and in US hours.</h2>
+            </div>
+            <p className="lede">
+              Engineering is in Kolkata. Projects run remotely, and we travel for discovery
+              workshops, rollouts and on-site digitization wherever the work is.
+            </p>
+          </Reveal>
+          <Reveal>
+            <ul className="india-cities" aria-label="Cities we work in">
+              {CITIES.map(c => <li key={c}>{c}</li>)}
+            </ul>
+            <p className="india-note">
+              Not on the list? We probably still work there. <Link to="/contact" className="tlink">Ask us <ArrowRight size={14} /></Link>
+            </p>
           </Reveal>
         </div>
       </section>
